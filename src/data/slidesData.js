@@ -1,16 +1,16 @@
-import MemeGeneratorImg from "../assets/images/meme-generator.png";
-import QuizAppImg from "../assets/images/quiz-app.png";
-import MovieSearchImg from "../assets/images/movie-search.png";
-import MonstercatImg from "../assets/images/monstercat-website.png";
-import AbletonImg from "../assets/images/ableton-website.png";
-import BonsaiImg from "../assets/images/bonsai-website.png";
-import DeplaceImg from "../assets/images/deplace-website.png";
-import MonogramImg from "../assets/images/monogram-website.png";
-import BlogImg from "../assets/images/blog-website.png";
-import TodoImg from "../assets/images/todo-app.png";
-import TenziesImg from "../assets/images/tenzies-game.png";
-import SnakeImg from "../assets/images/snake-game.png";
-import ColorGeneratorImg from "../assets/images/color-generator.png";
+import MemeGeneratorImg from "../assets/images/meme-generator.webp";
+import QuizAppImg from "../assets/images/quiz-app.webp";
+import MovieSearchImg from "../assets/images/movie-search.webp";
+import MonstercatImg from "../assets/images/monstercat-website.webp";
+import AbletonImg from "../assets/images/ableton-website.webp";
+import BonsaiImg from "../assets/images/bonsai-website.webp";
+import DeplaceImg from "../assets/images/deplace-website.webp";
+import MonogramImg from "../assets/images/monogram-website.webp";
+import BlogImg from "../assets/images/blog-website.webp";
+import TodoImg from "../assets/images/todo-app.webp";
+import TenziesImg from "../assets/images/tenzies-game.webp";
+import SnakeImg from "../assets/images/snake-game.webp";
+import ColorGeneratorImg from "../assets/images/color-generator.webp";
 
 export const SLIDES = [
     {
@@ -70,7 +70,8 @@ export const SLIDES = [
             "Responsive clone of the Monstercat music website built with TailwindCSS and Flexbox, focusing on having a clean and responsive layout.",
         image: MonstercatImg,
         tools: ["TailwindCSS", "Flexbox", "Responsive Design"],
-        externalLink: "https://vhalen0515.github.io/monstercat-website-replica/",
+        externalLink:
+            "https://vhalen0515.github.io/monstercat-website-replica/",
         githubLink: "https://github.com/vhalen0515/monstercat-website-replica",
     },
     {
