@@ -2,12 +2,14 @@
 
 @font-face {
     font-family: Reddit-Mono;
-    src: url("./assets/fonts/Reddit-Mono.ttf") format("truetype");
+    src: url("./assets/fonts/Reddit-Mono.woff2") format("woff2");
+    font-display: swap;
 }
 
 @font-face {
     font-family: Nunito-Sans;
     src: url("./assets/fonts/Nunito-Sans.ttf") format("truetype");
+    font-display: swap;
 }
 
 @theme {
