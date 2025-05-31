@@ -29,9 +29,8 @@
 
 @theme {
     /* Font Types */
-    --font-reddit: Reddit-Mono, "Courier New", Courier, monospace;
-    --font-montserrat:
-        Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-reddit: Reddit-Mono, monospace;
+    --font-montserrat: Montserrat, sans-serif;
 
     /* Font Sizes */
     /* 480px - 1000px */
