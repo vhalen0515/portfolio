@@ -34,12 +34,6 @@ export default function Hero() {
                 >
                     Recent Work
                 </Link>
-                {/* <a
-                    href="#projects"
-                    className="text-accent-clr hover:bg-accent-clr hover:text-main-bg-clr mt-14 inline-block rounded-sm border px-6 py-4 duration-300 hover:transition-colors"
-                >
-                    Recent Work
-                </a> */}
             </div>
             <RightSidebar />
             <LeftSidebar />

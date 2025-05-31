@@ -42,6 +42,7 @@ export default function About() {
                                 alt="Picture of me"
                                 width="300"
                                 height="300"
+                                loading="lazy"
                             />
                         </div>
                     </div>
