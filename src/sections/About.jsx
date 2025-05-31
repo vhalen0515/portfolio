@@ -40,6 +40,8 @@ export default function About() {
                                 src={about_me_img}
                                 className="w-full rounded-md"
                                 alt="Picture of me"
+                                width="500"
+                                height="500"
                             />
                         </div>
                     </div>
