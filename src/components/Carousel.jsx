@@ -168,7 +168,7 @@ const Carousel = (props) => {
                                             href={slide.externalLink}
                                             className="pointer-events-auto"
                                         >
-                                            <h2 className="text-header-secondary-txt-clr md:text-header-txt-clr hover:text-accent-clr text-slide-title font-bold transition-colors duration-300">
+                                            <h2 className="text-header-secondary-txt-clr md:text-header-txt-clr hover:text-accent-clr text-slide-title font-semibold transition-colors duration-300">
                                                 {slide.title}
                                             </h2>
                                         </a>

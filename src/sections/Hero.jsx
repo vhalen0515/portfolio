@@ -9,11 +9,11 @@ export default function Hero() {
                 <p className="font-reddit text-accent-clr text-hero-intro mb-5 text-base md:mb-7">
                     Hi, my name is
                 </p>
-                <h1 className="text-h1-sizing text-header-txt-clr header-leading leading-header font-extrabold tracking-wider">
+                <h1 className="text-h1-sizing text-header-txt-clr header-leading leading-header font-bold tracking-wider">
                     Trenton Avilla
                     <span className="text-accent-clr">.</span>
                 </h1>
-                <h2 className="text-h2-sizing text-main-txt-clr leading-header-h2 mt-2 font-extrabold tracking-wide">
+                <h2 className="text-h2-sizing text-main-txt-clr leading-header-h2 mt-2 font-semibold tracking-wide">
                     I am a Front-End Developer
                     <span className="text-accent-clr">.</span>
                 </h2>

@@ -4,7 +4,7 @@ export default function About() {
     return (
         <section id="about">
             <div>
-                <h2 className="text-header-txt-clr before:text-accent-clr before:font-reddit after:bg-main-txt-clr text-h2-section-sizing before:text-heading-num-sizing flex items-center font-bold before:mr-2 before:font-normal before:content-['01.'] after:ml-4 after:h-0.25 after:flex-1 after:content-[''] md:after:w-1/4 md:after:flex-none lg:after:w-1/3">
+                <h2 className="text-header-txt-clr before:text-accent-clr before:font-reddit after:bg-main-txt-clr text-h2-section-sizing before:text-heading-num-sizing flex items-center font-semibold before:mr-2 before:font-normal before:content-['01.'] after:ml-4 after:h-0.25 after:flex-1 after:content-[''] md:after:w-1/4 md:after:flex-none lg:after:w-1/3">
                     About Me
                 </h2>
                 <div className="my-8 flex flex-col items-center md:grid md:grid-cols-[3fr_2fr] md:place-items-start md:gap-12">

@@ -7,7 +7,7 @@ const tabs = [
         label: "Languages",
         content: (
             <div>
-                <h2 className="font-nunito text-header-txt-clr text-xl font-semibold md:text-2xl lg:text-3xl">
+                <h2 className=" text-header-txt-clr text-xl font-semibold md:text-2xl lg:text-3xl">
                     Programming Languages
                 </h2>
                 <p className="text-main-txt-clr mt-2 text-base md:text-lg lg:text-xl">
@@ -41,7 +41,7 @@ const tabs = [
         label: "Tools",
         content: (
             <div>
-                <h2 className="font-nunito text-header-txt-clr text-xl font-semibold md:text-2xl lg:text-3xl">
+                <h2 className=" text-header-txt-clr text-xl font-semibold md:text-2xl lg:text-3xl">
                     Developer Tools
                 </h2>
                 <p className="text-main-txt-clr mt-2 text-base md:text-lg lg:text-xl">
@@ -107,7 +107,7 @@ const tabs = [
         label: "Skills",
         content: (
             <div>
-                <h2 className="font-nunito text-header-txt-clr text-xl font-semibold md:text-2xl lg:text-3xl">
+                <h2 className=" text-header-txt-clr text-xl font-semibold md:text-2xl lg:text-3xl">
                     Front-End Skills
                 </h2>
                 <p className="text-main-txt-clr mt-2 text-base md:text-lg lg:text-xl">
@@ -177,7 +177,7 @@ export default function TabComponent() {
     // );
 
     return (
-        <div className="mx-auto w-full max-w-[280px] sm:flex sm:max-w-[580px] sm:gap-12 lg:max-w-[620px] lg:gap-14">
+        <div className="mx-auto w-full max-w-[280px] sm:flex sm:max-w-[580px] sm:gap-12 lg:max-w-[630px] lg:gap-14">
             {/* Tab Buttons */}
             <div className="flex justify-center sm:flex-col sm:justify-start sm:self-start">
                 {tabs.map((tab) => (

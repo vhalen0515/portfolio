@@ -6,7 +6,7 @@ export default function Contact() {
             <h2 className="text-accent-clr font-reddit before:mr-2 before:content-['04.']">
                 Need Some Help?
             </h2>
-            <h3 className="text-header-txt-clr md:text-h3-sizing mt-4 text-4xl font-bold md:mt-5">
+            <h3 className="text-header-txt-clr md:text-h3-sizing mt-4 text-4xl font-semibold md:mt-5">
                 Let's Connect
             </h3>
             <p className="text-main-txt-clr mt-4 text-center md:mt-5 md:text-lg lg:max-w-[550px]">
