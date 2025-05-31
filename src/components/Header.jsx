@@ -93,7 +93,7 @@ export default function Header() {
             <div className="font-reddit mb-12 flex items-center justify-between px-6 py-6 md:mb-18 md:px-10 md:py-8 lg:mb-19">
                 <a href="https://www.google.com" target="_blank">
                     <img
-                        className="box-content w-10 hover:cursor-pointer"
+                        className="box-content w-10 h-10 hover:cursor-pointer"
                         src={logo}
                         alt="Picture of logo"
                         width="40"
