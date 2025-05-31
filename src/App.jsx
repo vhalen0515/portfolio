@@ -22,10 +22,26 @@ export default function App() {
                     <Projects />
                     <Contact />
                 </div>
-                <BlueDots className="absolute top-70 -right-6 -z-1 hidden rotate-180 md:block xl:hidden" />
-                <BlueDots className="absolute top-300 -left-6 -z-1 hidden md:block xl:hidden" />
-                <BlueDots className="absolute top-420 -right-6 -z-1 hidden rotate-180 md:block xl:hidden" />
-                <BlueDots className="absolute top-650 -left-6 -z-1 hidden md:block xl:hidden" />
+                <BlueDots
+                    className="absolute top-70 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
+                    width="400"
+                    height="400"
+                />
+                <BlueDots
+                    className="absolute top-300 -left-6 -z-1 hidden md:block xl:hidden"
+                    width="400"
+                    height="400"
+                />
+                <BlueDots
+                    className="absolute top-420 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
+                    width="400"
+                    height="400"
+                />
+                <BlueDots
+                    className="absolute top-650 -left-6 -z-1 hidden md:block xl:hidden"
+                    width="400"
+                    height="400"
+                />
             </main>
             <Footer />
         </>

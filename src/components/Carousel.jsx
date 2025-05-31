@@ -158,6 +158,8 @@ const Carousel = (props) => {
                                                 src={slide.image}
                                                 alt=""
                                                 className="h-full w-full rounded-md object-cover object-top shadow-[0_2px_10px_0px_rgb(0,0,0,0.3)]"
+                                                width="480"
+                                                height="320"
                                             />
                                         </a>
                                     </div>
@@ -193,14 +195,14 @@ const Carousel = (props) => {
                                                 className="hover:text-accent-clr text-header-txt-clr p-2 transition-colors duration-300"
                                                 target="_blank"
                                             >
-                                                <GithubIcon />
+                                                <GithubIcon width="24" height="24"/>
                                             </a>
                                             <a
                                                 href={slide.externalLink}
                                                 className="hover:text-accent-clr text-header-txt-clr p-2 transition-colors duration-300"
                                                 target="_blank"
                                             >
-                                                <ExternalLinkIcon />
+                                                <ExternalLinkIcon width="24" height="24" />
                                             </a>
                                         </div>
                                     </div>
