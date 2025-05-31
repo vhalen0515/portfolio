@@ -196,14 +196,20 @@ const Carousel = (props) => {
                                                 className="hover:text-accent-clr text-header-txt-clr p-2 transition-colors duration-300"
                                                 target="_blank"
                                             >
-                                                <GithubIcon width="24" height="24"/>
+                                                <GithubIcon
+                                                    width="24"
+                                                    height="24"
+                                                />
                                             </a>
                                             <a
                                                 href={slide.externalLink}
                                                 className="hover:text-accent-clr text-header-txt-clr p-2 transition-colors duration-300"
                                                 target="_blank"
                                             >
-                                                <ExternalLinkIcon width="24" height="24" />
+                                                <ExternalLinkIcon
+                                                    width="24"
+                                                    height="24"
+                                                />
                                             </a>
                                         </div>
                                     </div>
