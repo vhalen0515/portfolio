@@ -14,14 +14,14 @@
 }
 
 @font-face {
-    font-family: Montserrat Semibold;
+    font-family: Montserrat;
     src: url("./assets/fonts/Montserrat-Semibold.woff2") format("woff2");
     font-weight: 600;
     font-display: swap;
 }
 
 @font-face {
-    font-family: Montserrat Bold;
+    font-family: Montserrat;
     src: url("./assets/fonts/Montserrat-Bold.woff2") format("woff2");
     font-weight: 700;
     font-display: swap;
@@ -30,10 +30,7 @@
 @theme {
     /* Font Types */
     --font-reddit: Reddit-Mono, sans-serif;
-    --font-nunito: Nunito-Sans, sans-serif;
     --font-montserrat: Montserrat, sans-serif;
-    --font-semibold: Montserrat Semibold, sans-serif;
-    --font-bold: Montserrat Bold, sans-serif;
 
     /* Font Sizes */
     /* 480px - 1000px */
