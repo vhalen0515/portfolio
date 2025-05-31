@@ -34,11 +34,11 @@ export default function About() {
                             project.
                         </p>
                     </div>
-                    <div className="relative mt-10 flex w-3/4 max-w-[300px] md:mt-0 md:w-full">
+                    <div className="relative mt-10 flex w-3/4 max-w-[300px] md:mt-0 md:w-full aspect-square">
                         <div className="before:border-accent-clr after:bg-accent-clr before:absolute before:inset-0 before:-z-10 before:translate-x-3 before:translate-y-3 before:rounded-md before:border-2 after:absolute after:inset-0 after:rounded-md after:opacity-40 after:transition-opacity after:duration-300 hover:after:opacity-0 md:before:translate-x-4 md:before:translate-y-4">
                             <img
                                 src={about_me_img}
-                                className="w-full rounded-md"
+                                className="w-full rounded-md h-full object-cover"
                                 alt="Picture of me"
                                 width="300"
                                 height="300"
