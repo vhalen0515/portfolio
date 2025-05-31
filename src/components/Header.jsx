@@ -96,6 +96,8 @@ export default function Header() {
                         className="box-content w-10 hover:cursor-pointer"
                         src={logo}
                         alt="Picture of logo"
+                        width="40"
+                        height="40"
                     />
                 </a>
                 {/* TODO: Add onClick property to button for pop-out */}
