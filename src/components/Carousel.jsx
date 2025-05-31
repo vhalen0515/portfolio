@@ -47,7 +47,7 @@ const numberWithinRange = (number, min, max) =>
 const Carousel = (props) => {
     const { slides, options } = props;
     const autoplay = Autoplay({
-        delay: 40000000000,
+        delay: 4000,
         stopOnMouseEnter: true,
         stopOnInteraction: false,
     });
@@ -141,8 +141,6 @@ const Carousel = (props) => {
                     {slides.map((slide, index) => (
                         <div
                             key={slide.id}
-                            // className="min-w-0 flex-[0_0_100%] [transform:translate3d(0,0,0)] transform cursor-grab active:cursor-grabbing md:px-4"
-
                             className="min-w-0 flex-[0_0_100%] transform cursor-grab active:cursor-grabbing md:px-4"
                         >
                             <ul className="select-none">
