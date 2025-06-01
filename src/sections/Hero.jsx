@@ -4,9 +4,9 @@ import { Link } from "react-scroll";
 
 export default function Hero() {
     return (
-        <section>
+        <section className="flex h-screen flex-col justify-center">
             <div>
-                <p className="font-reddit text-accent-clr text-hero-intro mb-5 text-base md:mb-7">
+                <p className="font-reddit text-accent-clr text-hero-intro mb-8 text-base md:mb-7">
                     Hi, my name is
                 </p>
                 <h1 className="text-h1-sizing text-header-txt-clr header-leading leading-header font-bold tracking-wider">
@@ -17,7 +17,7 @@ export default function Hero() {
                     I am a Front-End Developer
                     <span className="text-accent-clr">.</span>
                 </h2>
-                <p className="text-main-txt-clr text-hero-desc mt-4 max-w-lg sm:mt-6">
+                <p className="text-main-txt-clr text-hero-desc mt-6 max-w-lg sm:mt-6">
                     I like to design and build things for the web
                     <span className="text-accent-clr">.</span> I currently enjoy
                     using React and Tailwind to create functional and engaging

@@ -45,19 +45,5 @@ export default function App() {
             </main>
             <Footer />
         </>
-
-        // <>
-        //     <Header />
-        //     <main className="mx-auto max-w-[1200px] space-y-40 overflow-hidden px-7 sm:px-13 md:space-y-70 md:px-26 lg:px-39">
-        //         <Hero />
-        //         <About />
-        //         {/* <BlueDots className="absolute top-55 -left-6 -z-1 hidden lg:block" /> */}
-        //         <Experience />
-        //         <Projects />
-        //         <Contact />
-        //         <BlueDots className="absolute top-115 -right-6 hidden rotate-180 md:block" />
-        //     </main>
-        //     <Footer />
-        // </>
     );
 }
