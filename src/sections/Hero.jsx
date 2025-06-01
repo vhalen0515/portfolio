@@ -4,7 +4,7 @@ import { Link } from "react-scroll";
 
 export default function Hero() {
     return (
-        <section className="flex h-screen flex-col justify-center">
+        <section className="mb-60 flex h-screen flex-col justify-center md:mb-70">
             <div>
                 <p className="font-reddit text-accent-clr text-hero-intro mb-8 text-base md:mb-7">
                     Hi, my name is

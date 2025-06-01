@@ -15,12 +15,14 @@ export default function App() {
         <>
             <Header />
             <main className="relative overflow-hidden">
-                <div className="mx-auto max-w-[1200px] space-y-60 px-7 sm:px-13 md:space-y-70 md:px-26 lg:px-39">
+                <div className="mx-auto max-w-[1200px] px-7 sm:px-13 md:px-26 lg:px-39">
                     <Hero />
-                    <About />
-                    <Experience />
-                    <Projects />
-                    <Contact />
+                    <div className="space-y-60 md:space-y-70">
+                        <About />
+                        <Experience />
+                        <Projects />
+                        <Contact />
+                    </div>
                 </div>
                 <BlueDots
                     className="absolute top-70 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
