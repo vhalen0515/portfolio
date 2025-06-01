@@ -36,13 +36,17 @@
     /* 480px - 1000px */
     --text-h1-sizing: clamp(2.25rem, 0.6346rem + 5.3846vw, 4rem);
     --text-h2-sizing: clamp(1.875rem, 0.375rem + 5vw, 3.5rem);
+
     /* 769px - 1000px */
     --text-h3-sizing: clamp(2.25rem, -2.7155rem + 10.3448vw, 3.75rem);
+
     /* 480px - 650px */
     --text-h2-section-sizing: clamp(1.5rem, 0.7941rem + 2.3529vw, 1.75rem);
     --text-heading-num-sizing: clamp(1rem, 0.2941rem + 2.3529vw, 1.25rem);
+
     /* 320px - 480px */
     --text-p-slide-desc: clamp(0.875rem, 0.5385rem + 1.5385vw, 1rem);
+
     /* 350px - 769px */
     --text-hero-desc: clamp(1rem, 0.7912rem + 0.9547vw, 1.25rem);
     --text-hero-intro: clamp(1rem, 0.8956rem + 0.4773vw, 1.125rem);

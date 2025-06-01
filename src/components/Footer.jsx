@@ -4,7 +4,7 @@ import GithubIcon from "../assets/icons/github.svg?react";
 
 export default function Footer() {
     return (
-        <footer className="mx-auto mt-20 flex max-w-[1200px] flex-col items-center px-7 sm:mt-36 sm:px-13 md:px-26 lg:px-39">
+        <footer className="mx-auto mt-30 flex max-w-[1200px] flex-col items-center px-7 sm:mt-36 sm:px-13 md:px-26 lg:px-39">
             <div className="flex gap-6 md:hidden">
                 <a
                     href=""

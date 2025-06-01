@@ -15,7 +15,7 @@ export default function App() {
         <>
             <Header />
             <main className="relative overflow-hidden">
-                <div className="mx-auto max-w-[1200px] space-y-40 px-7 sm:px-13 md:space-y-70 md:px-26 lg:px-39">
+                <div className="mx-auto max-w-[1200px] space-y-60 px-7 sm:px-13 md:space-y-70 md:px-26 lg:px-39">
                     <Hero />
                     <About />
                     <Experience />
