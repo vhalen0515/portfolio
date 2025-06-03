@@ -55,7 +55,7 @@ export const SLIDES = [
     },
     {
         id: 5,
-        title: "Ableton Website Replica",
+        title: "Ableton Replica",
         description:
             "A pixel-perfect front-end recreation of the Ableton homepage using HTML, CSS Grid, and JavaScript for interactive elements.",
         image: AbletonImg,
@@ -65,7 +65,7 @@ export const SLIDES = [
     },
     {
         id: 6,
-        title: "Monstercat Website Replica",
+        title: "Monstercat Replica",
         description:
             "Responsive clone of the Monstercat music website built with TailwindCSS and Flexbox, focusing on having a clean and responsive layout.",
         image: MonstercatImg,
@@ -76,7 +76,7 @@ export const SLIDES = [
     },
     {
         id: 7,
-        title: "Deplace Website Replica",
+        title: "Deplace Replica",
         description:
             "Recreation of the Deplace homepage featuring a gooey cursor effect and smooth CSS animations for a modern UI experience.",
         image: DeplaceImg,
@@ -86,7 +86,7 @@ export const SLIDES = [
     },
     {
         id: 8,
-        title: "Monogram Website Replica",
+        title: "Monogram Replica",
         description:
             "Responsive design clone of the Monogram site utilizing CSS Grid and Flexbox for a clean, organized layout.",
         image: MonogramImg,
@@ -96,7 +96,7 @@ export const SLIDES = [
     },
     {
         id: 9,
-        title: "Bonsai Website Replica",
+        title: "Bonsai Replica",
         description:
             "Front-end replica of the Bonsai homepage featuring semantic HTML, CSS styling, and interactive JavaScript components.",
         image: BonsaiImg,
