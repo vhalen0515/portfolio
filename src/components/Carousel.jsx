@@ -151,13 +151,12 @@ const Carousel = (props) => {
                                         <a
                                             href={slide.externalLink}
                                             className="pointer-events-none md:pointer-events-auto"
+                                            target="_blank"
                                         >
                                             <img
                                                 src={slide.image}
                                                 alt=""
                                                 className="h-full w-full rounded-md object-cover object-top shadow-[0_2px_10px_0px_rgb(0,0,0,0.3)]"
-                                                width="480"
-                                                height="320"
                                                 loading="lazy"
                                             />
                                         </a>
