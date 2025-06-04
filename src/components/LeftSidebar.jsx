@@ -5,7 +5,8 @@ import GithubIcon from "../assets/icons/github.svg?react";
 
 export default function LeftSidebar() {
     return (
-        <div className="after:bg-main-txt-clr fixed bottom-0 left-4 z-10 hidden items-center [writing-mode:vertical-lr] after:block after:h-23 after:w-0.25 after:content-[''] md:flex lg:left-10">
+        // <div className="after:bg-main-txt-clr fixed bottom-0 left-4 z-10 hidden items-center [writing-mode:vertical-lr] after:block after:h-23 after:w-0.25 after:content-[''] md:flex lg:left-10">
+        <div className="after:bg-main-txt-clr fixed bottom-0 left-4 z-10 hidden items-center [writing-mode:vertical-lr] after:block after:h-23 after:w-0.25 after:content-[''] md:flex xl:left-[calc((100vw-1200px)/2-40px)]">
             <a
                 href="https://github.com/vhalen0515"
                 className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"

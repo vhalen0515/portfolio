@@ -1,5 +1,4 @@
-import RightSidebar from "../components/RightSidebar.jsx";
-import LeftSidebar from "../components/LeftSidebar.jsx";
+
 import { Link } from "react-scroll";
 
 export default function Hero() {
@@ -35,8 +34,7 @@ export default function Hero() {
                     Recent Work
                 </Link>
             </div>
-            <RightSidebar />
-            <LeftSidebar />
+
         </section>
     );
 }

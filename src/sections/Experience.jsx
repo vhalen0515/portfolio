@@ -1,4 +1,5 @@
 import TabComponent from "../components/TabComponent.jsx";
+import { TABS } from "../data/tabData.jsx"
 
 export default function Experience() {
     return (
@@ -7,7 +8,7 @@ export default function Experience() {
                 Experience
             </h2>
             <div className="mt-16 h-80 sm:h-60 lg:h-65">
-                <TabComponent />
+                <TabComponent tabs={TABS} />
             </div>
         </section>
     );

@@ -8,6 +8,8 @@ import Contact from "./sections/Contact";
 // Components
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import RightSidebar from "./components/RightSidebar.jsx";
+import LeftSidebar from "./components/LeftSidebar.jsx";
 import BlueDots from "./assets/images/blue-dots.svg?react";
 
 export default function App() {
@@ -23,6 +25,8 @@ export default function App() {
                         <Projects />
                         <Contact />
                     </div>
+                    <RightSidebar />
+                    <LeftSidebar />
                 </div>
                 <BlueDots
                     className="absolute top-70 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
