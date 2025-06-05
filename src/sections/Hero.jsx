@@ -1,4 +1,3 @@
-
 import { Link } from "react-scroll";
 
 export default function Hero() {
@@ -34,7 +33,6 @@ export default function Hero() {
                     Recent Work
                 </Link>
             </div>
-
         </section>
     );
 }

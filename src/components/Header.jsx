@@ -28,7 +28,7 @@ export default function Header() {
             className={`fixed top-0 left-0 z-50 w-full transition-transform duration-500 ease-in-out ${hidden ? "-translate-y-full" : "translate-y-0"} ${showBg ? "bg-main-bg-clr/50 backdrop-blur-xs" : ""}`}
         >
             <div className="font-reddit mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 py-6 md:px-10 md:py-8">
-                <a href="https://www.google.com" target="_blank">
+                <a href="https://www.trent-avilla.com/" target="blank_">
                     <img
                         className="box-content h-10 w-10 hover:cursor-pointer"
                         src={logo}
