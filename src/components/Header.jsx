@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/images/logo.webp";
+import MobileMenu from "./MobileMenu.jsx";
 import { Link } from "react-scroll";
 
 export default function Header() {
     const [hidden, setHidden] = useState(false);
     const [showBg, setShowBg] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
 
+    const toggleMenu = () => setIsOpen((prev) => !prev);
+
+    // Smooth scrolling for nav links
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
@@ -23,6 +28,19 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, [lastScrollY]);
 
+    // Prevent scrolling when mobile menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        return () => {
+            document.body.classList.remove("overflow-hidden");
+        };
+    }, [isOpen]);
+
     return (
         <header
             className={`fixed top-0 left-0 z-50 w-full transition-transform duration-500 ease-in-out ${hidden ? "-translate-y-full" : "translate-y-0"} ${showBg ? "bg-main-bg-clr/50 backdrop-blur-xs" : ""}`}
@@ -37,16 +55,38 @@ export default function Header() {
                         height="40"
                     />
                 </a>
-                {/* TODO: Add onClick property to button for pop-out */}
-                {/* onClick = () => .... */}
-                <button>
-                    <div className="flex cursor-pointer flex-col gap-1.5 md:hidden">
-                        <div className="bg-accent-clr h-0.5 w-6"></div>
-                        <div className="bg-accent-clr h-0.5 w-8"></div>
-                        <div className="bg-accent-clr h-0.5 w-6"></div>
+
+                {/* Mobile Menu */}
+                <button
+                    onClick={toggleMenu}
+                    className="relative z-100 h-10 w-10 cursor-pointer md:hidden"
+                >
+                    <div className="absolute inset-0 flex flex-col justify-center gap-1.5 transition-all duration-300">
+                        <span
+                            className={`bg-accent-clr h-0.5 w-6 transition-transform duration-300 ${
+                                isOpen ? "w-7 translate-y-2 rotate-45" : ""
+                            }`}
+                        ></span>
+                        <span
+                            className={`bg-accent-clr h-0.5 w-8 transition-all duration-100 ${
+                                isOpen ? "opacity-0" : ""
+                            }`}
+                        ></span>
+                        <span
+                            className={`bg-accent-clr h-0.5 w-6 transition-transform duration-300 ${
+                                isOpen ? "w-7 -translate-y-2 -rotate-45" : ""
+                            }`}
+                        ></span>
                     </div>
                 </button>
-                {/* TODO: Add pop-out menu code here */}
+
+                <MobileMenu
+                    className="md:hidden"
+                    isOpen={isOpen}
+                    closeMenu={() => setIsOpen(false)}
+                />
+
+                {/* Desktop Menu */}
                 <nav className="hidden md:block">
                     <ul className="flex items-center text-sm">
                         <li>
@@ -55,7 +95,7 @@ export default function Header() {
                                 to="about"
                                 smooth={true}
                                 duration={400}
-                                offset={-80} // Optional offset for sticky headers
+                                offset={-100}
                                 spy={true}
                                 activeClass="active"
                             >
@@ -68,7 +108,7 @@ export default function Header() {
                                 to="experience"
                                 smooth={true}
                                 duration={400}
-                                offset={-80} // Optional offset for sticky headers
+                                offset={-100}
                                 spy={true}
                                 activeClass="active"
                             >
@@ -81,7 +121,7 @@ export default function Header() {
                                 to="projects"
                                 smooth={true}
                                 duration={400}
-                                offset={-80} // Optional offset for sticky headers
+                                offset={-100}
                                 spy={true}
                                 activeClass="active"
                             >
@@ -94,7 +134,7 @@ export default function Header() {
                                 to="contact"
                                 smooth={true}
                                 duration={400}
-                                offset={-80} // Optional offset for sticky headers
+                                offset={-100}
                                 spy={true}
                                 activeClass="active"
                             >
