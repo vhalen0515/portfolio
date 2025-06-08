@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/images/logo.webp";
 import MobileMenu from "./MobileMenu.jsx";
-import { Link } from "react-scroll";
 
 export default function Header() {
     const [hidden, setHidden] = useState(false);
@@ -10,6 +9,18 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => setIsOpen((prev) => !prev);
+
+    function handleSmoothScroll(e, targetId, offset = -100) {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+            const y =
+                element.getBoundingClientRect().top +
+                window.pageYOffset +
+                offset;
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
+    }
 
     // Smooth scrolling for nav links
     useEffect(() => {
@@ -46,7 +57,10 @@ export default function Header() {
             className={`fixed top-0 left-0 z-50 w-full transition-transform duration-500 ease-in-out ${hidden ? "-translate-y-full" : "translate-y-0"} ${showBg ? "bg-main-bg-clr/50 backdrop-blur-xs" : ""}`}
         >
             <div className="font-reddit mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 py-6 md:px-10 md:py-8">
-                <a href="https://www.trent-avilla.com/" target="blank_" aria-label="Go to homepage">
+                <a
+                    href="https://www.trent-avilla.com/"
+                    aria-label="Go to homepage"
+                >
                     <img
                         className="box-content h-10 w-10 hover:cursor-pointer"
                         src={logo}
@@ -85,66 +99,57 @@ export default function Header() {
                     className="md:hidden"
                     isOpen={isOpen}
                     closeMenu={() => setIsOpen(false)}
+                    handleSmoothScroll={handleSmoothScroll}
                 />
 
                 {/* Desktop Menu */}
                 <nav className="hidden md:block">
                     <ul className="flex items-center text-sm">
                         <li>
-                            <Link
+                            <a
+                                href="#about"
                                 className="text-main-txt-clr hover:text-accent-clr before:text-accent-clr px-4.5 py-2.5 duration-300 before:mr-1.5 before:content-['01.'] hover:cursor-pointer hover:transition-colors"
-                                to="about"
-                                smooth={true}
-                                duration={400}
-                                offset={-100}
-                                spy={true}
-                                activeClass="active"
+                                onClick={(e) => handleSmoothScroll(e, "about")}
                                 aria-label="Scroll to About section"
                             >
                                 About
-                            </Link>
+                            </a>
                         </li>
                         <li>
-                            <Link
+                            <a
+                                href="#experience"
                                 className="text-main-txt-clr hover:text-accent-clr before:text-accent-clr px-4.5 py-2.5 duration-300 before:mr-1.5 before:content-['02.'] hover:cursor-pointer hover:transition-colors"
-                                to="experience"
-                                smooth={true}
-                                duration={400}
-                                offset={-100}
-                                spy={true}
-                                activeClass="active"
+                                onClick={(e) =>
+                                    handleSmoothScroll(e, "experience")
+                                }
                                 aria-label="Scroll to Experience section"
                             >
                                 Experience
-                            </Link>
+                            </a>
                         </li>
                         <li>
-                            <Link
+                            <a
+                                href="#projects"
                                 className="text-main-txt-clr hover:text-accent-clr before:text-accent-clr px-4.5 py-2.5 duration-300 before:mr-1.5 before:content-['03.'] hover:cursor-pointer hover:transition-colors"
-                                to="projects"
-                                smooth={true}
-                                duration={400}
-                                offset={-100}
-                                spy={true}
-                                activeClass="active"
+                                onClick={(e) =>
+                                    handleSmoothScroll(e, "projects")
+                                }
                                 aria-label="Scroll to Projects section"
                             >
                                 Projects
-                            </Link>
+                            </a>
                         </li>
                         <li>
-                            <Link
+                            <a
+                                href="#contact"
                                 className="text-main-txt-clr hover:text-accent-clr before:text-accent-clr px-4.5 py-2.5 duration-300 before:mr-1.5 before:content-['04.'] hover:cursor-pointer hover:transition-colors"
-                                to="contact"
-                                smooth={true}
-                                duration={400}
-                                offset={-100}
-                                spy={true}
-                                activeClass="active"
+                                onClick={(e) =>
+                                    handleSmoothScroll(e, "contact")
+                                }
                                 aria-label="Scroll to Contact section"
                             >
                                 Contact
-                            </Link>
+                            </a>
                         </li>
                         <li className="ml-[1.125rem] hidden">
                             <a
