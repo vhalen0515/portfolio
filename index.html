@@ -2,9 +2,21 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <!-- TODO: Need favicon below -->
-        <!-- <link rel="icon" type="image/svg+xml" /> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- SEO -->
+        <title>Trent Avilla | Front-End Developer Portfolio</title>
+        <meta
+            name="description"
+            content="Trent Avilla is a front-end developer specializing in React and Tailwind CSS. View projects, skills, and contact information."
+        />
+        <meta
+            name="keywords"
+            content="Trent Avilla, Front-End Developer, Web Developer, React, Tailwind CSS, JavaScript, Portfolio"
+        />
+        <meta name="author" content="Trent Avilla" />
+
+        <!-- Preload fonts -->
         <link
             rel="preload"
             href="/fonts/Reddit-Mono.woff2"
@@ -33,7 +45,39 @@
             type="font/woff2"
             crossorigin
         />
-        <title>Trent Avilla</title>
+
+        <!-- Favicons -->
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/favicon-dark.svg"
+            media="(prefers-color-scheme: dark)"
+        />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/favicon-light.svg"
+            media="(prefers-color-scheme: light)"
+        />
+
+        <!-- Structured Data -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Trent Avilla",
+                "url": "https://www.trent-avilla.com",
+                "sameAs": [
+                    "https://github.com/vhalen0515",
+                    "https://www.linkedin.com/in/trent-avilla/"
+                ],
+                "jobTitle": "Front-End Developer",
+                "worksFor": {
+                    "@type": "Organization",
+                    "name": "Freelance"
+                }
+            }
+        </script>
       <script type="module" crossorigin src="/assets/index-BCi1QDkY.js"></script>
       <link rel="stylesheet" crossorigin href="/assets/index-DShuLz8T.css">
     </head>
