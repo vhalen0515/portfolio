@@ -17,7 +17,7 @@ export default function Contact() {
             <a
                 href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
                 role="button"
-                aria-label="Send an email to Tavilla04"
+                aria-label="Send an email to Trent"
                 className="text-accent-clr hover:bg-accent-clr hover:border-accent-clr hover:text-main-bg-clr font-reddit mt-12 rounded-sm border px-6 py-4 transition-colors duration-300"
             >
                 Reach Out

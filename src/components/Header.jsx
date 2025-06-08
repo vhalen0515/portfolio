@@ -46,7 +46,7 @@ export default function Header() {
             className={`fixed top-0 left-0 z-50 w-full transition-transform duration-500 ease-in-out ${hidden ? "-translate-y-full" : "translate-y-0"} ${showBg ? "bg-main-bg-clr/50 backdrop-blur-xs" : ""}`}
         >
             <div className="font-reddit mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 py-6 md:px-10 md:py-8">
-                <a href="https://www.trent-avilla.com/" target="blank_">
+                <a href="https://www.trent-avilla.com/" target="blank_" aria-label="Go to homepage">
                     <img
                         className="box-content h-10 w-10 hover:cursor-pointer"
                         src={logo}
@@ -60,6 +60,7 @@ export default function Header() {
                 <button
                     onClick={toggleMenu}
                     className="relative z-100 h-10 w-10 cursor-pointer md:hidden"
+                    aria-label="Open mobile menu"
                 >
                     <div className="absolute inset-0 flex flex-col justify-center gap-1.5 transition-all duration-300">
                         <span
@@ -98,6 +99,7 @@ export default function Header() {
                                 offset={-100}
                                 spy={true}
                                 activeClass="active"
+                                aria-label="Scroll to About section"
                             >
                                 About
                             </Link>
@@ -111,6 +113,7 @@ export default function Header() {
                                 offset={-100}
                                 spy={true}
                                 activeClass="active"
+                                aria-label="Scroll to Experience section"
                             >
                                 Experience
                             </Link>
@@ -124,6 +127,7 @@ export default function Header() {
                                 offset={-100}
                                 spy={true}
                                 activeClass="active"
+                                aria-label="Scroll to Projects section"
                             >
                                 Projects
                             </Link>
@@ -137,6 +141,7 @@ export default function Header() {
                                 offset={-100}
                                 spy={true}
                                 activeClass="active"
+                                aria-label="Scroll to Contact section"
                             >
                                 Contact
                             </Link>
@@ -145,6 +150,7 @@ export default function Header() {
                             <a
                                 href="#"
                                 className="text-accent-clr hover:bg-accent-clr hover:border-accent-clr hover:text-main-bg-clr rounded-sm border px-4.5 py-2.5 duration-300 hover:transition-colors"
+                                aria-label="Download Resume"
                             >
                                 Resume
                             </a>

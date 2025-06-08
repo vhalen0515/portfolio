@@ -152,6 +152,7 @@ const Carousel = (props) => {
                                             href={slide.externalLink}
                                             className="pointer-events-none md:pointer-events-auto"
                                             target="_blank"
+                                            aria-label="Slide Image Link"
                                         >
                                             <img
                                                 src={slide.image}
@@ -167,6 +168,8 @@ const Carousel = (props) => {
                                         <a
                                             href={slide.externalLink}
                                             className="pointer-events-auto"
+                                            aria-label="Slide Title Link"
+                                            target="_blank"
                                         >
                                             <h2 className="text-header-secondary-txt-clr md:text-header-txt-clr hover:text-accent-clr text-slide-title font-semibold transition-colors duration-300">
                                                 {slide.title}
@@ -191,6 +194,7 @@ const Carousel = (props) => {
                                             <a
                                                 href={slide.githubLink}
                                                 className="hover:text-accent-clr text-header-txt-clr p-2 transition-colors duration-300"
+                                                aria-label="GitHub Link"
                                                 target="_blank"
                                             >
                                                 <GithubIcon
@@ -202,6 +206,7 @@ const Carousel = (props) => {
                                                 href={slide.externalLink}
                                                 className="hover:text-accent-clr text-header-txt-clr p-2 transition-colors duration-300"
                                                 target="_blank"
+                                                aria-label="External Link"
                                             >
                                                 <ExternalLinkIcon
                                                     width="24"

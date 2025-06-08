@@ -9,18 +9,21 @@ export default function Footer() {
                 <a
                     href=""
                     className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
+                    aria-label="Instagram link"
                 >
                     <InstagramIcon width="24" height="24" />
                 </a>
                 <a
                     href=""
                     className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
+                    aria-label="Linkedin link"
                 >
                     <LinkedinIcon width="24" height="24" />
                 </a>
                 <a
                     href=""
                     className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
+                    aria-label="GitHub link"
                 >
                     <GithubIcon width="24" height="24" />
                 </a>

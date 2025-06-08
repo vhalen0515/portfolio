@@ -11,6 +11,7 @@ export default function LeftSidebar() {
                 href="https://github.com/vhalen0515"
                 className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
                 target="_blank"
+                aria-label="Link to GitHub profile"
             >
                 <GithubIcon className="h-5" width="24" height="20" />
             </a>
@@ -18,6 +19,7 @@ export default function LeftSidebar() {
                 href="https://www.linkedin.com/in/trent-avilla/"
                 className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
                 target="_blank"
+                aria-label="Link to LinkedIn profile"
             >
                 <LinkedinIcon className="h-5" width="24" height="20" />
             </a>
@@ -25,12 +27,14 @@ export default function LeftSidebar() {
                 href="https://www.instagram.com/trent_av/"
                 className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
                 target="_blank"
+                aria-label="Link to Instagram profile"
             >
                 <InstagramIcon className="h-5" width="24" height="20" />
             </a>
             <a
                 href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
                 className="text-main-txt-clr hover:text-accent-clr mb-4 px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
+                aria-label="Send an email to Trent"
             >
                 <EmailIcon className="h-5" width="24" height="20" />
             </a>

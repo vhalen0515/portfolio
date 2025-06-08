@@ -43,6 +43,7 @@ export default function TabComponent({ tabs }) {
                                 ? "text-accent-clr border-t-accent-clr sm:border-l-accent-clr bg-tab-accent-clr border-t-2 sm:border-t-0 sm:border-l-2"
                                 : "text-main-txt-clr hover:bg-tab-accent-clr hover:text-accent-clr border-t-2 border-t-transparent sm:border-t-0 sm:border-l-2 sm:border-l-transparent"
                         }`}
+                        aria-label="Tab Button"
                     >
                         {tab.label}
                     </button>
