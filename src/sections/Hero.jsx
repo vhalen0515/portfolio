@@ -2,7 +2,7 @@ import { Link } from "react-scroll";
 
 export default function Hero() {
     return (
-        <section className="mb-60 flex h-screen flex-col justify-center md:mb-70">
+        <section className="mb-60 flex h-screen flex-col justify-center sm:mt-10 md:mb-70 md:mt-10">
             <div>
                 <p className="font-reddit text-accent-clr text-hero-intro mb-8 text-base md:mb-7">
                     Hi, my name is
@@ -26,7 +26,7 @@ export default function Hero() {
                     to="projects"
                     smooth={true}
                     duration={400}
-                    offset={-80} // Optional offset for sticky headers
+                    offset={-40}
                     spy={true}
                     activeClass="active"
                 >
