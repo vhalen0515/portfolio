@@ -175,7 +175,7 @@ const Carousel = (props) => {
                                                 {slide.title}
                                             </h2>
                                         </a>
-                                        <div className="md:bg-tab-accent-clr pointer-events-auto mt-2 rounded-md shadow-[0px_8px_10px_rgb(0,0,0,0.1)]">
+                                        <div className="md:bg-tab-accent-clr pointer-events-auto mt-2 rounded-md md:shadow-[0px_8px_10px_rgb(0,0,0,0.1)]">
                                             <p className="text-p-slide-desc py-3 md:p-5">
                                                 {slide.description}
                                             </p>
