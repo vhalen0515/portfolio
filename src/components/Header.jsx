@@ -151,7 +151,7 @@ export default function Header() {
                                 Contact
                             </a>
                         </li>
-                        <li className="ml-[1.125rem] hidden">
+                        {/* <li className="ml-[1.125rem] hidden">
                             <a
                                 href="#"
                                 className="text-accent-clr hover:bg-accent-clr hover:border-accent-clr hover:text-main-bg-clr rounded-sm border px-4.5 py-2.5 duration-300 hover:transition-colors"
@@ -159,7 +159,7 @@ export default function Header() {
                             >
                                 Resume
                             </a>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
             </div>
