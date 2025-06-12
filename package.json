@@ -16,7 +16,6 @@
         "@tailwindcss/vite": "^4.1.1",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",
-        "react-scroll": "^1.9.3",
         "swiper": "^11.2.8",
         "tailwindcss": "^4.1.1"
     },
@@ -32,6 +31,7 @@
         "globals": "^15.15.0",
         "prettier": "^3.5.3",
         "prettier-plugin-tailwindcss": "^0.6.11",
+        "rollup-plugin-visualizer": "^6.0.3",
         "vite": "^6.2.0",
         "vite-plugin-svgr": "^4.3.0"
     }

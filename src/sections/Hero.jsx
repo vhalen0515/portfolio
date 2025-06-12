@@ -1,5 +1,3 @@
-import { Link } from "react-scroll";
-
 export default function Hero() {
     return (
         <section className="mb-60 flex h-screen flex-col justify-center sm:mt-10 md:mt-10 md:mb-70">
