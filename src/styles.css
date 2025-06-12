@@ -77,3 +77,38 @@
     --breakpoint-lg: 1000px;
     --breakpoint-xl: 1400px;
 }
+
+/* Outer Swiper Slide Opacity */
+.swiper-slide-next,
+.swiper-slide-prev {
+    opacity: 0.5;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+/* Swiper Styles */
+#projects .swiper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.swiper .swiper-pagination {
+    position: static;
+    margin-block-start: 1.5rem;
+    transform: none !important;
+}
+
+/* Pagination Dot Color */
+.swiper-pagination-bullet-active {
+    --swiper-pagination-color: hsl(194, 100%, 47%);
+}
+
+.swiper-pagination-bullet {
+    --swiper-pagination-bullet-inactive-color: hsl(199, 21%, 25%);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+}

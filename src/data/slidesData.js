@@ -145,5 +145,3 @@ export const SLIDES = [
         githubLink: "https://vhalen0515.github.io/TODO-React-App/",
     },
 ];
-
-export const OPTIONS = { loop: true };

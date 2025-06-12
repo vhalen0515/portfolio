@@ -1,5 +1,3 @@
-import BlueDots from "../assets/images/blue-dots.svg?react";
-
 export default function Contact() {
     return (
         <section id="contact" className="flex flex-col items-center">
@@ -22,7 +20,6 @@ export default function Contact() {
             >
                 Reach Out
             </a>
-            {/* <BlueDots className="absolute top-40 -left-6 -z-1 hidden lg:block" /> */}
         </section>
     );
 }
