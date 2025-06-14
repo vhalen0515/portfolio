@@ -41,7 +41,7 @@ export default function SwiperComponent({ slides }) {
                         key={slide.id}
                         className="mt-12 cursor-grab px-0 active:cursor-grabbing md:mt-16"
                     >
-                        <ul className="select-none">
+                        <ul className="select-none border border-accent-clr rounded-md md:border-transparent">
                             {/* Slide Content */}
                             <li className="text-main-txt-clr relative grid grid-cols-12">
                                 {/* Image Container */}
