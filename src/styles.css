@@ -104,6 +104,7 @@
 
 @media (orientation: landscape) {
   .landscape {
-    height: 700px; /* or whatever is appropriate */
+    height: 700px;
+    margin-block-end: 11rem;
   }
 }
