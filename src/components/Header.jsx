@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import logo from "../assets/images/logo.webp";
 import MobileMenu from "./MobileMenu.jsx";
 
-export default function Header() {
+export default function Header({ handleSmoothScroll }) {
     const [hidden, setHidden] = useState(false);
     const [showBg, setShowBg] = useState(false);
     const [lastScrollY, setLastScrollY] = useState(0);
@@ -10,19 +10,7 @@ export default function Header() {
 
     const toggleMenu = () => setIsOpen((prev) => !prev);
 
-    function handleSmoothScroll(e, targetId, offset = -100) {
-        e.preventDefault();
-        const element = document.getElementById(targetId);
-        if (element) {
-            const y =
-                element.getBoundingClientRect().top +
-                window.pageYOffset +
-                offset;
-            window.scrollTo({ top: y, behavior: "smooth" });
-        }
-    }
-
-    // Smooth scrolling for nav links
+    // Tracks scrolling and header visibility
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;

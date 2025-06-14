@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 // Sections
 import Hero from "./sections/Hero";
 import About from "./sections/About";
@@ -12,49 +14,25 @@ import RightSidebar from "./components/RightSidebar.jsx";
 import LeftSidebar from "./components/LeftSidebar.jsx";
 
 export default function App() {
-    return (
-        // <>
-        //     <Header />
-        //     <main className="relative overflow-hidden">
-        //         <div className="mx-auto max-w-[1200px] px-7 sm:px-13 md:px-26 lg:px-39">
-        //             <Hero />
-        //             <div className="space-y-60 md:space-y-70">
-        //                 <About />
-        //                 <Experience />
-        //                 <Projects />
-        //                 <Contact />
-        //             </div>
-        //             <RightSidebar />
-        //             <LeftSidebar />
-        //         </div>
-        //         <BlueDots
-        //             className="absolute top-120 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
-        //             width="400"
-        //             height="400"
-        //         />
-        //         {/* <BlueDots
-        //             className="absolute top-390 -left-6 -z-1 hidden md:block xl:hidden"
-        //             width="400"
-        //             height="400"
-        //         /> */}
-        //         <BlueDots
-        //             className="absolute top-540 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
-        //             width="400"
-        //             height="400"
-        //         />
-        //         <BlueDots
-        //             className="absolute top-750 -left-6 -z-1 hidden md:block xl:hidden"
-        //             width="400"
-        //             height="400"
-        //         />
-        //     </main>
-        //     <Footer />
-        // </>
 
+    // Smooth scrolling on nav links
+    const handleSmoothScroll = useCallback((e, targetId, offset = -100) => {
+        e.preventDefault();
+        const element = document.getElementById(targetId);
+        if (element) {
+            const y =
+                element.getBoundingClientRect().top +
+                window.pageYOffset +
+                offset;
+            window.scrollTo({ top: y, behavior: "smooth" });
+        }
+    }, []);
+
+    return (
         <>
-            <Header />
+            <Header handleSmoothScroll={handleSmoothScroll} />
             <main className="overflow-hidden">
-                <Hero />
+                <Hero handleSmoothScroll={handleSmoothScroll} />
                 <div className="space-y-60 md:space-y-70">
                     <About />
                     <Experience />

@@ -1,6 +1,6 @@
 import BlueDots from "../assets/images/blue-dots.svg?react";
 
-export default function Hero() {
+export default function Hero({ handleSmoothScroll }) {
     return (
         <section className="relative">
             <div className="mx-auto mb-60 flex h-screen max-w-[1200px] flex-col justify-center px-7 sm:mt-10 sm:px-13 md:mt-10 md:px-26 lg:px-39">
