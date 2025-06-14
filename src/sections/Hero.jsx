@@ -3,7 +3,7 @@ import BlueDots from "../assets/images/blue-dots.svg?react";
 export default function Hero({ handleSmoothScroll }) {
     return (
         <section className="relative">
-            <div className="mx-auto mb-60 flex h-screen max-w-[1200px] flex-col justify-center px-7 sm:mt-10 sm:px-13 md:mt-10 md:px-26 lg:px-39">
+            <div className="landscape mx-auto mb-60 flex h-screen max-w-[1200px] flex-col justify-center px-7 sm:mt-10 sm:px-13 md:mt-10 md:px-26 lg:px-39">
                 <p className="font-reddit text-accent-clr text-hero-intro mb-8 text-base md:mb-7">
                     Hi, my name is
                 </p>
