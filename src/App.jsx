@@ -10,44 +10,59 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import RightSidebar from "./components/RightSidebar.jsx";
 import LeftSidebar from "./components/LeftSidebar.jsx";
-import BlueDots from "./assets/images/blue-dots.svg?react";
 
 export default function App() {
     return (
+        // <>
+        //     <Header />
+        //     <main className="relative overflow-hidden">
+        //         <div className="mx-auto max-w-[1200px] px-7 sm:px-13 md:px-26 lg:px-39">
+        //             <Hero />
+        //             <div className="space-y-60 md:space-y-70">
+        //                 <About />
+        //                 <Experience />
+        //                 <Projects />
+        //                 <Contact />
+        //             </div>
+        //             <RightSidebar />
+        //             <LeftSidebar />
+        //         </div>
+        //         <BlueDots
+        //             className="absolute top-120 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
+        //             width="400"
+        //             height="400"
+        //         />
+        //         {/* <BlueDots
+        //             className="absolute top-390 -left-6 -z-1 hidden md:block xl:hidden"
+        //             width="400"
+        //             height="400"
+        //         /> */}
+        //         <BlueDots
+        //             className="absolute top-540 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
+        //             width="400"
+        //             height="400"
+        //         />
+        //         <BlueDots
+        //             className="absolute top-750 -left-6 -z-1 hidden md:block xl:hidden"
+        //             width="400"
+        //             height="400"
+        //         />
+        //     </main>
+        //     <Footer />
+        // </>
+
         <>
             <Header />
-            <main className="relative overflow-hidden">
-                <div className="mx-auto max-w-[1200px] px-7 sm:px-13 md:px-26 lg:px-39">
-                    <Hero />
-                    <div className="space-y-60 md:space-y-70">
-                        <About />
-                        <Experience />
-                        <Projects />
-                        <Contact />
-                    </div>
-                    <RightSidebar />
-                    <LeftSidebar />
+            <main className="overflow-hidden">
+                <Hero />
+                <div className="space-y-60 md:space-y-70">
+                    <About />
+                    <Experience />
+                    <Projects />
+                    <Contact />
                 </div>
-                <BlueDots
-                    className="absolute top-70 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
-                    width="400"
-                    height="400"
-                />
-                <BlueDots
-                    className="absolute top-300 -left-6 -z-1 hidden md:block xl:hidden"
-                    width="400"
-                    height="400"
-                />
-                <BlueDots
-                    className="absolute top-420 -right-6 -z-1 hidden rotate-180 md:block xl:hidden"
-                    width="400"
-                    height="400"
-                />
-                <BlueDots
-                    className="absolute top-650 -left-6 -z-1 hidden md:block xl:hidden"
-                    width="400"
-                    height="400"
-                />
+                <RightSidebar />
+                <LeftSidebar />
             </main>
             <Footer />
         </>

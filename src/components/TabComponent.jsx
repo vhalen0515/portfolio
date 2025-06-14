@@ -31,7 +31,7 @@ export default function TabComponent({ tabs }) {
     // );
 
     return (
-        <div className="mx-auto w-full max-w-[280px] sm:flex sm:max-w-[580px] sm:gap-12 lg:max-w-[630px] lg:gap-14">
+        <div className="mx-auto w-full max-w-[280px] sm:flex sm:max-w-[530px] md:max-w-[620px] sm:gap-12 lg:max-w-[630px] lg:gap-14">
             {/* Tab Buttons */}
             <div className="flex justify-center sm:flex-col sm:justify-start sm:self-start">
                 {tabs.map((tab) => (
