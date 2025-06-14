@@ -19,21 +19,14 @@ export default function SwiperComponent({ slides }) {
                 pagination={{
                     dynamicBullets: true,
                 }}
-                spaceBetween={60}
-                // breakpoints={{
-                //     0: {
-                //         spaceBetween: 0,
-                //     },
-                //     640: {
-                //         spaceBetween: 30,
-                //     },
-                //     768: {
-                //         spaceBetween: 40,
-                //     },
-                //     1024: {
-                //         spaceBetween: 60,
-                //     },
-                // }}
+                breakpoints={{
+                    0: {
+                        spaceBetween: 40,
+                    },
+                    769: {
+                        spaceBetween: 100,
+                    },
+                }}
                 modules={[Pagination, Autoplay]}
                 autoplay={{
                     delay: 2500,
@@ -69,7 +62,7 @@ export default function SwiperComponent({ slides }) {
                                 </div>
 
                                 {/* Text Container */}
-                                <div className="py- pointer-events-none z-10 col-start-1 col-end-[-1] row-start-1 row-end-2 flex h-80 flex-col justify-center px-4 text-left gap-2 sm:px-8 md:col-start-5 md:items-end sm:gap-3 md:pr-0 md:text-right">
+                                <div className="py- pointer-events-none z-10 col-start-1 col-end-[-1] row-start-1 row-end-2 flex h-80 flex-col justify-center gap-2 px-4 text-left sm:gap-3 sm:px-8 md:col-start-5 md:items-end md:pr-0 md:text-right">
                                     <a
                                         href={slide.externalLink}
                                         className="pointer-events-auto"
@@ -80,8 +73,8 @@ export default function SwiperComponent({ slides }) {
                                             {slide.title}
                                         </h2>
                                     </a>
-                                    <div className="md:bg-tab-accent-clr pointer-events-auto md:mt-1 rounded-md md:shadow-[0px_8px_10px_rgb(0,0,0,0.1)]">
-                                        <p className="text-p-slide-desc text-slide-desc-clr pt-1 pb-3 sm-md:py-3 md:p-5">
+                                    <div className="md:bg-tab-accent-clr pointer-events-auto rounded-md md:mt-1 md:shadow-[0px_8px_10px_rgb(0,0,0,0.1)]">
+                                        <p className="text-p-slide-desc text-slide-desc-clr sm-md:py-3 pt-1 pb-3 md:p-5">
                                             {slide.description}
                                         </p>
                                     </div>
@@ -89,13 +82,13 @@ export default function SwiperComponent({ slides }) {
                                         {slide.tools.map((tool) => (
                                             <li
                                                 key={tool}
-                                                className="font-reddit text-header-txt-clr border-accent-clr rounded-xl border px-3 py-0.5 text-xs"
+                                                className="font-reddit text-header-txt-clr border-accent-clr rounded-xl border px-3 py-0.5 text-sm md:text-xs"
                                             >
                                                 {tool}
                                             </li>
                                         ))}
                                     </ul>
-                                    <div className="pointer-events-auto mt-2 flex items-center gap-2 md:gap-1 md:mt-0">
+                                    <div className="pointer-events-auto mt-2 flex items-center gap-2 md:mt-0 md:gap-1">
                                         <a
                                             href={slide.githubLink}
                                             className="hover:text-accent-clr text-header-txt-clr p-2 transition-colors duration-300"
