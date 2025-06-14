@@ -35,6 +35,7 @@ export default function SwiperComponent({ slides }) {
                 }}
                 speed={600}
                 loop={true}
+                className="will-change-transform transform-gpu"
             >
                 {slides.map((slide) => (
                     <SwiperSlide
