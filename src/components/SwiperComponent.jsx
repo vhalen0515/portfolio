@@ -33,7 +33,7 @@ export default function SwiperComponent({ slides }) {
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
                 }}
-                speed={1000}
+                speed={800}
                 loop={true}
             >
                 {slides.map((slide) => (

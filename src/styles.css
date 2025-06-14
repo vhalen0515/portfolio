@@ -101,12 +101,3 @@
     --swiper-pagination-bullet-inactive-color: hsl(199, 21%, 25%);
     --swiper-pagination-bullet-inactive-opacity: 1;
 }
-
-@layer components {
-  .swiper-pagination-bullet {
-    @apply transition-all duration-300 ease-in-out;
-  }
-  .swiper-pagination-bullet-active {
-    @apply scale-125;
-  }
-}
