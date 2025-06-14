@@ -3,7 +3,7 @@ export default function MobileMenu({ isOpen, closeMenu, handleSmoothScroll }) {
         <nav
             className={`bg-main-bg-clr fixed top-0 left-0 z-50 h-screen w-full ${isOpen ? "translate-y-0 transition-transform duration-300" : "-translate-y-full transition-transform duration-300"} md:hidden`}
         >
-            <ul className="flex h-full flex-col items-center justify-center gap-8 text-2xl sm:text-3xl">
+            <ul className="flex h-full flex-col items-center justify-center gap-15 text-2xl sm:text-3xl">
                 <li>
                     <a
                         href="#about"
