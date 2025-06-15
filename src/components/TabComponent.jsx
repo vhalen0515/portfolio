@@ -11,7 +11,7 @@ export default function TabComponent({ tabs }) {
                     <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id)}
-                        className={`border-main-txt-clr font-reddit cursor-pointer border-b-1 px-5 py-2.5 text-sm sm:border-r-1 sm:border-b-0 sm:text-base md:px-8 md:py-3 md:text-xl ${
+                        className={`border-main-txt-clr font-reddit cursor-pointer border-b-1 px-6 py-3 text-base sm:border-r-1 sm:border-b-0 sm:text-base md:px-8 md:py-3 md:text-xl ${
                             activeTab === tab.id
                                 ? "text-accent-clr border-t-accent-clr sm:border-l-accent-clr bg-tab-accent-clr border-t-2 sm:border-t-0 sm:border-l-2"
                                 : "text-main-txt-clr hover:bg-tab-accent-clr hover:text-accent-clr border-t-2 border-t-transparent sm:border-t-0 sm:border-l-2 sm:border-l-transparent"
