@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import EmailIcon from "../assets/icons/email.svg?react";
 import InstagramIcon from "../assets/icons/instagram.svg?react";
 import LinkedinIcon from "../assets/icons/linkedin.svg?react";
@@ -5,7 +6,16 @@ import GithubIcon from "../assets/icons/github.svg?react";
 
 export default function LeftSidebar() {
     return (
-        <div className="after:bg-main-txt-clr fixed bottom-0 left-4 z-10 hidden items-center [writing-mode:vertical-lr] after:block after:h-23 after:w-0.25 after:content-[''] md:flex lg:left-10 xl:left-[calc((100vw-1200px)/2-40px)]">
+        <motion.div
+            className="after:bg-main-txt-clr fixed bottom-0 left-4 z-10 hidden items-center [writing-mode:vertical-lr] after:block after:h-23 after:w-0.25 after:content-[''] md:flex lg:left-10 xl:left-[calc((100vw-1200px)/2-40px)]"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+                delay: 1.8,
+                duration: 1,
+                ease: "easeOut",
+            }}
+        >
             <a
                 href="https://github.com/vhalen0515"
                 className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
@@ -37,6 +47,6 @@ export default function LeftSidebar() {
             >
                 <EmailIcon className="h-5" width="24" height="20" />
             </a>
-        </div>
+        </motion.div>
     );
 }

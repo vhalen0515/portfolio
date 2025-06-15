@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import logo from "../assets/images/logo.webp";
 import MobileMenu from "./MobileMenu.jsx";
 
@@ -45,18 +46,24 @@ export default function Header({ handleSmoothScroll }) {
             className={`fixed top-0 left-0 z-50 w-full transition-transform duration-500 ease-in-out ${hidden ? "-translate-y-full" : "translate-y-0"} ${showBg ? "bg-main-bg-clr/50 backdrop-blur-xs" : ""}`}
         >
             <div className="font-reddit mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 py-6 md:px-10 md:py-8">
-                <a
-                    href="https://www.trent-avilla.com/"
-                    aria-label="Go to homepage"
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
                 >
-                    <img
-                        className="box-content h-10 w-10 hover:cursor-pointer"
-                        src={logo}
-                        alt="Picture of logo"
-                        width="40"
-                        height="40"
-                    />
-                </a>
+                    <a
+                        href="https://www.trent-avilla.com/"
+                        aria-label="Go to homepage"
+                    >
+                        <img
+                            className="box-content h-10 w-10 hover:cursor-pointer"
+                            src={logo}
+                            alt="Picture of logo"
+                            width="40"
+                            height="40"
+                        />
+                    </a>
+                </motion.div>
 
                 {/* Mobile Menu */}
                 <button
@@ -92,7 +99,7 @@ export default function Header({ handleSmoothScroll }) {
 
                 {/* Desktop Menu */}
                 <nav className="hidden md:block">
-                    <ul className="flex items-center text-sm">
+                    {/* <ul className="flex items-center text-sm">
                         <li>
                             <a
                                 href="#about"
@@ -139,7 +146,7 @@ export default function Header({ handleSmoothScroll }) {
                                 Contact
                             </a>
                         </li>
-                        {/* <li className="ml-[1.125rem] hidden">
+                    <li className="ml-[1.125rem] hidden">
                             <a
                                 href="#"
                                 className="text-accent-clr hover:bg-accent-clr hover:border-accent-clr hover:text-main-bg-clr rounded-sm border px-4.5 py-2.5 duration-300 hover:transition-colors"
@@ -147,8 +154,46 @@ export default function Header({ handleSmoothScroll }) {
                             >
                                 Resume
                             </a>
-                        </li> */}
-                    </ul>
+                        </li>
+                    </ul> */}
+
+                    <motion.ul
+                        className="flex items-center text-sm"
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {["About", "Experience", "Projects", "Contact"].map(
+                            (text, i) => (
+                                <motion.li
+                                    key={text}
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{
+                                        delay: 0.2 + i * 0.15,
+                                        duration: 0.3,
+                                        ease: "easeOut",
+                                    }}
+                                >
+                                    <a
+                                        href={`#${text.toLowerCase()}`}
+                                        className="text-main-txt-clr hover:text-accent-clr before:text-accent-clr before:content-['0'${i + 1}.'] px-4.5 py-2.5 duration-300 before:mr-1.5 hover:cursor-pointer hover:transition-colors"
+                                        onClick={(e) =>
+                                            handleSmoothScroll(
+                                                e,
+                                                text.toLowerCase(),
+                                            )
+                                        }
+                                        aria-label={`Scroll to ${text} section`}
+                                    >
+                                        <span className="text-accent-clr mr-1.5 font-mono text-sm">
+                                            {String(i + 1).padStart(2, "0")}.
+                                        </span>
+                                        {text}
+                                    </a>
+                                </motion.li>
+                            ),
+                        )}
+                    </motion.ul>
                 </nav>
             </div>
         </header>

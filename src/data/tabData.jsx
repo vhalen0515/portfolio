@@ -53,6 +53,7 @@ export const TABS = [
                     <Item>VSCode</Item>
                     <Item>Vite</Item>
                     <Item>Pixelmator Pro</Item>
+                    <Item>Motion</Item>
                 </ul>
             </div>
         ),
