@@ -1,11 +1,13 @@
 import { motion } from "motion/react";
 import BlueDots from "../assets/images/blue-dots.svg?react";
 
+const isMobile = window.innerWidth < 769;
+
 const container = {
     hidden: {},
     show: {
         transition: {
-            delayChildren: 1.4,
+            delayChildren: isMobile ? 1 : 1.4,
             staggerChildren: 0.1,
         },
     },

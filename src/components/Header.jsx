@@ -9,6 +9,7 @@ export default function Header({ handleSmoothScroll }) {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
+    // Toggle mobile menu
     const toggleMenu = () => setIsOpen((prev) => !prev);
 
     // Tracks scrolling and header visibility
@@ -46,6 +47,7 @@ export default function Header({ handleSmoothScroll }) {
             className={`fixed top-0 left-0 z-50 w-full transition-transform duration-500 ease-in-out ${hidden ? "-translate-y-full" : "translate-y-0"} ${showBg ? "bg-main-bg-clr/50 backdrop-blur-xs" : ""}`}
         >
             <div className="font-reddit mx-auto flex w-full max-w-[1200px] items-center justify-between px-6 py-6 md:px-10 md:py-8">
+                {/* Site logo */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -65,11 +67,14 @@ export default function Header({ handleSmoothScroll }) {
                     </a>
                 </motion.div>
 
-                {/* Mobile Menu */}
-                <button
+                {/* Mobile menu button */}
+                <motion.button
                     onClick={toggleMenu}
                     className="relative z-100 h-10 w-10 cursor-pointer md:hidden"
                     aria-label="Open mobile menu"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1 }}
                 >
                     <div className="absolute inset-0 flex flex-col justify-center gap-1.5 transition-all duration-300">
                         <span
@@ -88,8 +93,9 @@ export default function Header({ handleSmoothScroll }) {
                             }`}
                         ></span>
                     </div>
-                </button>
+                </motion.button>
 
+                {/* Mobile menu component */}
                 <MobileMenu
                     className="md:hidden"
                     isOpen={isOpen}
@@ -97,7 +103,7 @@ export default function Header({ handleSmoothScroll }) {
                     handleSmoothScroll={handleSmoothScroll}
                 />
 
-                {/* Desktop Menu */}
+                {/* Desktop menu links */}
                 <nav className="hidden md:block">
                     {/* <ul className="flex items-center text-sm">
                         <li>
