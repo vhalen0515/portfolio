@@ -1,7 +1,19 @@
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
+
 export default function Contact() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
+
     return (
         <section id="contact">
-            <div className="mx-auto flex max-w-[1200px] flex-col items-center px-7 sm:px-13 md:px-26 lg:px-39">
+            <motion.div
+                className="mx-auto flex max-w-[1200px] flex-col items-center px-7 sm:px-13 md:px-26 lg:px-39"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 1, ease: "easeOut" }}
+                ref={ref}
+            >
                 <h2 className="text-accent-clr font-reddit before:mr-2 before:content-['04.']">
                     Need Some Help?
                 </h2>
@@ -21,7 +33,7 @@ export default function Contact() {
                 >
                     Reach Out
                 </a>
-            </div>
+            </motion.div>
         </section>
     );
 }

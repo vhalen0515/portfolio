@@ -14,7 +14,6 @@ import RightSidebar from "./components/RightSidebar.jsx";
 import LeftSidebar from "./components/LeftSidebar.jsx";
 
 export default function App() {
-
     // Smooth scrolling on nav links
     const handleSmoothScroll = useCallback((e, targetId, offset = -100) => {
         e.preventDefault();
