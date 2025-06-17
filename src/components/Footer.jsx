@@ -4,7 +4,7 @@ import GithubIcon from "../assets/icons/github.svg?react";
 
 export default function Footer() {
     return (
-        <footer className="mx-auto mt-40 flex max-w-[1200px] flex-col items-center px-7 sm:mt-36 md:mt-48 sm:px-13 md:px-26 lg:px-39">
+        <footer className="mx-auto mt-40 flex max-w-[1200px] flex-col items-center px-7 sm:mt-36 md:mt-36 sm:px-13 md:px-26 lg:px-39">
             <div className="flex gap-6 md:hidden">
                 <a
                     href=""
@@ -29,7 +29,7 @@ export default function Footer() {
                 </a>
             </div>
             <div className="text-main-txt-clr font-reddit my-3 flex flex-col gap-1 text-center text-xs sm:my-6 sm:gap-2">
-                <p>Created with Tailwind and React.</p>
+                <p>Created with React and Tailwind.</p>
                 <p>
                     Copyright © {new Date().getFullYear()} Trent Avilla. All
                     Rights Reserved.

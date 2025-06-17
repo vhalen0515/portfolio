@@ -8,7 +8,7 @@ export default function Contact() {
     return (
         <section id="contact">
             <motion.div
-                className="mx-auto flex max-w-[1200px] flex-col items-center px-7 sm:px-13 md:px-26 lg:px-39"
+                className="mx-auto pb-14 flex max-w-[1200px] flex-col items-center px-7 sm:px-13 md:px-26 lg:px-39"
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 1, ease: "easeOut" }}

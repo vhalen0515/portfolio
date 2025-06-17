@@ -14,7 +14,7 @@ const container = {
 };
 
 const item = {
-    hidden: { opacity: 0, y: 10 },
+    hidden: { opacity: 0, y: 8 },
     show: {
         opacity: 1,
         y: 0,
@@ -104,33 +104,15 @@ export default function Hero({ handleSmoothScroll }) {
                     <span className="text-accent-clr">.</span>
                 </motion.p>
 
-                {/* <motion.a
+                <motion.a
                     href="#projects"
-                    className="text-accent-clr hover:bg-accent-clr hover:text-main-bg-clr mt-14 inline-block w-fit cursor-pointer rounded-sm border px-6 py-4 duration-300 hover:transition-colors"
+                    className="text-accent-clr hover:bg-accent-clr hover:text-main-bg-clr mt-14 inline-block w-fit cursor-pointer rounded-sm border px-6 py-4 transition-colors duration-300"
                     onClick={(e) => handleSmoothScroll(e, "projects")}
                     aria-label="Scroll to Projects section"
+                    variants={item}
                 >
                     Recent Work
-                </motion.a> */}
-
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{
-                        delay: 1.8,
-                        duration: 1,
-                        ease: "easeOut",
-                    }}
-                >
-                    <a
-                        href="#projects"
-                        className="text-accent-clr hover:bg-accent-clr hover:text-main-bg-clr mt-14 inline-block w-fit cursor-pointer rounded-sm border px-6 py-4 duration-300 hover:transition-colors"
-                        onClick={(e) => handleSmoothScroll(e, "projects")}
-                        aria-label="Scroll to Projects section"
-                    >
-                        Recent Work
-                    </a>
-                </motion.div>
+                </motion.a>
             </motion.div>
 
             <motion.div
