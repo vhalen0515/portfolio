@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import logo from "../assets/images/logo.webp";
+import SiteLogo from "../assets/icons/site-logo.svg?react";
 import MobileMenu from "./MobileMenu.jsx";
 
 export default function Header({ handleSmoothScroll }) {
@@ -80,12 +80,11 @@ export default function Header({ handleSmoothScroll }) {
                         href="https://www.trent-avilla.com/"
                         aria-label="Go to homepage"
                     >
-                        <img
-                            className="box-content h-10 w-10 hover:cursor-pointer"
-                            src={logo}
+                        <SiteLogo
+                            className="h-13 w-13 hover:cursor-pointer"
                             alt="Picture of logo"
-                            width="40"
-                            height="40"
+                            width="52"
+                            height="52"
                         />
                     </a>
                 </motion.div>
