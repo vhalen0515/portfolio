@@ -32,7 +32,7 @@ export default function App() {
             <Header handleSmoothScroll={handleSmoothScroll} />
             <main className="overflow-hidden">
                 <Hero handleSmoothScroll={handleSmoothScroll} />
-                <div className="space-y-60 md:space-y-70">
+                <div className="space-y-80 md:space-y-70">
                     <About />
                     <Experience />
                     <Projects />
