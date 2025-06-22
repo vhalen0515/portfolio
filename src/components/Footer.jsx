@@ -8,6 +8,7 @@ export default function Footer() {
             <div className="flex gap-6 md:hidden">
                 <a
                     href="https://www.instagram.com/trent_av/"
+                    target="_blank"
                     className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
                     aria-label="Instagram link"
                 >
@@ -15,6 +16,7 @@ export default function Footer() {
                 </a>
                 <a
                     href="https://www.linkedin.com/in/trent-avilla/"
+                    target="_blank"
                     className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
                     aria-label="Linkedin link"
                 >
@@ -22,6 +24,7 @@ export default function Footer() {
                 </a>
                 <a
                     href="https://github.com/vhalen0515"
+                    target="_blank"
                     className="text-main-txt-clr hover:text-accent-clr px-3 py-2 transition-transform duration-300 hover:translate-y-[-3px]"
                     aria-label="GitHub link"
                 >
