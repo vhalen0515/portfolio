@@ -11,6 +11,8 @@ import TodoImg from "../assets/images/todo-app.webp";
 import TenziesImg from "../assets/images/tenzies-game.webp";
 import SnakeImg from "../assets/images/snake-game.webp";
 import ColorGeneratorImg from "../assets/images/color-generator.webp";
+import NjaImg from "../assets/images/nja-website.webp";
+
 
 export const SLIDES = [
     {
@@ -46,6 +48,16 @@ export const SLIDES = [
     },
     {
         id: 4,
+        title: "NJA Architecture",
+        description:
+            "Front-end recreation of the NJA Architecture homepage using React and React Router, showcasing a clean layout with modern grid styling",
+        image: NjaImg,
+        tools: ["React", "React Router", "Grid"],
+        externalLink: "https://vhalen0515.github.io/nja-website-replica/",
+        githubLink: "https://github.com/vhalen0515/nja-website-replica",
+    },
+    {
+        id: 5,
         title: "Monogram Replica",
         description:
             "Responsive design clone of the Monogram site utilizing CSS Grid and Flexbox for a clean, organized layout.",
@@ -55,7 +67,7 @@ export const SLIDES = [
         githubLink: "https://github.com/vhalen0515/monogram-website-replica",
     },
     {
-        id: 5,
+        id: 6,
         title: "Bonsai Replica",
         description:
             "Front-end replica of the Bonsai homepage featuring semantic HTML, CSS styling, and interactive JavaScript components.",
@@ -65,7 +77,7 @@ export const SLIDES = [
         githubLink: "https://github.com/vhalen0515/bonsai-homepage-replica",
     },
         {
-        id: 6,
+        id: 7,
         title: "Blog Website",
         description:
             "A personal learning journal website built with semantic HTML and CSS Grid, showcasing posts in a clear, readable layout.",
@@ -75,7 +87,7 @@ export const SLIDES = [
         githubLink: "https://vhalen0515.github.io/learning-journal-website/",
     },
     {
-        id: 7,
+        id: 8,
         title: "Meme Generator",
         description:
             "Create custom memes by adding top and bottom text to popular images. Fetches meme templates dynamically using an external API.",
@@ -85,7 +97,7 @@ export const SLIDES = [
         githubLink: "https://github.com/vhalen0515/meme-generator-app",
     },
     {
-        id: 8,
+        id: 9,
         title: "Quiz App",
         description:
             "Interactive trivia app that pulls questions from an API, tracks your score, and provides immediate feedback on answers.",
@@ -95,7 +107,7 @@ export const SLIDES = [
         githubLink: "https://github.com/vhalen0515/quiz-app-react",
     },
     {
-        id: 9,
+        id: 10,
         title: "Movie Search",
         description:
             "Search for movies using the OMDb API and view detailed info including ratings, runtime, and plot summaries in a clean interface.",
@@ -105,7 +117,7 @@ export const SLIDES = [
         githubLink: "https://github.com/vhalen0515/movie-search-project",
     },
     {
-        id: 10,
+        id: 11,
         title: "Color Generator",
         description:
             "Generates random HEX color codes you can click to copy. Simple and efficient tool for quick color picking.",
@@ -115,7 +127,7 @@ export const SLIDES = [
         githubLink: "https://github.com/vhalen0515/color-generator-app",
     },
     {
-        id: 11,
+        id: 12,
         title: "Tenzies Game",
         description:
             "Classic dice game implemented in React with state management and conditional rendering for game logic and UI updates.",
@@ -125,7 +137,7 @@ export const SLIDES = [
         githubLink: "https://github.com/vhalen0515/tenzies-react-game",
     },
     {
-        id: 12,
+        id: 13,
         title: "Snake Game",
         description:
             "A fun tutorial recreating the retro-style snake game built with vanilla JavaScript, HTML, and CSS, featuring smooth controls and increasing difficulty.",
@@ -135,7 +147,7 @@ export const SLIDES = [
         githubLink: "https://vhalen0515.github.io/Retro-Snake-Game/",
     },
     {
-        id: 13,
+        id: 14,
         title: "Todo App",
         description:
             "Simple and clean todo list app created with React and styled using TailwindCSS for responsive, user-friendly task management.",
