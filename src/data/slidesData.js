@@ -50,7 +50,7 @@ export const SLIDES = [
         id: 4,
         title: "NJA Architecture",
         description:
-            "Front-end recreation of the NJA Architecture homepage using React and React Router, showcasing a clean layout with modern grid styling",
+            "Front-end recreation of the NJA Architecture homepage using React and React Router, showcasing a clean layout with modern grid styling.",
         image: NjaImg,
         tools: ["React", "React Router", "Grid"],
         externalLink: "https://vhalen0515.github.io/nja-website-replica/",
