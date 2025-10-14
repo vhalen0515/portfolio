@@ -162,7 +162,7 @@ export const SLIDES = [
         description:
             "GitHub profile search app built with JavaScript that uses the GitHub API to fetch and display user profiles and repositories in a clean, interactive interface.",
         image: GithubImg,
-        tools: ["API", "JavaScript"],
+        tools: ["RESTful API", "JavaScript"],
         externalLink: "https://vhalen0515.github.io/Github-Profile-Search/",
         githubLink: "https://github.com/vhalen0515/Github-Profile-Search",
     },
