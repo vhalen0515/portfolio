@@ -12,7 +12,7 @@ import TenziesImg from "../assets/images/tenzies-game.webp";
 import SnakeImg from "../assets/images/snake-game.webp";
 import ColorGeneratorImg from "../assets/images/color-generator.webp";
 import NjaImg from "../assets/images/nja-website.webp";
-
+import GithubImg from "../assets/images/github-search-project"
 
 export const SLIDES = [
     {
@@ -84,7 +84,7 @@ export const SLIDES = [
         image: BlogImg,
         tools: ["HTML", "CSS", "Grid"],
         externalLink: "https://vhalen0515.github.io/learning-journal-website/",
-        githubLink: "https://vhalen0515.github.io/learning-journal-website/",
+        githubLink: "https://github.com/vhalen0515/learning-journal-website",
     },
     {
         id: 8,
@@ -144,7 +144,7 @@ export const SLIDES = [
         image: SnakeImg,
         tools: ["HTML", "CSS", "JavaScript"],
         externalLink: "https://vhalen0515.github.io/Retro-Snake-Game/",
-        githubLink: "https://vhalen0515.github.io/Retro-Snake-Game/",
+        githubLink: "https://github.com/vhalen0515/Retro-Snake-Game",
     },
     {
         id: 14,
@@ -154,6 +154,16 @@ export const SLIDES = [
         image: TodoImg,
         tools: ["React", "TailwindCSS"],
         externalLink: "https://vhalen0515.github.io/TODO-React-App/",
-        githubLink: "https://vhalen0515.github.io/TODO-React-App/",
+        githubLink: "https://github.com/vhalen0515/TODO-React-App",
+    },
+    {
+        id: 15,
+        title: "GitHub Profile Search",
+        description:
+            "GitHub profile search app built with JavaScript that uses the GitHub API to fetch and display user profiles and repositories in a clean, interactive interface.",
+        image: GithubImg,
+        tools: ["API", "JavaScript"],
+        externalLink: "https://vhalen0515.github.io/Github-Profile-Search/",
+        githubLink: "https://github.com/vhalen0515/Github-Profile-Search",
     },
 ];
