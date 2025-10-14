@@ -12,7 +12,7 @@ import TenziesImg from "../assets/images/tenzies-game.webp";
 import SnakeImg from "../assets/images/snake-game.webp";
 import ColorGeneratorImg from "../assets/images/color-generator.webp";
 import NjaImg from "../assets/images/nja-website.webp";
-import GithubImg from "../assets/images/github-search-project"
+import GithubImg from "../assets/images/github-search-project.webp"
 
 export const SLIDES = [
     {
