@@ -13,6 +13,7 @@ import SnakeImg from "../assets/images/snake-game.webp";
 import ColorGeneratorImg from "../assets/images/color-generator.webp";
 import NjaImg from "../assets/images/nja-website.webp";
 import GithubImg from "../assets/images/github-search-project.webp"
+import weatherImg from "../assets/images/weather-app.webp"
 
 export const SLIDES = [
     {
@@ -165,5 +166,15 @@ export const SLIDES = [
         tools: ["RESTful API", "JavaScript"],
         externalLink: "https://vhalen0515.github.io/Github-Profile-Search/",
         githubLink: "https://github.com/vhalen0515/Github-Profile-Search",
+    },
+    {
+        id: 16,
+        title: "Weather App",
+        description:
+            "Responsive weather application built with React that fetches real-time conditions, forecasts, and location data from a weather API.",
+        image: weatherImg,
+        tools: ["RESTful API", "React"],
+        externalLink: "https://vhalen0515.github.io/weather-app/",
+        githubLink: "https://github.com/vhalen0515/weather-app",
     },
 ];
