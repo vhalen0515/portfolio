@@ -1,0 +1,113 @@
+/*----------------------------------------------------- CSS Reset -------------------------------------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    padding: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* p {
+    text-wrap: pretty;
+} */
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+li {
+    list-style: none;
+}
+
+/*--------------------------------------------- Variables / Utilities -----------------------------------------*/
+:root {
+    /* Colors */
+    --bg-clr: hsl(0, 0%, 13%);
+    --main-txt-clr: hsl(0, 0%, 70%);
+    --main-header-clr: hsl(0, 0%, 90%);
+    --accent-clr: hsl(194, 100%, 47%);
+
+    /* Fonts */
+}
+
+html {
+    background: var(--bg-clr);
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat';
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+}
+
+/* no scroll with open mobile menu */
+.no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/*--------------------------------------------- Typography ----------------------------------------------------*/
+@font-face {
+    font-family: Reddit-Mono;
+    src: url('../assets/fonts/Reddit-Mono.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../assets/fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../assets/fonts/Montserrat-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../assets/fonts/Montserrat-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}

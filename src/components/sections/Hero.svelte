@@ -1,0 +1,127 @@
+<script>
+</script>
+
+<section>
+    <div class="hero-container">
+        <p>Hi, my name is</p>
+        <h1>Trenton Avilla<span>.</span></h1>
+        <h2>I am a Front-End Developer<span>.</span></h2>
+        <p>
+            I like to design and build things for the web. I currently enjoy
+            using React and Tailwind to create functional and engaging websites<span
+                >.</span
+            >
+        </p>
+        <a href="#projects">Recent Work</a>
+    </div>
+    <!-- todo: Add blue dot images, same spot of different? -->
+    <!-- <div> -->
+    <!-- blue dots -->
+    <!-- </div> -->
+</section>
+
+<style>
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
+        /* padding-inline: 1.75rem; */
+
+        /* todo: Assigned padding-inline to <main>, keep at <main> or move to <section> elements? */
+        /* @media (width >= 480px) {
+            padding-inline: 3.25rem;
+        }
+        @media (width > 768px) {
+            padding-inline: 6.5rem;
+        }
+
+        @media (width >= 1000px) {
+            padding-inline: 9.75rem;
+        } */
+
+        span {
+            color: var(--accent-clr);
+        }
+    }
+
+    .hero-container {
+        margin-block-start: 2.5rem;
+
+        h1 {
+            font-size: clamp(
+                2.25rem,
+                0.6346rem + 5.3846vw,
+                4rem
+            ); /* 480px - 1000px */
+            font-weight: 700;
+            line-height: clamp(
+                2rem,
+                0.1538rem + 6.1538vw,
+                4rem
+            ); /* 480px - 1000px */
+            letter-spacing: 0.05em;
+            color: var(--main-header-clr);
+            margin-block-end: 0.5rem;
+        }
+
+        h2 {
+            font-size: clamp(
+                1.875rem,
+                0.375rem + 5vw,
+                3.5rem
+            ); /* 480px - 1000px */
+            font-weight: 600;
+            line-height: clamp(
+                2rem,
+                0.6154rem + 4.6154vw,
+                3.5rem
+            ); /* 480px - 1000px */
+            letter-spacing: 0.025em;
+            color: var(--main-txt-clr);
+            margin-block-end: 1.5rem;
+        }
+
+        p:first-of-type {
+            font-family: 'Reddit-Mono';
+            font-size: clamp(
+                1rem,
+                0.8956rem + 0.4773vw,
+                1.125rem
+            ); /* 350px - 769px */
+            color: var(--accent-clr);
+            margin-block-end: 2rem;
+
+            @media (width > 768px) {
+                margin-block-end: 1.75rem;
+            }
+        }
+
+        p {
+            font-size: clamp(
+                1rem,
+                0.7912rem + 0.9547vw,
+                1.25rem
+            ); /* 350px - 769px */
+            color: var(--main-txt-clr);
+            max-width: 32rem;
+            margin-block-end: 3.5rem;
+        }
+
+        a {
+            display: inline-block;
+            color: var(--accent-clr);
+            border: 1px solid var(--accent-clr);
+            border-radius: 0.25rem;
+            padding: 1rem 1.5rem;
+            transition:
+                color 0.3s ease,
+                background-color 0.3s ease;
+
+            &:hover {
+                background-color: var(--accent-clr);
+                color: var(--bg-clr);
+            }
+        }
+    }
+</style>
