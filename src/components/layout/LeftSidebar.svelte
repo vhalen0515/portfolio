@@ -6,17 +6,30 @@
 </script>
 
 <div class="left-sidebar">
-    <a href="https://github.com/vhalen0515" target="_blank" aria-label="Link to my github profile.">
+    <a
+        href="https://github.com/vhalen0515"
+        target="_blank"
+        aria-label="Link to my github profile."
+    >
         <Github width={24} height={20} />
     </a>
-    <a href="https://www.linkedin.com/in/trent-avilla/" target="_blank" aria-label="Link to my linkedin profile.">
+    <a
+        href="https://www.linkedin.com/in/trent-avilla/"
+        target="_blank"
+        aria-label="Link to my linkedin profile."
+    >
         <Linkedin width={24} height={20} />
     </a>
-    <a href="https://www.instagram.com/trent_av/" target="_blank" aria-label="Link to my instagram profile.">
+    <a
+        href="https://www.instagram.com/trent_av/"
+        target="_blank"
+        aria-label="Link to my instagram profile."
+    >
         <Instagram width={24} height={20} />
     </a>
     <a
-        href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!" aria-label="Link to send an email."
+        href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
+        aria-label="Link an email to Trent."
     >
         <Email />
     </a>
