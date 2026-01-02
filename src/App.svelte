@@ -1,4 +1,6 @@
 <script>
+    import { onMount } from 'svelte';
+
     // Sections
     import Hero from './components/sections/Hero.svelte';
     import About from './components/sections/About.svelte';
@@ -11,6 +13,11 @@
     import LeftSidebar from './components/layout/LeftSidebar.svelte';
     import RightSidebar from './components/layout/RightSidebar.svelte';
     import Footer from './components/layout/Footer.svelte';
+
+    onMount(() => {
+        // history.scrollRestoration = 'manual';
+        window.scrollTo(0, 0);
+    });
 </script>
 
 <Header />
