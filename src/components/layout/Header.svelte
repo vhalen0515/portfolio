@@ -220,9 +220,15 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        overflow-y: auto;
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
+
+        @media (height <= 510px) {
+            justify-content: flex-start;
+            padding-block: 8rem;
+        }
 
         ul {
             display: flex;
