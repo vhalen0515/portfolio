@@ -29,7 +29,7 @@
         min-height: 100svh;
 
         @media (height <= 550px) {
-            margin-block-start: 15rem;
+            margin-block-start: 8rem;
         }
         /* padding-inline: 1.75rem; */
 
