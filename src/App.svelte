@@ -15,7 +15,7 @@
     import Footer from './components/layout/Footer.svelte';
 
     onMount(() => {
-        // history.scrollRestoration = 'manual';
+        history.scrollRestoration = 'manual';
         window.scrollTo(0, 0);
     });
 </script>
