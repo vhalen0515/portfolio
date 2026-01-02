@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
 
     // Sections
     import Hero from './components/sections/Hero.svelte';
@@ -14,15 +14,30 @@
     import RightSidebar from './components/layout/RightSidebar.svelte';
     import Footer from './components/layout/Footer.svelte';
 
+    let showSidebars = true;
+
+    function checkHeight() {
+        showSidebars = window.innerHeight >= 400;
+    }
+
     onMount(() => {
         history.scrollRestoration = 'manual';
         window.scrollTo(0, 0);
+
+        checkHeight();
+        window.addEventListener('resize', checkHeight);
+    });
+
+    onDestroy(() => {
+        window.removeEventListener('resize', checkHeight);
     });
 </script>
 
 <Header />
-<LeftSidebar />
-<RightSidebar />
+{#if showSidebars}
+    <LeftSidebar />
+    <RightSidebar />
+{/if}
 <main>
     <Hero />
     <About />
