@@ -25,7 +25,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        height: 100vh;
+        min-height: 100vh;
+        min-height: 100svh;
+
+        @media (height <= 550px) {
+            margin-block-start: 15rem;
+        }
         /* padding-inline: 1.75rem; */
 
         /* todo: Assigned padding-inline to <main>, keep at <main> or move to <section> elements? */
@@ -47,6 +52,10 @@
 
     .hero-container {
         margin-block-start: 2.5rem;
+
+        /* @media (height <= 600px) {
+            margin-block-start: 10rem;
+        } */
 
         h1 {
             font-size: clamp(
