@@ -62,8 +62,6 @@ li {
     --main-txt-clr: hsl(0, 0%, 70%);
     --main-header-clr: hsl(0, 0%, 90%);
     --accent-clr: hsl(194, 100%, 47%);
-
-    /* Fonts */
 }
 
 html {
@@ -75,6 +73,13 @@ body {
     font-family: 'Montserrat';
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+}
+
+/* scroll up margin offset */
+#about,
+#experience,
+#projects {
+    scroll-margin-block-start: 105px;
 }
 
 /* no scroll with open mobile menu */
