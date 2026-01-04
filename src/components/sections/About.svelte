@@ -1,13 +1,14 @@
 <script>
+    import { reveal } from '../actions/reveal.js';
 </script>
 
 <!-- mark: -->
 <section id="about">
     <div class="about-container">
-        <h2>About Me</h2>
+        <h2 use:reveal>About Me</h2>
         <div>
             <div class="text-container">
-                <p>
+                <p use:reveal>
                     Hello! My name is Trenton Avilla, and I love bringing ideas
                     to life on the web. My journey into web development began
                     several years ago in 2019 when I started experimenting with
@@ -15,20 +16,20 @@
                     how much I enjoyed the process of combining design and code
                     to create something people could interact with.
                 </p>
-                <p>
+                <p use:reveal>
                     Since then, I’ve worked on a variety of projects, from
                     small, basic web apps to more complex websites and designs.
                     What keeps me hooked is the challenge of creating intuitive,
                     user-friendly experiences that not only look good but feel
                     great to use.
                 </p>
-                <p>
+                <p use:reveal>
                     Lately, I’ve been focused on building responsive and
                     accessible web experiences using React and Tailwind
                     CSS—continually learning and evolving with each new project.
                 </p>
             </div>
-            <div class="image-container">
+            <div use:reveal class="image-container">
                 <img
                     src="./images/about-me.webp"
                     width="300"
@@ -44,10 +45,6 @@
 <!-- mark: -->
 <style>
     .about-container {
-        /* display: flex;
-        flex-direction: column;
-        align-items: center; */
-
         h2 {
             display: flex;
             align-items: center;

@@ -1,4 +1,5 @@
 <script>
+    import { reveal } from '../actions/reveal.js';
     import Logo from '../../assets/logos/logo.svg';
     import { slide } from 'svelte/transition';
     import { onMount, onDestroy } from 'svelte';
@@ -46,13 +47,18 @@
 <!-- mark: -->
 <header class:hide={!showHeader} class:blur={!isAtTop && showHeader}>
     <div class="header-container">
-        <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
+        <a
+            use:reveal={{ y: 0 }}
+            href="https://www.trent-avilla.com/"
+            aria-label="Go to homepage"
+        >
             <!-- Logo -->
             <img class="logo" src={Logo} alt="" />
         </a>
 
         <!-- mobile menu button -->
         <button
+            use:reveal={{ y: 0 }}
             class="hamburger"
             class:is-open={isOpen}
             on:click={toggleMenu}
@@ -93,16 +99,16 @@
         <!-- desktop menu -->
         <nav class="desktop-nav">
             <ul>
-                <li>
+                <li use:reveal={{ y: -24, duration: 0.4 }}>
                     <a href="#about">About</a>
                 </li>
-                <li>
+                <li use:reveal={{ y: -24, delay: 0.1, duration: 0.4 }}>
                     <a href="#experience">Experience</a>
                 </li>
-                <li>
+                <li use:reveal={{ y: -24, delay: 0.2, duration: 0.4 }}>
                     <a href="#projects">Projects</a>
                 </li>
-                <li>
+                <li use:reveal={{ y: -24, delay: 0.3, duration: 0.4 }}>
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
@@ -173,22 +179,17 @@
                 width 0.3s ease;
 
             &:nth-child(1) {
-                /* top: 14px; */
                 top: 11px;
-                /* width: 23px; */
                 width: 24px;
             }
 
             &:nth-child(2) {
                 top: 19px;
-                /* width: 30px; */
                 width: 32px;
             }
 
             &:nth-child(3) {
-                /* top: 24px; */
                 top: 27px;
-                /* width: 23px; */
                 width: 24px;
             }
         }
@@ -197,7 +198,6 @@
     .hamburger.is-open span {
         &:nth-child(1) {
             width: 28px;
-            /* transform: translateX(-0%) translateY(5px) rotate(45deg); */
             transform: translateX(-0%) translateY(8px) rotate(45deg);
         }
 
@@ -207,7 +207,6 @@
 
         &:nth-child(3) {
             width: 28px;
-            /* transform: translateX(-0%) translateY(-5px) rotate(-45deg); */
             transform: translateX(-0%) translateY(-8px) rotate(-45deg);
         }
     }

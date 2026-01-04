@@ -1,4 +1,6 @@
 <script>
+    import { reveal } from '../actions/reveal.js';
+
     import Square from '../../assets/icons/Square.svelte';
 
     let tabs = [
@@ -41,8 +43,8 @@
     <!-- <div>   
 todo: Blue dots here
     </div> -->
-    <h2 class="section-heading">Experience</h2>
-    <div class="experience-container">
+    <h2 use:reveal class="section-heading">Experience</h2>
+    <div use:reveal class="experience-container">
         <div class="tabs">
             {#each tabs as tab}
                 <button
@@ -74,7 +76,6 @@ todo: Blue dots here
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* height: 800px; */
     }
 
     h2 {
@@ -152,6 +153,7 @@ todo: Blue dots here
             border-block-end: none;
             border-inline: none;
             background-color: transparent;
+            transition: background-color 0.3s ease;
 
             &:hover {
                 background-color: hsl(199, 21%, 17%);
@@ -257,7 +259,6 @@ todo: Blue dots here
 
             ul {
                 display: grid;
-                /* grid-template-columns: repeat(2, minmax(0, 1fr)); */
                 grid-template-columns: 1fr;
                 gap: 0.5rem 2rem;
                 margin-block-start: 1.25rem;

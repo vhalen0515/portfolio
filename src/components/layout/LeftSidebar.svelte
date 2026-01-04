@@ -1,11 +1,13 @@
 <script>
+    import { reveal } from '../actions/reveal.js';
+
     import Github from '../../assets/icons/Github.svelte';
     import Linkedin from '../../assets/icons/Linkedin.svelte';
     import Instagram from '../../assets/icons/Instagram.svelte';
     import Email from '../../assets/icons/Email.svelte';
 </script>
 
-<div class="left-sidebar">
+<div use:reveal={{ y: 24, delay: 0.8, duration: 0.4 }} class="left-sidebar">
     <a
         href="https://github.com/vhalen0515"
         target="_blank"

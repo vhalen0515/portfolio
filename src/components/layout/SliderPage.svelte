@@ -340,7 +340,6 @@
         grid-column: 1 / -1;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
         padding-inline: 1rem;
-        /* padding-block: 1.5rem; */
         z-index: 10;
 
         @media (width >= 480px) {
@@ -443,8 +442,6 @@
             }
         }
     }
-
-    /* mark: */
 
     /* Controls */
     .prev,

@@ -1,11 +1,13 @@
 <script>
+    import { reveal } from '../actions/reveal.js';
+
     import Instagram from '../../assets/icons/Instagram.svelte';
     import Linkedin from '../../assets/icons/Linkedin.svelte';
     import Github from '../../assets/icons/Github.svelte';
 </script>
 
 <footer>
-    <div class="link-container">
+    <div use:reveal class="link-container">
         <a
             href="https://www.instagram.com/trent_av/"
             target="_blank"
@@ -28,11 +30,9 @@
             <Github width="24" height="24" />
         </a>
     </div>
-    <!-- <div> -->
-    <p>
+    <p use:reveal>
         Copyright © {new Date().getFullYear()} Trent Avilla. All Rights Reserved.
     </p>
-    <!-- </div> -->
 </footer>
 
 <style>

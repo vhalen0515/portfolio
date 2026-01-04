@@ -1,18 +1,25 @@
 <script>
+    import { reveal } from '../actions/reveal.js';
 </script>
 
 <section>
     <div class="hero-container">
-        <p>Hi, my name is</p>
-        <h1>Trenton Avilla<span>.</span></h1>
-        <h2>I am a Front-End Developer<span>.</span></h2>
-        <p>
+        <p use:reveal={{ y: 24, delay: 0.4, duration: 0.4 }}>Hi, my name is</p>
+        <h1 use:reveal={{ y: 24, delay: 0.5, duration: 0.4 }}>
+            Trenton Avilla<span>.</span>
+        </h1>
+        <h2 use:reveal={{ y: 24, delay: 0.6, duration: 0.4 }}>
+            I am a Front-End Developer<span>.</span>
+        </h2>
+        <p use:reveal={{ y: 24, delay: 0.7, duration: 0.4 }}>
             I like to design and build things for the web. I currently enjoy
             using React and Tailwind to create functional and engaging websites<span
                 >.</span
             >
         </p>
-        <a href="#projects">Recent Work</a>
+        <a use:reveal={{ y: 24, delay: 0.8, duration: 0.4 }} href="#projects"
+            >Recent Work</a
+        >
     </div>
     <!-- todo: Add blue dot images, same spot of different? -->
     <!-- <div> -->
@@ -31,19 +38,6 @@
         @media (height <= 550px) {
             margin-block-start: 8rem;
         }
-        /* padding-inline: 1.75rem; */
-
-        /* todo: Assigned padding-inline to <main>, keep at <main> or move to <section> elements? */
-        /* @media (width >= 480px) {
-            padding-inline: 3.25rem;
-        }
-        @media (width > 768px) {
-            padding-inline: 6.5rem;
-        }
-
-        @media (width >= 1000px) {
-            padding-inline: 9.75rem;
-        } */
 
         span {
             color: var(--accent-clr);
@@ -52,10 +46,6 @@
 
     .hero-container {
         margin-block-start: 2.5rem;
-
-        /* @media (height <= 600px) {
-            margin-block-start: 10rem;
-        } */
 
         h1 {
             font-size: clamp(

@@ -1,18 +1,19 @@
 <script>
+    import { reveal } from '../actions/reveal.js';
+
     import SliderPage from '../layout/SliderPage.svelte';
 </script>
 
 <section id="projects">
     <div class="projects-container">
-        <h2>Some Recent Projects</h2>
-        <div>
+        <h2 use:reveal>Some Recent Projects</h2>
+        <div use:reveal>
             <SliderPage />
         </div>
     </div>
 </section>
 
 <style>
-
     .projects-container {
         h2 {
             display: flex;
