@@ -18,8 +18,6 @@
 
 <style>
     .icon {
-        /* width: 24px;
-        height: 24px; */
         fill: none;
         stroke: currentColor;
         stroke-width: 2;

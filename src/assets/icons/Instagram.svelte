@@ -19,8 +19,6 @@
 
 <style>
     .icon {
-        /* width: 24px;
-        height: 20px; */
         fill: none;
         stroke: currentColor;
         stroke-width: 2;
