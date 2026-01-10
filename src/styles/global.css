@@ -73,6 +73,7 @@ body {
     font-family: 'Montserrat';
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+    overflow-x: hidden;
 }
 
 /* scroll up margin offset */

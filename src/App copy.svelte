@@ -103,10 +103,7 @@
 </main> -->
 <main>
     <!-- <div class="section-container"> -->
-    <section class="component-section">
         <Hero />
-    </section>
-    <section class="component-section">
         <div
             class="dot-container first left"
             use:reveal={{ x: -24, y: 0, duration: 0.4 }}
@@ -114,8 +111,6 @@
             <BlueDots width="400" />
         </div>
         <About />
-    </section>
-    <section class="component-section">
         <div
             use:reveal={{ x: 24, y: 0, duration: 0.4 }}
             class="dot-container second right"
@@ -125,8 +120,6 @@
             </div>
         </div>
         <Experience />
-    </section>
-    <section class="component-section">
         <div
             use:reveal={{ x: -24, y: 0, duration: 0.4 }}
             class="dot-container third left"
@@ -134,8 +127,6 @@
             <BlueDots width="400" />
         </div>
         <Projects />
-    </section>
-    <section class="component-section">
         <div
             use:reveal={{ x: 24, y: 0, duration: 0.4 }}
             class="dot-container last right"
@@ -145,14 +136,13 @@
             </div>
         </div>
         <Contact />
-    </section>
     <!-- </div> -->
 </main>
 <Footer />
 
 <style>
     main {
-        /* position: relative; */
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: 25rem;
@@ -171,10 +161,6 @@
         @media (width >= 1000px) {
             padding-inline: 9.75rem;
         }
-    }
-
-    .component-section {
-        position: relative;
     }
 
     /* .section-container {
@@ -201,7 +187,8 @@
 
     .dot-container {
         position: absolute;
-        overflow-x: hidden;
+        /* top: 50%;
+        transform: translateY(-50%); */
         visibility: hidden;
 
         @media (width >=1000px) {
@@ -209,45 +196,37 @@
             visibility: visible;
         }
 
-        @media (width >=1700px) {
+        @media (width >=1800px) {
             visibility: hidden;
         }
     }
 
     .dot-container.first {
-        /* top: 18%; */
+        top: 18%;
         /* top: 54rem; */
-        top: -25rem;
     }
 
     .dot-container.second {
-        /* top: 41%; */
+        top: 41%;
         /* top: 110rem; */
-        top: -25rem;
     }
 
     .dot-container.third {
-        /* top: 60%; */
+        top: 60%;
         /* top: 149rem; */
-        top: -25rem;
     }
 
     .dot-container.last {
-        /* top: 83%; */
+        top: 83%;
         /* top: 200rem; */
-        top: -25rem;
     }
 
     .dot-container.left {
-        /* left: -25px; */
-        /* left: -11.25rem; */
-        left: calc(-1.09 * (50vw - 50%));
+        left: -55px;
     }
 
     .dot-container.right {
-        /* right: -25px; */
-        /* right: -11.25rem; */
-        right: calc(-1.09 * (50vw - 50%));
+        right: -55px;
     }
 
     .rotate {

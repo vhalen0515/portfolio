@@ -1,6 +1,5 @@
 <script>
     import { reveal } from '../actions/reveal.js';
-
     import Square from '../../assets/icons/Square.svelte';
 
     let tabs = [
@@ -40,9 +39,6 @@
 
 <!-- mark: -->
 <section id="experience">
-    <!-- <div>   
-todo: Blue dots here
-    </div> -->
     <h2 use:reveal class="section-heading">Experience</h2>
     <div use:reveal class="experience-container">
         <div class="tabs">
