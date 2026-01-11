@@ -1,4 +1,4 @@
-/*----------------------------------------------------- CSS Reset -------------------------------------------------*/
+/*------------------------------------- CSS Reset ---------------------------------*/
 *,
 *::before,
 *::after {
@@ -42,10 +42,6 @@ h6 {
     overflow-wrap: break-word;
 }
 
-/* p {
-    text-wrap: pretty;
-} */
-
 a {
     text-decoration: none;
     cursor: pointer;
@@ -55,7 +51,7 @@ li {
     list-style: none;
 }
 
-/*--------------------------------------------- Variables / Utilities -----------------------------------------*/
+/*------------------------------------ Variables / Utilities --------------------------------*/
 :root {
     /* Colors */
     --bg-clr: hsl(0, 0%, 13%);
@@ -67,6 +63,7 @@ li {
 html {
     background: var(--bg-clr);
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -90,7 +87,7 @@ body {
     width: 100%;
 }
 
-/*--------------------------------------------- Typography ----------------------------------------------------*/
+/*------------------------------------ Typography ---------------------------------------*/
 @font-face {
     font-family: Reddit-Mono;
     src: url('../assets/fonts/Reddit-Mono.woff2') format('woff2');

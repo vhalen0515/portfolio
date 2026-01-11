@@ -1,5 +1,6 @@
 <script>
     import { reveal } from '../actions/reveal.js';
+
     import SliderPage from '../layout/SliderPage.svelte';
 </script>
 

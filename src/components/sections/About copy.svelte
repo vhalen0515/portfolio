@@ -45,7 +45,6 @@
 <!-- mark: -->
 <style>
     .about-container {
-
         h2 {
             display: flex;
             align-items: center;

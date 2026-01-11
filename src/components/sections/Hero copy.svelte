@@ -21,6 +21,10 @@
             >Recent Work</a
         >
     </div>
+    <!-- todo: Add blue dot images, same spot of different? -->
+    <!-- <div> -->
+    <!-- blue dots -->
+    <!-- </div> -->
 </section>
 
 <style>

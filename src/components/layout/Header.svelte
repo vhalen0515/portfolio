@@ -141,7 +141,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 1200px;
+        max-width: 1280px;
         padding: 1.5rem;
         margin-inline: auto;
 
