@@ -42,60 +42,69 @@
     <LeftSidebar />
     <RightSidebar />
 {/if}
-<main>
-    <section class="component-section">
-        <Hero />
-    </section>
-    <section class="component-section">
-        <div
-            class="dot-container first left"
-            use:reveal={{ x: -24, y: 0, duration: 0.4 }}
-        >
-            <BlueDots width="400" />
-        </div>
-        <About />
-    </section>
-    <section class="component-section">
-        <div
-            use:reveal={{ x: 24, y: 0, duration: 0.4 }}
-            class="dot-container second right"
-        >
-            <div class="rotate">
+<div class="page">
+    <main>
+        <section class="component-section">
+            <Hero />
+        </section>
+        <section class="component-section">
+            <div
+                class="dot-container first left"
+                use:reveal={{ x: -24, y: 0, duration: 0.4 }}
+            >
                 <BlueDots width="400" />
             </div>
-        </div>
-        <Experience />
-    </section>
-    <section class="component-section">
-        <div
-            use:reveal={{ x: -24, y: 0, duration: 0.4 }}
-            class="dot-container third left"
-        >
-            <BlueDots width="400" />
-        </div>
-        <Projects />
-    </section>
-    <section class="component-section">
-        <div
-            use:reveal={{ x: 24, y: 0, duration: 0.4 }}
-            class="dot-container last right"
-        >
-            <div class="rotate">
+            <About />
+        </section>
+        <section class="component-section">
+            <div
+                use:reveal={{ x: 24, y: 0, duration: 0.4 }}
+                class="dot-container second right"
+            >
+                <div class="rotate">
+                    <BlueDots width="400" />
+                </div>
+            </div>
+            <Experience />
+        </section>
+        <section class="component-section">
+            <div
+                use:reveal={{ x: -24, y: 0, duration: 0.4 }}
+                class="dot-container third left"
+            >
                 <BlueDots width="400" />
             </div>
-        </div>
-        <Contact />
-    </section>
-</main>
+            <Projects />
+        </section>
+        <section class="component-section">
+            <div
+                use:reveal={{ x: 24, y: 0, duration: 0.4 }}
+                class="dot-container last right"
+            >
+                <div class="rotate">
+                    <BlueDots width="400" />
+                </div>
+            </div>
+            <Contact />
+        </section>
+    </main>
+</div>
 <Footer />
 
 <style>
+    .page {
+        display: grid;
+        grid-template-columns: 1fr minmax(0, 1280px) 1fr;
+        width: 100%;
+        overflow-x: clip;
+    }
+
     main {
+        grid-column: 2;
         display: flex;
         flex-direction: column;
         gap: 25rem;
         max-width: 1280px;
-        margin-inline: auto;
         padding-inline: 1.75rem;
 
         @media (width >= 480px) {

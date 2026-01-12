@@ -63,20 +63,12 @@ li {
 html {
     background: var(--bg-clr);
     scroll-behavior: smooth;
-
-    @media (width >= 1000px) {
-        overflow-x: hidden;
-    }
 }
 
 body {
     font-family: 'Montserrat';
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
-
-    @media (width >= 1000px) {
-        overflow-x: hidden;
-    }
 }
 
 /* scroll up margin offset */
