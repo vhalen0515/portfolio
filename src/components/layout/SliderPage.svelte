@@ -1,6 +1,15 @@
 <script>
+    /* =====================================================
+       IMPORTS
+    ===================================================== */
+
+    // lifecycle
     import { onMount, onDestroy } from 'svelte';
+
+    // data
     import { SLIDES } from '../../lib/data/projects.js';
+
+    // icons
     import Arrow from '../../assets/icons/Arrow.svelte';
     import Github from '../../assets/icons/Github.svelte';
     import ExternalLink from '../../assets/icons/ExternalLink.svelte';
@@ -8,6 +17,7 @@
     /* =====================================================
        CONFIGURATION
     ===================================================== */
+
     export let autoplay = false;
     export let autoplayDelay = 1000;
     export let transitionDuration = 700;
@@ -15,22 +25,25 @@
     const DRAG_THRESHOLD = 60; // px required to change slides
 
     /* =====================================================
-       CORE CAROUSEL STATE FLAGS
+       CORE STATE
     ===================================================== */
+
     let interval;
-    let isTransitioning = true;
     let isAnimating = false;
-    let dragAllowed = false; // NEW: only true if pointer started inside slider
+    let isTransitioning = true;
 
     /* =====================================================
        DOM REFERENCES
     ===================================================== */
+
     let sliderEl;
 
     /* =====================================================
-       POINTER / DRAG STATE
+       POINTER STATE
     ===================================================== */
+
     let isDragging = false;
+    let dragAllowed = false; // pointer must start inside slider
     let startX = 0;
     let currentTranslate = 0;
     let dragOffset = 0;
@@ -38,13 +51,15 @@
     /* =====================================================
        SLIDE MODEL
     ===================================================== */
+
     const slides = [SLIDES[SLIDES.length - 1], ...SLIDES, SLIDES[0]];
     const lastRealIndex = slides.length - 2;
     let currentIndex = 1;
 
     /* =====================================================
-       AUTOPLAY CONTROL
+       AUTOPLAY
     ===================================================== */
+
     function startAutoplay() {
         if (!autoplay) return;
         stopAutoplay();
@@ -58,6 +73,7 @@
     /* =====================================================
        NAVIGATION
     ===================================================== */
+
     function next() {
         if (isAnimating) return;
         isAnimating = true;
@@ -83,8 +99,9 @@
     }
 
     /* =====================================================
-       TRANSITION SYNC
+       TRANSITION COORDINATION
     ===================================================== */
+
     function handleTransitionEnd(event) {
         if (event.propertyName !== 'transform') return;
         isAnimating = false;
@@ -101,8 +118,9 @@
     }
 
     /* =====================================================
-       POINTER DRAG HANDLERS
+       POINTER / DRAG HANDLERS
     ===================================================== */
+
     function onPointerDown(event) {
         if (isAnimating) return;
         if (event.button !== 0) return;
@@ -115,7 +133,7 @@
     }
 
     function onPointerMove(event) {
-        if (!dragAllowed) return; // ⬅️ prevent drag if pointer started outside
+        if (!dragAllowed) return;
         if (event.buttons !== 1) return;
 
         const delta = event.clientX - startX;
@@ -151,6 +169,7 @@
     /* =====================================================
        LIFECYCLE
     ===================================================== */
+
     onMount(startAutoplay);
     onDestroy(stopAutoplay);
 </script>

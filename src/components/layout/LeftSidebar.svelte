@@ -1,6 +1,8 @@
 <script>
+    // actions
     import { reveal } from '../actions/reveal.js';
 
+    // icons
     import Github from '../../assets/icons/Github.svelte';
     import Linkedin from '../../assets/icons/Linkedin.svelte';
     import Instagram from '../../assets/icons/Instagram.svelte';

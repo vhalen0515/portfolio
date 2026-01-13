@@ -1,4 +1,44 @@
-/*------------------------------------- CSS Reset ---------------------------------*/
+/* .no-scroll {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+} */
+
+/* =====================================================
+   FONTS
+===================================================== */
+
+@font-face {
+    font-family: Reddit-Mono;
+    src: url('../assets/fonts/Reddit-Mono.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../assets/fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../assets/fonts/Montserrat-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('../assets/fonts/Montserrat-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* =====================================================
+   CSS RESET
+===================================================== */
+
 *,
 *::before,
 *::after {
@@ -51,14 +91,20 @@ li {
     list-style: none;
 }
 
-/*------------------------------------ Variables / Utilities --------------------------------*/
+/* =====================================================
+   PROJECT COLORS
+===================================================== */
+
 :root {
-    /* Colors */
     --bg-clr: hsl(0, 0%, 13%);
     --main-txt-clr: hsl(0, 0%, 70%);
     --main-header-clr: hsl(0, 0%, 90%);
     --accent-clr: hsl(194, 100%, 47%);
 }
+
+/* =====================================================
+   BASE DOCUMENT
+===================================================== */
 
 html {
     background: var(--bg-clr);
@@ -77,44 +123,20 @@ body {
     -moz-osx-font-smoothing: auto;
 }
 
-/* scroll up margin offset */
+/* =====================================================
+   GLOBAL UTILITIES
+===================================================== */
+
+/* Scroll offset for anchor navigation */
 #about,
 #experience,
 #projects {
     scroll-margin-block-start: 105px;
 }
 
-/* no scroll with open mobile menu */
+/* Disable scroll when mobile menu is open */
 .no-scroll {
     overflow: hidden;
-    position: fixed;
-    width: 100%;
-}
-
-/*------------------------------------ Typography ---------------------------------------*/
-@font-face {
-    font-family: Reddit-Mono;
-    src: url('../assets/fonts/Reddit-Mono.woff2') format('woff2');
-    font-display: swap;
-}
-
-@font-face {
-    font-family: Montserrat;
-    src: url('../assets/fonts/Montserrat-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: Montserrat;
-    src: url('../assets/fonts/Montserrat-Semibold.woff2') format('woff2');
-    font-weight: 600;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: Montserrat;
-    src: url('../assets/fonts/Montserrat-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-display: swap;
+    /* position: fixed;
+    width: 100%; */
 }

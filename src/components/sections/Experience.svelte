@@ -1,5 +1,8 @@
 <script>
+    // actions
     import { reveal } from '../actions/reveal.js';
+
+    // icon
     import Square from '../../assets/icons/Square.svelte';
 
     let tabs = [

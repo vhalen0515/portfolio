@@ -1,4 +1,5 @@
 <script>
+    // actions
     import { reveal } from '../actions/reveal.js';
 </script>
 

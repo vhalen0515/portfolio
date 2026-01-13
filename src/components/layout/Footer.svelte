@@ -1,6 +1,8 @@
 <script>
+    // actions
     import { reveal } from '../actions/reveal.js';
 
+    // icons
     import Instagram from '../../assets/icons/Instagram.svelte';
     import Linkedin from '../../assets/icons/Linkedin.svelte';
     import Github from '../../assets/icons/Github.svelte';
@@ -67,8 +69,8 @@
         text-align: center;
         margin-block: 0.75rem;
 
-        @media(width >= 480px) {
-            margin-block: 1.5rem
+        @media (width >= 480px) {
+            margin-block: 1.5rem;
         }
     }
 </style>

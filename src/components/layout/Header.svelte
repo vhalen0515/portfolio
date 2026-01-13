@@ -1,29 +1,38 @@
 <script>
+    // actions & transitions
     import { reveal } from '../actions/reveal.js';
-    import Logo from '../../assets/logos/logo.svg';
     import { slide } from 'svelte/transition';
+
+    // logo
+    import Logo from '../../assets/logos/logo.svg';
+
+    // lifecycle
     import { onMount, onDestroy } from 'svelte';
 
+    /* -------------------------------------
+       State
+    ------------------------------------- */
     let isOpen = false;
     let showHeader = true;
     let lastScrollY = 0;
     let isScrollingUp = false;
     let isAtTop = true;
 
+    /* -------------------------------------
+       Menu behavior
+    ------------------------------------- */
     function toggleMenu() {
         isOpen = !isOpen;
     }
 
-    // No scroll when mobile menu is open
+    // Prevent body scroll when mobile menu is open
     $: {
-        if (isOpen) {
-            document.body.classList.add('no-scroll');
-        } else {
-            document.body.classList.remove('no-scroll');
-        }
+        document.body.classList.toggle('no-scroll', isOpen);
     }
 
-    // Desktop menu disappears on scroll-down, reappears on scroll-up
+    /* -------------------------------------
+       Scroll behavior (desktop)
+    ------------------------------------- */
     function handleScroll() {
         const currentScrollY = window.scrollY;
 
@@ -35,6 +44,9 @@
         lastScrollY = currentScrollY;
     }
 
+    /* -------------------------------------
+       Lifecycle
+    ------------------------------------- */
     onMount(() => {
         window.addEventListener('scroll', handleScroll);
     });
@@ -45,14 +57,14 @@
 </script>
 
 <!-- mark: -->
-<header class:hide={!showHeader} class:blur={!isAtTop && showHeader}>
+
+<header class:hide={!showHeader} class:blur={!isAtTop && showHeader && !isOpen}>
     <div class="header-container">
         <a
             use:reveal={{ y: 0 }}
             href="https://www.trent-avilla.com/"
             aria-label="Go to homepage"
         >
-            <!-- Logo -->
             <img class="logo" src={Logo} alt="" />
         </a>
 
@@ -69,32 +81,6 @@
             <span></span>
             <span></span>
         </button>
-
-        <!-- mobile menu popout -->
-        {#if isOpen}
-            <nav
-                class="mobile-nav"
-                class:is-open={isOpen}
-                transition:slide={{ axis: 'y', duration: 300 }}
-            >
-                <ul>
-                    <li>
-                        <a on:click={toggleMenu} href="#about">About</a>
-                    </li>
-                    <li>
-                        <a on:click={toggleMenu} href="#experience"
-                            >Experience</a
-                        >
-                    </li>
-                    <li>
-                        <a on:click={toggleMenu} href="#projects">Projects</a>
-                    </li>
-                    <li>
-                        <a on:click={toggleMenu} href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </nav>
-        {/if}
 
         <!-- desktop menu -->
         <nav class="desktop-nav">
@@ -116,7 +102,32 @@
     </div>
 </header>
 
+<!-- mobile menu popout -->
+{#if isOpen}
+    <nav
+        class="mobile-nav"
+        class:is-open={isOpen}
+        transition:slide={{ axis: 'y', duration: 300 }}
+    >
+        <ul>
+            <li>
+                <a on:click={toggleMenu} href="#about">About</a>
+            </li>
+            <li>
+                <a on:click={toggleMenu} href="#experience">Experience</a>
+            </li>
+            <li>
+                <a on:click={toggleMenu} href="#projects">Projects</a>
+            </li>
+            <li>
+                <a on:click={toggleMenu} href="#contact">Contact</a>
+            </li>
+        </ul>
+    </nav>
+{/if}
+
 <!-- mark: -->
+ 
 <style>
     header {
         position: fixed;
@@ -212,17 +223,18 @@
     }
 
     .mobile-nav {
-        position: absolute;
+        position: fixed;
         inset: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 100dvh;
         overflow-y: auto;
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
+        z-index: 40;
 
         @media (height <= 510px) {
             justify-content: flex-start;
