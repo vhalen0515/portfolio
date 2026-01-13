@@ -26,8 +26,10 @@
     }
 
     // Prevent body scroll when mobile menu is open
-    $: {
-        document.body.classList.toggle('no-scroll', isOpen);
+    $: if (isOpen) {
+        document.body.classList.add('no-scroll');
+    } else {
+        document.body.classList.remove('no-scroll');
     }
 
     /* -------------------------------------
@@ -127,7 +129,7 @@
 {/if}
 
 <!-- mark: -->
- 
+
 <style>
     header {
         position: fixed;
