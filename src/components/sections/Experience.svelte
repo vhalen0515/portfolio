@@ -41,7 +41,7 @@
 </script>
 
 <!-- mark: -->
-<section id="experience">
+<div id="experience">
     <h2 use:reveal class="section-heading">Experience</h2>
     <div use:reveal class="experience-container">
         <div class="tabs">
@@ -67,11 +67,11 @@
             </ul>
         </div>
     </div>
-</section>
+</div>
 
 <!-- mark: -->
 <style>
-    section {
+    #experience {
         display: flex;
         flex-direction: column;
         align-items: center;

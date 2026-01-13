@@ -3,7 +3,7 @@
     import { reveal } from '../actions/reveal.js';
 </script>
 
-<section>
+<div id="hero">
     <div class="hero-container">
         <p use:reveal={{ y: 24, delay: 0.4, duration: 0.4 }}>Hi, my name is</p>
         <h1 use:reveal={{ y: 24, delay: 0.5, duration: 0.4 }}>
@@ -22,10 +22,10 @@
             >Recent Work</a
         >
     </div>
-</section>
+</div>
 
 <style>
-    section {
+    #hero {
         display: flex;
         flex-direction: column;
         justify-content: center;

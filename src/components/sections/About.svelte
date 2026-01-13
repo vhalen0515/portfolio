@@ -4,7 +4,7 @@
 </script>
 
 <!-- mark: -->
-<section id="about">
+<div id="about">
     <div class="about-container">
         <h2 use:reveal>About Me</h2>
         <div>
@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- mark: -->
 <style>

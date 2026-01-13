@@ -3,7 +3,7 @@
     import { reveal } from '../actions/reveal.js';
 </script>
 
-<section id="contact">
+<div id="contact">
     <h2 use:reveal>Need Some Help?</h2>
     <h3 use:reveal>Let's Connect</h3>
     <p use:reveal>
@@ -18,10 +18,10 @@
     >
         Reach Out
     </a>
-</section>
+</div>
 
 <style>
-    section {
+    #contact {
         display: flex;
         flex-direction: column;
         align-items: center;

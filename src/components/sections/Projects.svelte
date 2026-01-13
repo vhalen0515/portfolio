@@ -6,14 +6,14 @@
     import SliderPage from '../layout/SliderPage.svelte';
 </script>
 
-<section id="projects">
+<div id="projects">
     <div class="projects-container">
         <h2 use:reveal>Some Recent Projects</h2>
         <div use:reveal>
             <SliderPage />
         </div>
     </div>
-</section>
+</div>
 
 <style>
     .projects-container {

@@ -1,21 +1,23 @@
 <script>
     import { onMount, onDestroy } from 'svelte';
-    import { reveal } from './components/actions/reveal.js';
 
-    // Sections
+    // actions
+    import { reveal } from './components/actions/reveal.js';
+    
+    // sections
     import Hero from './components/sections/Hero.svelte';
     import About from './components/sections/About.svelte';
     import Experience from './components/sections/Experience.svelte';
     import Projects from './components/sections/Projects.svelte';
     import Contact from './components/sections/Contact.svelte';
-
-    // Components
+    
+    // components
     import Header from './components/layout/Header.svelte';
     import LeftSidebar from './components/layout/LeftSidebar.svelte';
     import RightSidebar from './components/layout/RightSidebar.svelte';
     import Footer from './components/layout/Footer.svelte';
-
-    // Images
+    
+    // images
     import BlueDots from './assets/icons/BlueDots.svelte';
 
     let showSidebars = true;
@@ -47,6 +49,7 @@
         <section class="component-section">
             <Hero />
         </section>
+
         <section class="component-section">
             <div
                 class="dot-container first left"
@@ -56,6 +59,7 @@
             </div>
             <About />
         </section>
+
         <section class="component-section">
             <div
                 use:reveal={{ x: 24, y: 0, duration: 0.4 }}
@@ -67,6 +71,7 @@
             </div>
             <Experience />
         </section>
+
         <section class="component-section">
             <div
                 use:reveal={{ x: -24, y: 0, duration: 0.4 }}
@@ -76,6 +81,7 @@
             </div>
             <Projects />
         </section>
+        
         <section class="component-section">
             <div
                 use:reveal={{ x: 24, y: 0, duration: 0.4 }}
