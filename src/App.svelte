@@ -3,20 +3,20 @@
 
     // actions
     import { reveal } from './components/actions/reveal.js';
-    
+
     // sections
     import Hero from './components/sections/Hero.svelte';
     import About from './components/sections/About.svelte';
     import Experience from './components/sections/Experience.svelte';
     import Projects from './components/sections/Projects.svelte';
     import Contact from './components/sections/Contact.svelte';
-    
+
     // components
     import Header from './components/layout/Header.svelte';
     import LeftSidebar from './components/layout/LeftSidebar.svelte';
     import RightSidebar from './components/layout/RightSidebar.svelte';
     import Footer from './components/layout/Footer.svelte';
-    
+
     // images
     import BlueDots from './assets/icons/BlueDots.svelte';
 
@@ -31,15 +31,23 @@
     // lifecycle
     onMount(() => {
         history.scrollRestoration = 'manual';
-        window.scrollTo(0, 0);
 
-        checkHeight();
-        window.addEventListener('resize', checkHeight);
+        requestAnimationFrame(() => {
+            window.scrollTo(0, 0);
+        });
     });
 
-    onDestroy(() => {
-        window.removeEventListener('resize', checkHeight);
-    });
+    // onMount(() => {
+    //     history.scrollRestoration = 'manual';
+    //     window.scrollTo(0, 0);
+
+    //     checkHeight();
+    //     window.addEventListener('resize', checkHeight);
+    // });
+
+    // onDestroy(() => {
+    //     window.removeEventListener('resize', checkHeight);
+    // });
 </script>
 
 <Header />
@@ -84,7 +92,7 @@
             </div>
             <Projects />
         </section>
-        
+
         <section class="component-section">
             <div
                 use:reveal={{ x: 24, y: 0, duration: 0.4 }}
