@@ -17,8 +17,7 @@
     let lastScrollY = 0;
     let isScrollingUp = false;
     let isAtTop = true;
-
-    let mounted = false;
+    // let mounted = false;
 
     /* -------------------------------------
        Menu behavior
@@ -118,6 +117,7 @@
         class="mobile-nav"
         class:is-open={isOpen}
         transition:slide={{ axis: 'y', duration: 300 }}
+        aria-label="Mobile navigation"
     >
         <ul>
             <li>
@@ -242,8 +242,8 @@
         height: 100dvh;
         overflow-y: auto;
         background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        /* backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px); */
         z-index: 40;
 
         @media (height <= 510px) {
