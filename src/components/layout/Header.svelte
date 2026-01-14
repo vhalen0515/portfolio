@@ -1,101 +1,69 @@
 <script>
+    // actions & transitions
     import { reveal } from '../actions/reveal.js';
     import { slide } from 'svelte/transition';
+
+    // logo
     import Logo from '../../assets/logos/logo.svg';
+
+    // lifecycle
     import { onMount, onDestroy } from 'svelte';
 
+    /* -------------------------------------
+       State
+    ------------------------------------- */
     let isOpen = false;
     let showHeader = true;
     let lastScrollY = 0;
     let isScrollingUp = false;
     let isAtTop = true;
+
     let mounted = false;
 
+    /* -------------------------------------
+       Menu behavior
+    ------------------------------------- */
     function toggleMenu() {
         isOpen = !isOpen;
     }
 
+    // Prevent body scroll when mobile menu is open
+    $: if (isOpen) {
+        document.body.classList.add('no-scroll');
+    } else {
+        document.body.classList.remove('no-scroll');
+    }
+
+    // $: if (mounted) {
+    //     document.body.classList.toggle('no-scroll', isOpen);
+    // }
+
+    /* -------------------------------------
+       Scroll behavior (desktop)
+    ------------------------------------- */
     function handleScroll() {
         const currentScrollY = window.scrollY;
+
         isScrollingUp = currentScrollY < lastScrollY;
         isAtTop = currentScrollY < 50;
+
         showHeader = isScrollingUp || isAtTop;
+
         lastScrollY = currentScrollY;
     }
 
+    /* -------------------------------------
+       Lifecycle
+    ------------------------------------- */
     onMount(() => {
-        mounted = true;
+        // mounted = true;
         window.addEventListener('scroll', handleScroll);
     });
 
     onDestroy(() => {
         window.removeEventListener('scroll', handleScroll);
-        document.body.classList.remove('no-scroll');
+        // document.body.classList.remove('no-scroll');
     });
-
-    $: if (mounted) {
-        document.body.classList.toggle('no-scroll', isOpen);
-    }
-
-
-
-    // // actions & transitions
-    // import { reveal } from '../actions/reveal.js';
-    // import { slide } from 'svelte/transition';
-
-    // // logo
-    // import Logo from '../../assets/logos/logo.svg';
-
-    // // lifecycle
-    // import { onMount, onDestroy } from 'svelte';
-
-    // /* -------------------------------------
-    //    State
-    // ------------------------------------- */
-    // let isOpen = false;
-    // let showHeader = true;
-    // let lastScrollY = 0;
-    // let isScrollingUp = false;
-    // let isAtTop = true;
-
-    // /* -------------------------------------
-    //    Menu behavior
-    // ------------------------------------- */
-    // function toggleMenu() {
-    //     isOpen = !isOpen;
-    // }
-
-    // // Prevent body scroll when mobile menu is open
-    // $: if (isOpen) {
-    //     document.body.classList.add('no-scroll');
-    // } else {
-    //     document.body.classList.remove('no-scroll');
-    // }
-
-    // /* -------------------------------------
-    //    Scroll behavior (desktop)
-    // ------------------------------------- */
-    // function handleScroll() {
-    //     const currentScrollY = window.scrollY;
-
-    //     isScrollingUp = currentScrollY < lastScrollY;
-    //     isAtTop = currentScrollY < 50;
-
-    //     showHeader = isScrollingUp || isAtTop;
-
-    //     lastScrollY = currentScrollY;
-    // }
-
-    // /* -------------------------------------
-    //    Lifecycle
-    // ------------------------------------- */
-    // onMount(() => {
-    //     window.addEventListener('scroll', handleScroll);
-    // });
-
-    // onDestroy(() => {
-    //     window.removeEventListener('scroll', handleScroll);
-    // });
 </script>
 
 <!-- mark: -->
