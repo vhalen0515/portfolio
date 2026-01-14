@@ -33,7 +33,6 @@
         document.body.classList.remove('no-scroll');
     });
 
-    // ✅ Lighthouse-safe: runs only AFTER mount
     $: if (mounted) {
         document.body.classList.toggle('no-scroll', isOpen);
     }
