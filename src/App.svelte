@@ -20,12 +20,15 @@
     // images
     import BlueDots from './assets/icons/BlueDots.svelte';
 
+    // state
     let showSidebars = true;
 
+    // sidebar appearance function
     function checkHeight() {
         showSidebars = window.innerHeight >= 400;
     }
 
+    // lifecycle
     onMount(() => {
         history.scrollRestoration = 'manual';
         window.scrollTo(0, 0);
