@@ -1,8 +1,6 @@
 <script>
     // actions & transitions
     import { reveal } from '../actions/reveal.js';
-    // import { slide } from 'svelte/transition';
-    // transition:slide={{ axis: 'y', duration: 300 }}
 
     // logo
     import Logo from '../../assets/logos/logo.svg';
@@ -16,27 +14,29 @@
     let isOpen = false;
     let showHeader = true;
     let lastScrollY = 0;
-    // let isScrollingUp = false;
     let isAtTop = true;
-    // let mounted = false;
+    let menuButton;
+    const desktopQuery = '(min-width: 769px)';
 
     /* -------------------------------------
        Menu behavior
     ------------------------------------- */
     function toggleMenu() {
         isOpen = !isOpen;
+
+        if (!isOpen) {
+            menuButton?.focus();
+        }
+    }
+
+    function handleKeydown(e) {
+        if (e.key === 'Escape' && isOpen) {
+            isOpen = false;
+        }
     }
 
     // Prevent body scroll when mobile menu is open
-    $: if (isOpen) {
-        document.body.classList.add('no-scroll');
-    } else {
-        document.body.classList.remove('no-scroll');
-    }
-
-    // $: if (mounted) {
-    //     document.body.classList.toggle('no-scroll', isOpen);
-    // }
+    $: document.body.classList.toggle('no-scroll', isOpen);
 
     /* -------------------------------------
        Scroll behavior (desktop)
@@ -44,10 +44,8 @@
     function handleScroll() {
         const currentScrollY = window.scrollY;
 
-        // isScrollingUp = currentScrollY < lastScrollY;
         isAtTop = currentScrollY < 50;
 
-        // showHeader = isScrollingUp || isAtTop;
         showHeader = currentScrollY < lastScrollY || isAtTop;
 
         lastScrollY = currentScrollY;
@@ -57,42 +55,32 @@
        Lifecycle
     ------------------------------------- */
     onMount(() => {
-        // mounted = true;
         window.addEventListener('scroll', handleScroll);
+
+        const mq = window.matchMedia(desktopQuery);
+
+        const handleChange = (e) => {
+            if (e.matches) {
+                isOpen = false;
+            }
+        };
+
+        mq.addEventListener('change', handleChange);
+
+        return () => {
+            mq.removeEventListener('change', handleChange);
+        };
     });
 
     onDestroy(() => {
         window.removeEventListener('scroll', handleScroll);
-        // document.body.classList.remove('no-scroll');
     });
 </script>
 
+<svelte:window on:keydown={handleKeydown} />
 <!-- mark: -->
 
 <header class:hide={!showHeader} class:blur={!isAtTop && showHeader && !isOpen}>
-    <!-- <div class="header-container"> -->
-    <!-- <a
-            use:reveal={{ y: 0 }}
-            href="https://www.trent-avilla.com/"
-            aria-label="Go to homepage"
-        >
-            <img class="logo" src={Logo} alt="" />
-        </a> -->
-
-    <!-- mobile menu button -->
-    <!-- <button
-            use:reveal={{ y: 0 }}
-            class="hamburger"
-            class:is-open={isOpen}
-            on:click={toggleMenu}
-            aria-label="Menu"
-            aria-expanded={isOpen}
-        >
-            <span></span>
-            <span></span>
-            <span></span>
-        </button> -->
-
     <div class="mobile-header">
         <a
             use:reveal={{ y: 0 }}
@@ -106,9 +94,11 @@
             use:reveal={{ y: 0 }}
             class="hamburger"
             class:is-open={isOpen}
+            bind:this={menuButton}
             on:click={toggleMenu}
             aria-label={isOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={isOpen}
+            aria-controls="mobile-menu"
         >
             <span></span>
             <span></span>
@@ -141,34 +131,15 @@
             </ul>
         </nav>
     </div>
-
-    <!-- desktop menu -->
-    <!-- <nav class="desktop-nav">
-            <ul>
-                <li use:reveal={{ y: -24, duration: 0.4 }}>
-                    <a href="#about">About</a>
-                </li>
-                <li use:reveal={{ y: -24, delay: 0.1, duration: 0.4 }}>
-                    <a href="#experience">Experience</a>
-                </li>
-                <li use:reveal={{ y: -24, delay: 0.2, duration: 0.4 }}>
-                    <a href="#projects">Projects</a>
-                </li>
-                <li use:reveal={{ y: -24, delay: 0.3, duration: 0.4 }}>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </nav> -->
-    <!-- </div> -->
 </header>
 
 <!-- mobile menu popout -->
-<!-- {#if isOpen} -->
 <nav
+    id="mobile-menu"
     class="mobile-nav"
     class:is-open={isOpen}
     aria-label="Mobile navigation"
-    aria-hidden={!isOpen}
+    inert={!isOpen}
 >
     <ul>
         <li>
@@ -185,8 +156,6 @@
         </li>
     </ul>
 </nav>
-
-<!-- {/if} -->
 
 <!-- mark: -->
 
@@ -209,23 +178,6 @@
     header.hide {
         transform: translateY(-100%);
     }
-
-    /* .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1280px;
-        padding: 1.5rem;
-        margin-inline: auto;
-
-        .logo {
-            width: 52px;
-        }
-
-        @media (width > 768px) {
-            padding: 2rem 2.5rem;
-        }
-    } */
 
     .mobile-header {
         display: flex;
@@ -302,14 +254,6 @@
     }
 
     .mobile-nav {
-        /* position: fixed;
-        inset: 0; */
-        /* opacity: 1; */
-        pointer-events: none;
-        transform: translateY(-100%);
-        transition:
-            /* opacity 0.3s ease, */ transform 0.3s ease;
-
         position: fixed;
         inset: 0;
         display: flex;
@@ -321,11 +265,10 @@
         background: rgba(0, 0, 0, 0.8);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        pointer-events: none;
         z-index: 50;
-
-        @media (width > 769px) {
-            display: none;
-        }
 
         @media (height <= 510px) {
             justify-content: flex-start;
@@ -379,7 +322,6 @@
     }
 
     .mobile-nav.is-open {
-        /* opacity: 1; */
         pointer-events: auto;
         transform: translateY(0);
     }
