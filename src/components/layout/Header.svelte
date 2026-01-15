@@ -1,7 +1,8 @@
 <script>
     // actions & transitions
     import { reveal } from '../actions/reveal.js';
-    import { slide } from 'svelte/transition';
+    // import { slide } from 'svelte/transition';
+    // transition:slide={{ axis: 'y', duration: 300 }}
 
     // logo
     import Logo from '../../assets/logos/logo.svg';
@@ -15,7 +16,7 @@
     let isOpen = false;
     let showHeader = true;
     let lastScrollY = 0;
-    let isScrollingUp = false;
+    // let isScrollingUp = false;
     let isAtTop = true;
     // let mounted = false;
 
@@ -43,10 +44,11 @@
     function handleScroll() {
         const currentScrollY = window.scrollY;
 
-        isScrollingUp = currentScrollY < lastScrollY;
+        // isScrollingUp = currentScrollY < lastScrollY;
         isAtTop = currentScrollY < 50;
 
-        showHeader = isScrollingUp || isAtTop;
+        // showHeader = isScrollingUp || isAtTop;
+        showHeader = currentScrollY < lastScrollY || isAtTop;
 
         lastScrollY = currentScrollY;
     }
@@ -68,17 +70,17 @@
 <!-- mark: -->
 
 <header class:hide={!showHeader} class:blur={!isAtTop && showHeader && !isOpen}>
-    <div class="header-container">
-        <a
+    <!-- <div class="header-container"> -->
+    <!-- <a
             use:reveal={{ y: 0 }}
             href="https://www.trent-avilla.com/"
             aria-label="Go to homepage"
         >
             <img class="logo" src={Logo} alt="" />
-        </a>
+        </a> -->
 
-        <!-- mobile menu button -->
-        <button
+    <!-- mobile menu button -->
+    <!-- <button
             use:reveal={{ y: 0 }}
             class="hamburger"
             class:is-open={isOpen}
@@ -89,9 +91,39 @@
             <span></span>
             <span></span>
             <span></span>
-        </button>
+        </button> -->
 
-        <!-- desktop menu -->
+    <div class="mobile-header">
+        <a
+            use:reveal={{ y: 0 }}
+            href="https://www.trent-avilla.com/"
+            aria-label="Go to homepage"
+        >
+            <img class="logo" src={Logo} alt="" />
+        </a>
+
+        <button
+            use:reveal={{ y: 0 }}
+            class="hamburger"
+            class:is-open={isOpen}
+            on:click={toggleMenu}
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen}
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <div class="desktop-header">
+        <a
+            use:reveal={{ y: 0 }}
+            href="https://www.trent-avilla.com/"
+            aria-label="Go to homepage"
+        >
+            <img class="logo" src={Logo} alt="" />
+        </a>
         <nav class="desktop-nav">
             <ul>
                 <li use:reveal={{ y: -24, duration: 0.4 }}>
@@ -109,32 +141,52 @@
             </ul>
         </nav>
     </div>
+
+    <!-- desktop menu -->
+    <!-- <nav class="desktop-nav">
+            <ul>
+                <li use:reveal={{ y: -24, duration: 0.4 }}>
+                    <a href="#about">About</a>
+                </li>
+                <li use:reveal={{ y: -24, delay: 0.1, duration: 0.4 }}>
+                    <a href="#experience">Experience</a>
+                </li>
+                <li use:reveal={{ y: -24, delay: 0.2, duration: 0.4 }}>
+                    <a href="#projects">Projects</a>
+                </li>
+                <li use:reveal={{ y: -24, delay: 0.3, duration: 0.4 }}>
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav> -->
+    <!-- </div> -->
 </header>
 
 <!-- mobile menu popout -->
-{#if isOpen}
-    <nav
-        class="mobile-nav"
-        class:is-open={isOpen}
-        transition:slide={{ axis: 'y', duration: 300 }}
-        aria-label="Mobile navigation"
-    >
-        <ul>
-            <li>
-                <a on:click={toggleMenu} href="#about">About</a>
-            </li>
-            <li>
-                <a on:click={toggleMenu} href="#experience">Experience</a>
-            </li>
-            <li>
-                <a on:click={toggleMenu} href="#projects">Projects</a>
-            </li>
-            <li>
-                <a on:click={toggleMenu} href="#contact">Contact</a>
-            </li>
-        </ul>
-    </nav>
-{/if}
+<!-- {#if isOpen} -->
+<nav
+    class="mobile-nav"
+    class:is-open={isOpen}
+    aria-label="Mobile navigation"
+    aria-hidden={!isOpen}
+>
+    <ul>
+        <li>
+            <a on:click={toggleMenu} href="#about">About</a>
+        </li>
+        <li>
+            <a on:click={toggleMenu} href="#experience">Experience</a>
+        </li>
+        <li>
+            <a on:click={toggleMenu} href="#projects">Projects</a>
+        </li>
+        <li>
+            <a on:click={toggleMenu} href="#contact">Contact</a>
+        </li>
+    </ul>
+</nav>
+
+<!-- {/if} -->
 
 <!-- mark: -->
 
@@ -144,12 +196,8 @@
         top: 0;
         left: 0;
         width: 100%;
-        z-index: 50;
+        z-index: 60;
         transition: transform 0.3s ease;
-    }
-
-    header.hide {
-        transform: translateY(-100%);
     }
 
     header.blur {
@@ -158,7 +206,11 @@
         -webkit-backdrop-filter: blur(4px);
     }
 
-    .header-container {
+    header.hide {
+        transform: translateY(-100%);
+    }
+
+    /* .header-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -173,6 +225,23 @@
         @media (width > 768px) {
             padding: 2rem 2.5rem;
         }
+    } */
+
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1280px;
+        padding: 1.5rem;
+        margin-inline: auto;
+
+        .logo {
+            width: 52px;
+        }
+
+        @media (width > 768px) {
+            display: none;
+        }
     }
 
     .hamburger {
@@ -182,7 +251,7 @@
         background: none;
         border: none;
         cursor: pointer;
-        z-index: 100;
+        z-index: 70;
 
         @media (width > 768px) {
             display: none;
@@ -233,6 +302,14 @@
     }
 
     .mobile-nav {
+        /* position: fixed;
+        inset: 0; */
+        /* opacity: 1; */
+        pointer-events: none;
+        transform: translateY(-100%);
+        transition:
+            /* opacity 0.3s ease, */ transform 0.3s ease;
+
         position: fixed;
         inset: 0;
         display: flex;
@@ -242,9 +319,9 @@
         height: 100dvh;
         overflow-y: auto;
         background: rgba(0, 0, 0, 0.8);
-        /* backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px); */
-        z-index: 40;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 50;
 
         @media (height <= 510px) {
             justify-content: flex-start;
@@ -294,6 +371,29 @@
                     content: '04.';
                 }
             }
+        }
+    }
+
+    .mobile-nav.is-open {
+        /* opacity: 1; */
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .desktop-header {
+        display: none;
+
+        .logo {
+            width: 52px;
+        }
+
+        @media (width > 768px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1280px;
+            padding: 2rem 2.5rem;
+            margin-inline: auto;
         }
     }
 
