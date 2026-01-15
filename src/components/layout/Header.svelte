@@ -323,6 +323,10 @@
         -webkit-backdrop-filter: blur(8px);
         z-index: 50;
 
+        @media (width > 769px) {
+            display: none;
+        }
+
         @media (height <= 510px) {
             justify-content: flex-start;
             padding-block: 8rem;
