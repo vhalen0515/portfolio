@@ -1,4 +1,5 @@
 <script>
+    // inert={!isOpen}
     // actions & transitions
     import { reveal } from '../actions/reveal.js';
 
@@ -139,7 +140,7 @@
     class="mobile-nav"
     class:is-open={isOpen}
     aria-label="Mobile navigation"
-    inert={!isOpen}
+    aria-hidden={!isOpen}
 >
     <ul>
         <li>
