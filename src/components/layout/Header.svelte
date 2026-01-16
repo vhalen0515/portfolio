@@ -1,6 +1,6 @@
 <script>
     // actions & transitions
-    import { reveal } from '../actions/reveal.js';
+    // import { reveal } from '../actions/reveal.js';
 
     // logo
     import Logo from '../../assets/logos/logo.svg';
@@ -81,7 +81,7 @@
 <!-- mark: -->
 
 <header class:hide={!showHeader} class:blur={!isAtTop && showHeader && !isOpen}>
-    <div use:reveal={{ y: 0 }} class="mobile-header">
+    <div class="mobile-header fade-in">
         <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
             <img class="logo" src={Logo} alt="" />
         </a>
@@ -100,7 +100,28 @@
         </button>
     </div>
 
-    <div use:reveal={{ y: 0 }} class="desktop-header">
+    <div class="desktop-header">
+        <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
+            <img class="logo reveal" src={Logo} alt="" />
+        </a>
+        <nav class="desktop-nav">
+            <ul>
+                <li class="reveal">
+                    <a href="#about">About</a>
+                </li>
+                <li class="reveal">
+                    <a href="#experience">Experience</a>
+                </li>
+                <li class="reveal">
+                    <a href="#projects">Projects</a>
+                </li>
+                <li class="reveal">
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- <div use:reveal={{ y: 0 }} class="desktop-header">
         <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
             <img class="logo" src={Logo} alt="" />
         </a>
@@ -120,7 +141,7 @@
                 </li>
             </ul>
         </nav>
-    </div>
+    </div> -->
 </header>
 
 <!-- mobile menu popout -->
@@ -374,6 +395,31 @@
                     content: '04.';
                 }
             }
+        }
+    }
+    .fade-in {
+        opacity: 0;
+        animation: fadeIn 0.8s ease forwards;
+        animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes fadeIn {
+        to {
+            opacity: 1;
+        }
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: revealUp 0.8s ease forwards;
+        animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes revealUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 </style>

@@ -1,35 +1,30 @@
 <script>
     // actions
-    import { reveal } from '../actions/reveal.js';
+    // import { reveal } from '../actions/reveal.js';
 </script>
 
 <!-- mark: -->
 
 <div id="hero">
     <div class="hero-container">
-        <div use:reveal={{ y: 24, delay: 0.4, duration: 0.4 }}>
-            <p>Hi, my name is</p>
-        </div>
-        <div use:reveal={{ y: 24, delay: 0.5, duration: 0.4 }}>
-            <h1>
-                Trenton Avilla<span>.</span>
-            </h1>
-        </div>
-        <div use:reveal={{ y: 24, delay: 0.6, duration: 0.4 }}>
-            <h2>
-                I am a Front-End Developer<span>.</span>
-            </h2>
-        </div>
-        <div use:reveal={{ y: 24, delay: 0.7, duration: 0.4 }}>
-            <p>
-                I like to design and build things for the web. I currently enjoy
-                using React and Tailwind to create functional and engaging
-                websites<span>.</span>
-            </p>
-        </div>
-        <div use:reveal={{ y: 24, delay: 0.8, duration: 0.4 }}>
-            <a href="#projects">Recent Work</a>
-        </div>
+        <p class="reveal" style="--delay:0.3s">Hi, my name is</p>
+
+        <h1 class="reveal" style="--delay:0.4s">
+            Trenton Avilla<span>.</span>
+        </h1>
+
+        <h2 class="reveal" style="--delay:0.5s">
+            I am a Front-End Developer<span>.</span>
+        </h2>
+
+        <p class="reveal" style="--delay:0.6s">
+            I like to design and build things for the web. I currently enjoy
+            using React and Tailwind to create functional and engaging websites<span
+                >.</span
+            >
+        </p>
+
+        <a class="reveal" style="--delay:0.7s" href="#projects">Recent Work</a>
     </div>
 </div>
 
@@ -157,6 +152,20 @@
                 background-color: var(--accent-clr);
                 color: var(--bg-clr);
             }
+        }
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: revealUp 0.8s ease forwards;
+        animation-delay: var(--delay, 0s); /* for staggered delay */
+    }
+
+    @keyframes revealUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 </style>
