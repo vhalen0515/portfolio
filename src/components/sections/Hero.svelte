@@ -7,24 +7,24 @@
 
 <div id="hero">
     <div class="hero-container">
-        <p class="reveal" style="--delay:0.3s">Hi, my name is</p>
+        <p class="reveal" style="--delay:0.4s">Hi, my name is</p>
 
-        <h1 class="reveal" style="--delay:0.4s">
+        <h1 class="reveal" style="--delay:0.5s">
             Trenton Avilla<span>.</span>
         </h1>
 
-        <h2 class="reveal" style="--delay:0.5s">
+        <h2 class="reveal" style="--delay:0.6s">
             I am a Front-End Developer<span>.</span>
         </h2>
 
-        <p class="reveal" style="--delay:0.6s">
+        <p class="reveal" style="--delay:0.7s">
             I like to design and build things for the web. I currently enjoy
             using React and Tailwind to create functional and engaging websites<span
                 >.</span
             >
         </p>
 
-        <a class="reveal" style="--delay:0.7s" href="#projects">Recent Work</a>
+        <a class="reveal" style="--delay:0.8s" href="#projects">Recent Work</a>
     </div>
 </div>
 
@@ -158,7 +158,7 @@
     .reveal {
         opacity: 0;
         transform: translateY(24px);
-        animation: revealUp 0.8s ease forwards;
+        animation: revealUp 0.4s ease forwards;
         animation-delay: var(--delay, 0s); /* for staggered delay */
     }
 

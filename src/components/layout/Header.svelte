@@ -81,7 +81,7 @@
 <!-- mark: -->
 
 <header class:hide={!showHeader} class:blur={!isAtTop && showHeader && !isOpen}>
-    <div class="mobile-header fade-in">
+    <div class="mobile-header">
         <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
             <img class="logo" src={Logo} alt="" />
         </a>
@@ -102,20 +102,20 @@
 
     <div class="desktop-header">
         <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
-            <img class="logo reveal" src={Logo} alt="" />
+            <img class="logo fade-in" src={Logo} alt="" />
         </a>
         <nav class="desktop-nav">
             <ul>
                 <li class="reveal">
                     <a href="#about">About</a>
                 </li>
-                <li class="reveal">
+                <li class="reveal" style="--delay:0.1s">
                     <a href="#experience">Experience</a>
                 </li>
-                <li class="reveal">
+                <li class="reveal" style="--delay:0.2s">
                     <a href="#projects">Projects</a>
                 </li>
-                <li class="reveal">
+                <li class="reveal" style="--delay:0.3s">
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
@@ -399,7 +399,7 @@
     }
     .fade-in {
         opacity: 0;
-        animation: fadeIn 0.8s ease forwards;
+        animation: fadeIn 0.4s ease forwards;
         animation-delay: var(--delay, 0s);
     }
 
@@ -411,8 +411,8 @@
 
     .reveal {
         opacity: 0;
-        transform: translateY(24px);
-        animation: revealUp 0.8s ease forwards;
+        transform: translateY(-24px);
+        animation: revealUp 0.4s ease forwards;
         animation-delay: var(--delay, 0s);
     }
 

@@ -3,12 +3,19 @@
     import { reveal } from '../actions/reveal.js';
 </script>
 
-<div use:reveal={{ y: 24, delay: 0.8, duration: 0.4 }} class="right-sidebar">
+<div class="right-sidebar reveal" style="--delay:0.8s">
     <a
         href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
         aria-label="Send an email to Trent">tavilla04@gmail.com</a
     >
 </div>
+
+<!-- <div use:reveal={{ y: 24, delay: 0.8, duration: 0.4 }} class="right-sidebar">
+    <a
+        href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
+        aria-label="Send an email to Trent">tavilla04@gmail.com</a
+    >
+</div> -->
 
 <style>
     .right-sidebar {
@@ -54,6 +61,20 @@
                 color: var(--accent-clr);
                 transform: translateY(-3px);
             }
+        }
+    }
+
+    .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        animation: revealUp 0.4s ease forwards;
+        animation-delay: var(--delay, 0s); /* for staggered delay */
+    }
+
+    @keyframes revealUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 </style>
