@@ -1,6 +1,6 @@
 <script>
     // actions & transitions
-    // import { reveal } from '../actions/reveal.js';
+    import { reveal } from '../actions/reveal.js';
 
     // logo
     import Logo from '../../assets/logos/logo.svg';
@@ -81,19 +81,10 @@
 <!-- mark: -->
 
 <header class:hide={!showHeader} class:blur={!isAtTop && showHeader && !isOpen}>
-    <div class="mobile-header">
-        <a
-            href="https://www.trent-avilla.com/"
-            aria-label="Go to homepage"
-        >
-        <!-- <a
-            use:reveal={{ y: 0 }}
-            href="https://www.trent-avilla.com/"
-            aria-label="Go to homepage"
-        > -->
+    <div use:reveal={{ y: 0 }} class="mobile-header">
+        <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
             <img class="logo" src={Logo} alt="" />
         </a>
-
         <button
             class="hamburger"
             class:is-open={isOpen}
@@ -103,49 +94,19 @@
             aria-expanded={isOpen}
             aria-controls="mobile-menu"
         >
-        <!-- <button
-            use:reveal={{ y: 0 }}
-            class="hamburger"
-            class:is-open={isOpen}
-            bind:this={menuButton}
-            on:click={toggleMenu}
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}
-            aria-expanded={isOpen}
-            aria-controls="mobile-menu"
-        > -->
             <span></span>
             <span></span>
             <span></span>
         </button>
     </div>
 
-    <div class="desktop-header">
-        <a
-            href="https://www.trent-avilla.com/"
-            aria-label="Go to homepage"
-        >
-        <!-- <a
-            use:reveal={{ y: 0 }}
-            href="https://www.trent-avilla.com/"
-            aria-label="Go to homepage"
-        > -->
+    <div use:reveal={{ y: 0 }} class="desktop-header">
+        <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
             <img class="logo" src={Logo} alt="" />
         </a>
         <nav class="desktop-nav">
             <ul>
-                <li>
-                    <a href="#about">About</a>
-                </li>
-                <li>
-                    <a href="#experience">Experience</a>
-                </li>
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-                <!-- <li use:reveal={{ y: -24, duration: 0.4 }}>
+                <li use:reveal={{ y: -24, duration: 0.4 }}>
                     <a href="#about">About</a>
                 </li>
                 <li use:reveal={{ y: -24, delay: 0.1, duration: 0.4 }}>
@@ -156,7 +117,7 @@
                 </li>
                 <li use:reveal={{ y: -24, delay: 0.3, duration: 0.4 }}>
                     <a href="#contact">Contact</a>
-                </li> -->
+                </li>
             </ul>
         </nav>
     </div>
