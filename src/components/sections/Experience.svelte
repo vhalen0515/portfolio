@@ -33,7 +33,7 @@
             name: 'Skills',
             heading: 'Front-End Skills',
             description: 'Other skills and techniques I work with:',
-            items: ['Flexbox', 'Grid', 'RESTful APIs', 'Mobile-First Design'],
+            items: ['Flexbox', 'Grid', 'RESTful APIs', 'Mobile-First Design', 'Web Performance Optimization', 'SEO Fundamentals', 'Accessibility'],
         },
     ];
 
@@ -214,7 +214,7 @@
             }
 
             @media (width >= 1000px) {
-                max-width: 420px;
+                max-width: 480px;
             }
 
             h3 {
