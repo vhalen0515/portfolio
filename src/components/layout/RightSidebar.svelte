@@ -1,21 +1,9 @@
-<script>
-    // actions
-    import { reveal } from '../actions/reveal.js';
-</script>
-
 <div class="right-sidebar reveal" style="--delay:0.8s">
     <a
         href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
         aria-label="Send an email to Trent">tavilla04@gmail.com</a
     >
 </div>
-
-<!-- <div use:reveal={{ y: 24, delay: 0.8, duration: 0.4 }} class="right-sidebar">
-    <a
-        href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
-        aria-label="Send an email to Trent">tavilla04@gmail.com</a
-    >
-</div> -->
 
 <style>
     .right-sidebar {

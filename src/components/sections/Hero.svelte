@@ -1,8 +1,3 @@
-<script>
-    // actions
-    // import { reveal } from '../actions/reveal.js';
-</script>
-
 <!-- mark: -->
 
 <div id="hero">
@@ -27,34 +22,6 @@
         <a class="reveal" style="--delay:0.8s" href="#projects">Recent Work</a>
     </div>
 </div>
-
-<!-- <div id="hero">
-    <div class="hero-container">
-
-            <p use:reveal={{ y: 24, delay: 0.4, duration: 0.4 }}>Hi, my name is</p>
-
-
-            <h1 use:reveal={{ y: 24, delay: 0.5, duration: 0.4 }}>
-                Trenton Avilla<span>.</span>
-            </h1>
-
-
-            <h2 use:reveal={{ y: 24, delay: 0.6, duration: 0.4 }}>
-                I am a Front-End Developer<span>.</span>
-            </h2>
-
-
-            <p use:reveal={{ y: 24, delay: 0.7, duration: 0.4 }}>
-                I like to design and build things for the web. I currently enjoy
-                using React and Tailwind to create functional and engaging
-                websites<span>.</span>
-            </p>
-
-
-            <a use:reveal={{ y: 24, delay: 0.8, duration: 0.4 }} href="#projects">Recent Work</a>
-
-    </div>
-</div> -->
 
 <!-- mark: -->
 

@@ -1,7 +1,4 @@
 <script>
-    // actions & transitions
-    // import { reveal } from '../actions/reveal.js';
-
     // logo
     import Logo from '../../assets/logos/logo.svg';
 
@@ -58,22 +55,16 @@
         window.addEventListener('scroll', handleScroll);
 
         const mq = window.matchMedia(desktopQuery);
-
         const handleChange = (e) => {
-            if (e.matches) {
-                isOpen = false;
-            }
+            if (e.matches) isOpen = false;
         };
 
         mq.addEventListener('change', handleChange);
 
         return () => {
+            window.removeEventListener('scroll', handleScroll);
             mq.removeEventListener('change', handleChange);
         };
-    });
-
-    onDestroy(() => {
-        window.removeEventListener('scroll', handleScroll);
     });
 </script>
 
@@ -121,27 +112,6 @@
             </ul>
         </nav>
     </div>
-    <!-- <div use:reveal={{ y: 0 }} class="desktop-header">
-        <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
-            <img class="logo" src={Logo} alt="" />
-        </a>
-        <nav class="desktop-nav">
-            <ul>
-                <li use:reveal={{ y: -24, duration: 0.4 }}>
-                    <a href="#about">About</a>
-                </li>
-                <li use:reveal={{ y: -24, delay: 0.1, duration: 0.4 }}>
-                    <a href="#experience">Experience</a>
-                </li>
-                <li use:reveal={{ y: -24, delay: 0.2, duration: 0.4 }}>
-                    <a href="#projects">Projects</a>
-                </li>
-                <li use:reveal={{ y: -24, delay: 0.3, duration: 0.4 }}>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </nav>
-    </div> -->
 </header>
 
 <!-- mobile menu popout -->
@@ -275,7 +245,6 @@
         overflow-y: auto;
         transform: translateY(-100%);
         transition: transform 0.3s ease;
-        isolation: isolate;
         will-change: transform;
         pointer-events: none;
         z-index: 50;
@@ -409,13 +378,14 @@
     }
 
     .fade-in {
+        opacity: 0;
         animation: fadeIn 0.4s ease forwards;
         animation-delay: var(--delay, 0s);
     }
 
     @keyframes fadeIn {
         to {
-            transform: translateY(0);
+            opacity: 1;
         }
     }
 
