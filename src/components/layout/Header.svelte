@@ -273,9 +273,9 @@
         align-items: center;
         height: 100dvh;
         overflow-y: auto;
-        background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        /* background: rgba(0, 0, 0, 1); */
+        /* backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px); */
         transform: translateY(-100%);
         transition: transform 0.3s ease;
         pointer-events: none;
@@ -333,8 +333,19 @@
     }
 
     .mobile-nav.is-open {
-        pointer-events: auto;
         transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .mobile-nav::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: -1;
+        pointer-events: none;
     }
 
     .desktop-header {
