@@ -273,11 +273,10 @@
         align-items: center;
         height: 100dvh;
         overflow-y: auto;
-        /* background: rgba(0, 0, 0, 1); */
-        /* backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px); */
         transform: translateY(-100%);
         transition: transform 0.3s ease;
+        isolation: isolate;
+        will-change: transform;
         pointer-events: none;
         z-index: 50;
 
@@ -408,15 +407,15 @@
             }
         }
     }
+
     .fade-in {
-        opacity: 0;
         animation: fadeIn 0.4s ease forwards;
         animation-delay: var(--delay, 0s);
     }
 
     @keyframes fadeIn {
         to {
-            opacity: 1;
+            transform: translateY(0);
         }
     }
 

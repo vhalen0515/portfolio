@@ -159,7 +159,7 @@
         opacity: 0;
         transform: translateY(24px);
         animation: revealUp 0.4s ease forwards;
-        animation-delay: var(--delay, 0s); /* for staggered delay */
+        animation-delay: var(--delay, 0s);
     }
 
     @keyframes revealUp {
