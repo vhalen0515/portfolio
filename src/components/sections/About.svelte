@@ -26,8 +26,7 @@
                 </p>
                 <p use:reveal>
                     Lately, I’ve been focused on building responsive and
-                    accessible web experiences using React and Tailwind
-                    CSS—continually learning and evolving with each new project.
+                    accessible web experiences using Svelte—continually learning and evolving with each new project.
                 </p>
             </div>
             <div use:reveal class="image-container">
