@@ -1,5 +1,3 @@
-<!-- mark: -->
-
 <div id="hero">
     <div class="hero-container">
         <p class="reveal" style="--delay:0.4s">Hi, my name is</p>

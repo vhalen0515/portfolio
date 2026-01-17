@@ -8,6 +8,8 @@
     import Github from '../../assets/icons/Github.svelte';
 </script>
 
+<!-- mark: -->
+
 <footer>
     <div use:reveal class="link-container">
         <a
@@ -36,6 +38,8 @@
         Copyright © {new Date().getFullYear()} Trent Avilla. All Rights Reserved.
     </p>
 </footer>
+
+<!-- mark: -->
 
 <style>
     footer {

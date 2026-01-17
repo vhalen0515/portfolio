@@ -1,8 +1,4 @@
 <script>
-    /* -------------------------------------
-       IMPORTS
-    ------------------------------------- */
-
     // lifecycle
     import { onMount, onDestroy } from 'svelte';
 
@@ -174,6 +170,8 @@
     onDestroy(stopAutoplay);
 </script>
 
+<!-- mark: -->
+
 <div class="slider">
     <ul
         bind:this={sliderEl}
@@ -193,6 +191,7 @@
         on:transitionend={handleTransitionEnd}
         on:pointerleave={onPointerUp}
     >
+
         {#each slides as slide}
             <li class="slide">
                 <div class="slide-grid">
@@ -250,16 +249,20 @@
                 </div>
             </li>
         {/each}
+
     </ul>
+
     <button class="prev" on:click={userPrev} aria-label="Previous slide"
         ><Arrow /></button
     >
     <button class="next" on:click={userNext} aria-label="Next slide"
         ><Arrow /></button
     >
+    
 </div>
 
 <!-- mark: -->
+
 <style>
     .slider {
         height: 20rem;

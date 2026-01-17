@@ -1,4 +1,5 @@
 <script>
+    // lifecycle
     import { onMount, onDestroy } from 'svelte';
 
     // actions
@@ -24,31 +25,27 @@
     let showSidebars = true;
 
     // sidebar appearance function
-    function checkHeight() {
+    function checkViewportHeight() {
         showSidebars = window.innerHeight >= 400;
     }
 
     // lifecycle
     onMount(() => {
         history.scrollRestoration = 'manual';
-
         requestAnimationFrame(() => {
             window.scrollTo(0, 0);
+
+            checkViewportHeight();
+            window.addEventListener('resize', checkViewportHeight);
         });
     });
 
-    // onMount(() => {
-    //     history.scrollRestoration = 'manual';
-    //     window.scrollTo(0, 0);
-
-    //     checkHeight();
-    //     window.addEventListener('resize', checkHeight);
-    // });
-
-    // onDestroy(() => {
-    //     window.removeEventListener('resize', checkHeight);
-    // });
+    onDestroy(() => {
+        window.removeEventListener('resize', checkViewportHeight);
+    });
 </script>
+
+<!-- mark: -->
 
 <Header />
 {#if showSidebars}
@@ -107,6 +104,8 @@
     </main>
 </div>
 <Footer />
+
+<!-- mark: -->
 
 <style>
     .page {

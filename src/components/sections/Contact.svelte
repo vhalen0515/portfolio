@@ -3,6 +3,8 @@
     import { reveal } from '../actions/reveal.js';
 </script>
 
+<!-- mark: -->
+
 <div id="contact">
     <h2 use:reveal>Need Some Help?</h2>
     <h3 use:reveal>Let's Connect</h3>
@@ -19,6 +21,8 @@
         Reach Out
     </a>
 </div>
+
+<!-- mark: -->
 
 <style>
     #contact {

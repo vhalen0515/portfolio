@@ -6,6 +6,8 @@
     import Email from '../../assets/icons/Email.svelte';
 </script>
 
+<!-- mark: -->
+
 <div class="left-sidebar reveal" style="--delay:0.8s">
     <a
         href="https://github.com/vhalen0515"
@@ -35,6 +37,8 @@
         <Email />
     </a>
 </div>
+
+<!-- mark: -->
 
 <style>
     .left-sidebar {

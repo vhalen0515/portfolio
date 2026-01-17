@@ -4,6 +4,7 @@
 </script>
 
 <!-- mark: -->
+ 
 <div id="about">
     <div class="about-container">
         <h2 use:reveal>About Me</h2>
@@ -43,6 +44,7 @@
 </div>
 
 <!-- mark: -->
+
 <style>
     .about-container {
 

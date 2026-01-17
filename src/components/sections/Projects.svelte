@@ -6,6 +6,8 @@
     import SliderPage from '../layout/SliderPage.svelte';
 </script>
 
+<!-- mark: -->
+
 <div id="projects">
     <div class="projects-container">
         <h2 use:reveal>Some Recent Projects</h2>
@@ -14,6 +16,8 @@
         </div>
     </div>
 </div>
+
+<!-- mark: -->
 
 <style>
     .projects-container {
