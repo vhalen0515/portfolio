@@ -115,10 +115,18 @@
                 color 0.3s ease,
                 background-color 0.3s ease;
 
-            &:hover {
+            /* &:hover {
                 background-color: var(--accent-clr);
                 color: var(--bg-clr);
-            }
+            }  */
+        }
+    }
+    
+    /* Only apply hover styles on hover-capable devices */
+    @media (hover: hover) and (pointer: fine) {
+        .hero-container a:hover {
+            background-color: var(--accent-clr);
+            color: var(--bg-clr);
         }
     }
 
