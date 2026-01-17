@@ -1,24 +1,22 @@
 <div id="hero">
-    <div class="hero-container">
-        <p class="reveal" style="--delay:0.4s">Hi, my name is</p>
+    <p class="reveal" style="--delay:0.4s">Hi, my name is</p>
 
-        <h1 class="reveal" style="--delay:0.5s">
-            Trenton Avilla<span>.</span>
-        </h1>
+    <h1 class="reveal" style="--delay:0.5s">
+        Trenton Avilla<span>.</span>
+    </h1>
 
-        <h2 class="reveal" style="--delay:0.6s">
-            I am a Front-End Developer<span>.</span>
-        </h2>
+    <h2 class="reveal" style="--delay:0.6s">
+        I am a Front-End Developer<span>.</span>
+    </h2>
 
-        <p class="reveal" style="--delay:0.7s">
-            I like to design and build things for the web. I currently enjoy
-            using React and Tailwind to create functional and engaging websites<span
-                >.</span
-            >
-        </p>
+    <p class="reveal" style="--delay:0.7s">
+        I like to design and build things for the web. I currently enjoy using
+        React and Tailwind to create functional and engaging websites<span
+            >.</span
+        >
+    </p>
 
-        <a class="reveal" style="--delay:0.8s" href="#projects">Recent Work</a>
-    </div>
+    <a class="reveal" style="--delay:0.8s" href="#projects">Recent Work</a>
 </div>
 
 <!-- mark: -->
@@ -31,17 +29,11 @@
         min-height: 100vh;
         min-height: 100svh;
 
+        margin-block-start: 2.5rem;
+
         @media (height <= 550px) {
             margin-block-start: 8rem;
         }
-
-        span {
-            color: var(--accent-clr);
-        }
-    }
-
-    .hero-container {
-        margin-block-start: 2.5rem;
 
         h1 {
             font-size: clamp(
@@ -104,7 +96,7 @@
         }
 
         a {
-            display: inline-block;
+            align-self: flex-start;
             color: var(--accent-clr);
             border: 1px solid var(--accent-clr);
             border-radius: 0.25rem;
@@ -112,17 +104,16 @@
             transition:
                 color 0.3s ease,
                 background-color 0.3s ease;
+        }
 
-            /* &:hover {
-                background-color: var(--accent-clr);
-                color: var(--bg-clr);
-            }  */
+        span {
+            color: var(--accent-clr);
         }
     }
-    
+
     /* Only apply hover styles on hover-capable devices */
     @media (hover: hover) and (pointer: fine) {
-        .hero-container a:hover {
+        #hero a:hover {
             background-color: var(--accent-clr);
             color: var(--bg-clr);
         }

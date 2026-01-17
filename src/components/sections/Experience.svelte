@@ -42,9 +42,9 @@
 
 <!-- mark: -->
 
-<div id="experience">
+<div use:reveal id="experience">
     <h2 use:reveal class="section-heading">Experience</h2>
-    <div use:reveal class="experience-container">
+    <div use:reveal class="experience-content">
         <div class="tabs">
             {#each tabs as tab}
                 <button
@@ -71,7 +71,7 @@
 </div>
 
 <!-- mark: -->
- 
+
 <style>
     #experience {
         display: flex;
@@ -125,7 +125,7 @@
         }
     }
 
-    .experience-container {
+    .experience-content {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -142,6 +142,10 @@
 
         @media (width >= 480px) {
             margin-block-start: 4rem;
+        }
+
+        @media (width >= 1000px) {
+            height: 281px;
         }
 
         button {

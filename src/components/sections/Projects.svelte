@@ -9,18 +9,16 @@
 <!-- mark: -->
 
 <div id="projects">
-    <div class="projects-container">
-        <h2 use:reveal>Some Recent Projects</h2>
-        <div use:reveal>
-            <SliderPage />
-        </div>
+    <h2 use:reveal>Some Recent Projects</h2>
+    <div use:reveal>
+        <SliderPage />
     </div>
 </div>
 
 <!-- mark: -->
 
 <style>
-    .projects-container {
+    #projects {
         h2 {
             display: flex;
             align-items: center;
