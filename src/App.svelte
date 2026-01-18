@@ -19,7 +19,7 @@
     import Footer from './components/layout/Footer.svelte';
 
     // images
-    import BlueDots from './assets/icons/BlueDots.svelte';
+    import BlueDots from '../public/BlueDots.svelte';
 
     // state
     let showSidebars = true;
@@ -60,7 +60,7 @@
 
         <section class="component-section">
             <div
-                class="dot-container first left"
+                class="dot-container first left reveal"
                 use:reveal={{ x: -24, y: 0, duration: 0.4 }}
             >
                 <BlueDots width="400" />
@@ -71,7 +71,7 @@
         <section class="component-section">
             <div
                 use:reveal={{ x: 24, y: 0, duration: 0.4 }}
-                class="dot-container second right"
+                class="dot-container second right reveal"
             >
                 <div class="rotate">
                     <BlueDots width="400" />
@@ -83,7 +83,7 @@
         <section class="component-section">
             <div
                 use:reveal={{ x: -24, y: 0, duration: 0.4 }}
-                class="dot-container third left"
+                class="dot-container third left reveal"
             >
                 <BlueDots width="400" />
             </div>
@@ -93,7 +93,7 @@
         <section class="component-section">
             <div
                 use:reveal={{ x: 24, y: 0, duration: 0.4 }}
-                class="dot-container last right"
+                class="dot-container last right reveal"
             >
                 <div class="rotate">
                     <BlueDots width="400" />
@@ -153,18 +153,9 @@
         }
     }
 
-    .dot-container.first {
-        top: -25rem;
-    }
-
-    .dot-container.second {
-        top: -25rem;
-    }
-
-    .dot-container.third {
-        top: -25rem;
-    }
-
+    .dot-container.first,
+    .dot-container.second,
+    .dot-container.third,
     .dot-container.last {
         top: -25rem;
     }
