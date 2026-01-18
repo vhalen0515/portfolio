@@ -1,10 +1,15 @@
+<script>
+    let width;
+</script>
+
 <svg
-    width="400"
-    height="400"
-    viewBox="0 0 300 300"
     xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 300 300"
+    class="icon dots"
+    aria-hidden="true"
+    {...$$props}
 >
-    <g fill="var(--color-tab-accent-clr)">
+    <g>
         <circle cx="20" cy="20" r="15" />
         <circle cx="20" cy="55" r="15" />
         <circle cx="20" cy="90" r="15" />
@@ -51,3 +56,14 @@
         <circle cx="242" cy="160" r="2" />
     </g>
 </svg>
+
+<style>
+    .icon {
+        display: block;
+    }
+
+    .dots {
+        fill: var(--accent-clr);
+        opacity: 0.2;
+    }
+</style>
