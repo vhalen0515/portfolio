@@ -9,8 +9,8 @@
 <!-- mark: -->
 
 <div id="projects">
-    <h2 use:reveal>Some Recent Projects</h2>
-    <div use:reveal>
+    <h2 use:reveal class="reveal">Some Recent Projects</h2>
+    <div use:reveal class="reveal">
         <SliderPage />
     </div>
 </div>

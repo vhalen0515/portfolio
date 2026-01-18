@@ -11,7 +11,7 @@
 <!-- mark: -->
 
 <footer>
-    <div use:reveal class="link-container">
+    <div use:reveal class="link-container reveal">
         <a
             href="https://www.instagram.com/trent_av/"
             target="_blank"
@@ -34,7 +34,7 @@
             <Github width="24" height="24" />
         </a>
     </div>
-    <p use:reveal>
+    <p use:reveal class="reveal">
         Copyright © {new Date().getFullYear()} Trent Avilla. All Rights Reserved.
     </p>
 </footer>

@@ -5,6 +5,7 @@
     // icon
     import Square from '../../assets/icons/Square.svelte';
 
+    //tab content
     let tabs = [
         {
             name: 'Languages',
@@ -42,9 +43,9 @@
 
 <!-- mark: -->
 
-<div use:reveal id="experience">
-    <h2 use:reveal class="section-heading">Experience</h2>
-    <div use:reveal class="experience-content">
+<div use:reveal id="experience" class="reveal">
+    <h2 use:reveal class="section-heading reveal">Experience</h2>
+    <div use:reveal class="experience-content reveal">
         <div class="tabs">
             {#each tabs as tab}
                 <button

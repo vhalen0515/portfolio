@@ -132,3 +132,28 @@ body {
 .no-scroll {
     overflow: hidden;
 }
+
+
+
+
+.reveal {
+    opacity: 0;
+    transform: translate(var(--reveal-x, 0), var(--reveal-y, 24px));
+    transition:
+        opacity 0.8s ease var(--reveal-delay, 0s),
+        transform 0.8s ease var(--reveal-delay, 0s);
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}

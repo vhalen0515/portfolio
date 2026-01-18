@@ -6,14 +6,15 @@
 <!-- mark: -->
 
 <div id="contact">
-    <h2 use:reveal>Need Some Help?</h2>
-    <h3 use:reveal>Let's Connect</h3>
-    <p use:reveal>
+    <h2 use:reveal class="reveal">Need Some Help?</h2>
+    <h3 use:reveal class="reveal">Let's Connect</h3>
+    <p use:reveal class="reveal">
         Have a project in mind, a freelance gig, or just want to chat? I'd love
         to hear from you. Let’s build something together.
     </p>
     <a
         use:reveal
+        class="reveal"
         href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
         role="button"
         aria-label="Send an email to Trent"
