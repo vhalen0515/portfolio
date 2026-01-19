@@ -124,7 +124,8 @@ body {
 /* Scroll offset for anchor navigation */
 #about,
 #experience,
-#projects {
+#projects,
+#contacts {
     scroll-margin-block-start: 105px;
 }
 
