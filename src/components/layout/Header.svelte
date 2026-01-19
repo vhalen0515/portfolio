@@ -6,6 +6,12 @@
     import { onMount, onDestroy } from 'svelte';
 
     /* -------------------------------------
+       Constants
+    ------------------------------------- */
+    const DESKTOP_QUERY = '(min-width: 769px)';
+    const SCROLL_TOP_THRESHOLD = 50;
+
+    /* -------------------------------------
        State
     ------------------------------------- */
     let isOpen = false;
@@ -13,7 +19,7 @@
     let lastScrollY = 0;
     let isAtTop = true;
     let menuButton;
-    const desktopQuery = '(min-width: 769px)';
+    let mediaQuery;
 
     /* -------------------------------------
        Menu behavior
@@ -41,7 +47,7 @@
     function handleScroll() {
         const currentScrollY = window.scrollY;
 
-        isAtTop = currentScrollY < 50;
+        isAtTop = currentScrollY < SCROLL_TOP_THRESHOLD;
 
         showHeader = currentScrollY < lastScrollY || isAtTop;
 
@@ -49,22 +55,45 @@
     }
 
     /* -------------------------------------
+       Media Query Handler
+    ------------------------------------- */
+    function handleMediaChange(e) {
+        if (e.matches) {
+            isOpen = false;
+        }
+    }
+
+    /* -------------------------------------
        Lifecycle
     ------------------------------------- */
+    // onMount(() => {
+    //     window.addEventListener('scroll', handleScroll);
+
+    //     const mq = window.matchMedia(desktopQuery);
+    //     const handleChange = (e) => {
+    //         if (e.matches) isOpen = false;
+    //     };
+
+    //     mq.addEventListener('change', handleChange);
+
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //         mq.removeEventListener('change', handleChange);
+    //     };
+    // });
+
     onMount(() => {
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
 
-        const mq = window.matchMedia(desktopQuery);
-        const handleChange = (e) => {
-            if (e.matches) isOpen = false;
-        };
+        mediaQuery = window.matchMedia(DESKTOP_QUERY);
+        mediaQuery.addEventListener('change', handleMediaChange);
+    });
 
-        mq.addEventListener('change', handleChange);
-
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            mq.removeEventListener('change', handleChange);
-        };
+    onDestroy(() => {
+        window.removeEventListener('scroll', handleScroll);
+        if (mediaQuery) {
+            mediaQuery.removeEventListener('change', handleMediaChange);
+        }
     });
 </script>
 

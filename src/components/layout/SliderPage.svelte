@@ -19,6 +19,7 @@
     export let transitionDuration = 700;
 
     const DRAG_THRESHOLD = 60; // px required to change slides
+    const DRAG_START_THRESHOLD = 5; // px before drag starts
 
     /* -------------------------------------
        CORE STATE
@@ -134,7 +135,7 @@
 
         const delta = event.clientX - startX;
 
-        if (!isDragging && Math.abs(delta) > 5) {
+        if (!isDragging && Math.abs(delta) > DRAG_START_THRESHOLD) {
             isDragging = true;
             currentTranslate = -currentIndex * sliderEl.offsetWidth;
             isTransitioning = false;
@@ -166,8 +167,13 @@
        LIFECYCLE
     ------------------------------------- */
 
-    onMount(startAutoplay);
-    onDestroy(stopAutoplay);
+    onMount(() => {
+        startAutoplay();
+    });
+
+    onDestroy(() => {
+        stopAutoplay();
+    });
 </script>
 
 <!-- mark: -->
@@ -191,7 +197,6 @@
         on:transitionend={handleTransitionEnd}
         on:pointerleave={onPointerUp}
     >
-
         {#each slides as slide}
             <li class="slide">
                 <div class="slide-grid">
@@ -199,6 +204,7 @@
                         <a
                             href={slide.externalLink}
                             target="_blank"
+                            rel="noopener noreferrer"
                             aria-label="Live site"
                             draggable="false"
                             on:dragstart|preventDefault
@@ -216,6 +222,7 @@
                         <a
                             href={slide.externalLink}
                             target="_blank"
+                            rel="noopener noreferrer"
                             aria-label="Live site"
                             draggable="false"
                         >
@@ -231,6 +238,7 @@
                             <a
                                 href={slide.githubLink}
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="Github"
                                 draggable="false"
                             >
@@ -239,6 +247,7 @@
                             <a
                                 href={slide.externalLink}
                                 target="_blank"
+                                rel="noopener noreferrer"
                                 aria-label="Live site"
                                 draggable="false"
                             >
@@ -249,7 +258,6 @@
                 </div>
             </li>
         {/each}
-
     </ul>
 
     <button class="prev" on:click={userPrev} aria-label="Previous slide"
@@ -258,7 +266,6 @@
     <button class="next" on:click={userNext} aria-label="Next slide"
         ><Arrow /></button
     >
-    
 </div>
 
 <!-- mark: -->

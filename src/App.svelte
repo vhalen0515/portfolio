@@ -19,7 +19,7 @@
     import Footer from './components/layout/Footer.svelte';
 
     // images
-    import BlueDots from '../public/BlueDots.svelte';
+    import BlueDots from '../public/images/BlueDots.svelte';
 
     // state
     let showSidebars = true;
@@ -54,7 +54,7 @@
 {/if}
 <div class="page">
     <main>
-        <section class="component-section">
+        <section>
             <Hero />
         </section>
 
@@ -120,8 +120,9 @@
         display: flex;
         flex-direction: column;
         gap: 25rem;
-        max-width: 1280px;
+        /* max-width: 1480px; */
         padding-inline: 1.75rem;
+        /* margin-inline: auto; */
 
         @media (width >= 480px) {
             padding-inline: 3.25rem;
@@ -138,11 +139,14 @@
 
     .component-section {
         position: relative;
+
+        /* overflow: visible; */
     }
 
     .dot-container {
         position: absolute;
         display: none;
+        pointer-events: none;
 
         @media (width >= 1000px) {
             display: block;
@@ -161,10 +165,12 @@
     }
 
     .dot-container.left {
+        /* left: -11.25rem; */
         left: calc(-1.09 * min(50vw - 50%, 17.25rem));
     }
 
     .dot-container.right {
+        /* right: -11.25rem; */
         right: calc(-1.09 * min(50vw - 50%, 17.25rem));
     }
 

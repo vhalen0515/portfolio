@@ -16,6 +16,7 @@
             href="https://www.instagram.com/trent_av/"
             target="_blank"
             aria-label="Instagram link"
+            rel="noopener noreferrer"
         >
             <Instagram width="24" height="24" />
         </a>
@@ -23,6 +24,7 @@
             href="https://www.linkedin.com/in/trent-avilla/"
             target="_blank"
             aria-label="Linkedin link"
+            rel="noopener noreferrer"
         >
             <Linkedin width="24" height="24" />
         </a>
@@ -30,6 +32,7 @@
             href="https://github.com/vhalen0515"
             target="_blank"
             aria-label="GitHub link"
+            rel="noopener noreferrer"
         >
             <Github width="24" height="24" />
         </a>

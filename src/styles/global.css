@@ -143,12 +143,16 @@ body {
     transition:
         opacity 0.8s ease var(--reveal-delay, 0s),
         transform 0.8s ease var(--reveal-delay, 0s);
+}
+
+.reveal:not(.is-visible) {
     will-change: opacity, transform;
 }
 
 .reveal.is-visible {
     opacity: 1;
     transform: translate(0, 0);
+    will-change: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -156,5 +160,6 @@ body {
         transition: none;
         opacity: 1;
         transform: none;
+        will-change: auto;
     }
 }
