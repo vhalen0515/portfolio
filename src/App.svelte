@@ -38,26 +38,6 @@
             checkViewportHeight();
             window.addEventListener('resize', checkViewportHeight);
         });
-
-        // Select sections *after* mount
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver(
-            (entries, obs) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        // Stop observing to animate only once
-                        obs.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.3 },
-        );
-
-        // Only set up observer on large screens
-        if (window.innerWidth >= 1000) {
-            sections.forEach((section) => observer.observe(section));
-        }
     });
 
     onDestroy(() => {
@@ -74,11 +54,11 @@
 {/if}
 
 <main>
-    <section class="hero-section">
+    <section>
         <Hero />
     </section>
 
-    <section class="about-section section">
+    <section>
         <div
             class="dot-container left reveal"
             use:reveal={{ x: -24, y: 0, duration: 0.4 }}
@@ -88,7 +68,7 @@
         <About />
     </section>
 
-    <section class="experience-section section">
+    <section>
         <div
             use:reveal={{ x: 24, y: 0, duration: 0.4 }}
             class="dot-container right reveal"
@@ -100,7 +80,7 @@
         <Experience />
     </section>
 
-    <section class="projects-section section">
+    <section>
         <div
             class="dot-container left reveal"
             use:reveal={{ x: -24, y: 0, duration: 0.4 }}
@@ -110,7 +90,7 @@
         <Projects />
     </section>
 
-    <section class="contact-section section">
+    <section>
         <div
             use:reveal={{ x: 24, y: 0, duration: 0.4 }}
             class="dot-container right reveal"
