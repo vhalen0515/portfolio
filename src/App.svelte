@@ -15,6 +15,12 @@
     import RightSidebar from './components/layout/RightSidebar.svelte';
     import Footer from './components/layout/Footer.svelte';
 
+    // images
+    import BlueDots from '../public/images/BlueDots.svelte';
+
+    // actions
+    import { reveal } from './components/actions/reveal.js';
+
     // state
     let showSidebars = true;
 
@@ -73,18 +79,46 @@
     </section>
 
     <section class="about-section section">
+        <div
+            class="dot-container left reveal"
+            use:reveal={{ x: -24, y: 0, duration: 0.4 }}
+        >
+            <BlueDots width="400" />
+        </div>
         <About />
     </section>
 
     <section class="experience-section section">
+        <div
+            use:reveal={{ x: 24, y: 0, duration: 0.4 }}
+            class="dot-container right reveal"
+        >
+            <div class="rotate">
+                <BlueDots width="400" />
+            </div>
+        </div>
         <Experience />
     </section>
 
     <section class="projects-section section">
+        <div
+            class="dot-container left reveal"
+            use:reveal={{ x: -24, y: 0, duration: 0.4 }}
+        >
+            <BlueDots width="400" />
+        </div>
         <Projects />
     </section>
 
     <section class="contact-section section">
+        <div
+            use:reveal={{ x: 24, y: 0, duration: 0.4 }}
+            class="dot-container right reveal"
+        >
+            <div class="rotate">
+                <BlueDots width="400" />
+            </div>
+        </div>
         <Contact />
     </section>
 </main>
@@ -104,21 +138,10 @@
         overflow-x: clip;
     }
 
-    .section::before {
-        content: '';
+    .dot-container {
         position: absolute;
-        display: none;
-
-        width: 400px;
-        height: 400px;
-
-        background-image: url('/images/blue-dots.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
         top: -25rem;
-
-        pointer-events: none;
-        z-index: -1;
+        display: none;
 
         @media (width >= 1000px) {
             display: block;
@@ -129,14 +152,15 @@
         }
     }
 
-    .about-section::before,
-    .projects-section::before {
+    .left {
         left: -1.5rem;
     }
 
-    .experience-section::before,
-    .contact-section::before {
+    .right {
         right: -1.5rem;
+    }
+
+    .rotate {
         transform: rotate(180deg);
     }
 </style>
