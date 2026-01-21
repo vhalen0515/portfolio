@@ -205,7 +205,7 @@
                             href={slide.externalLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Live site"
+                            aria-label="Link to {slide.title} project"
                             draggable="false"
                             on:dragstart|preventDefault
                         >
@@ -223,7 +223,7 @@
                             href={slide.externalLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Live site"
+                            aria-label="Link to {slide.title} project"
                             draggable="false"
                         >
                             <h2>{slide.title}</h2>
@@ -239,7 +239,7 @@
                                 href={slide.githubLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Github"
+                                aria-label="Link to project Github"
                                 draggable="false"
                             >
                                 <Github width={28} height={28} />
@@ -248,7 +248,7 @@
                                 href={slide.externalLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Live site"
+                                aria-label="Link to {slide.title} project"
                                 draggable="false"
                             >
                                 <ExternalLink size={28} />
