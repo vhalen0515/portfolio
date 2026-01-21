@@ -23,24 +23,6 @@
     <div use:reveal={{ delay: 0.8 }} class="reveal">
         <a href="#projects"> Recent Work </a>
     </div>
-    <!-- <p class="reveal" style="--delay:0.4s">Hi, my name is</p>
-
-    <h1 class="reveal" style="--delay:0.5s">
-        Trenton Avilla<span>.</span>
-    </h1>
-
-    <h2 class="reveal" style="--delay:0.6s">
-        I am a Front-End Developer<span>.</span>
-    </h2>
-
-    <p class="reveal" style="--delay:0.7s">
-        I like to design and build things for the web. I currently enjoy using
-        React and Tailwind to create functional and engaging websites<span
-            >.</span
-        >
-    </p>
-
-    <a class="reveal" style="--delay:0.8s" href="#projects">Recent Work</a> -->
 </div>
 
 <!-- mark: -->
@@ -154,18 +136,4 @@
             color: var(--bg-clr);
         }
     }
-
-    /* .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        animation: revealUp 0.4s ease forwards;
-        animation-delay: var(--delay, 0s);
-    }
-
-    @keyframes revealUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    } */
 </style>
