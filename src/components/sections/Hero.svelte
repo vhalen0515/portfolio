@@ -28,8 +28,21 @@
         justify-content: center;
         min-height: 100vh;
         min-height: 100svh;
+        max-width: 1280px;
+        padding-inline: 1.75rem;
+        margin: 2.5rem auto 0 auto;
 
-        margin-block-start: 2.5rem;
+        @media (width >= 480px) {
+            padding-inline: 3.25rem;
+        }
+
+        @media (width > 768px) {
+            padding-inline: 6.5rem;
+        }
+
+        @media (width >= 1000px) {
+            padding-inline: 9.75rem;
+        }
 
         @media (height <= 550px) {
             margin-block-start: 8rem;
@@ -111,7 +124,6 @@
         }
     }
 
-    /* Only apply hover styles on hover-capable devices */
     @media (hover: hover) and (pointer: fine) {
         #hero a:hover {
             background-color: var(--accent-clr);

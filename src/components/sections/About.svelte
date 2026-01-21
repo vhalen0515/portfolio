@@ -7,7 +7,7 @@
 
 <div id="about">
     <h2 use:reveal class="reveal">About Me</h2>
-    <div>
+    <div class="about-content">
         <div class="text-container">
             <p use:reveal class="reveal">
                 Hello! My name is Trenton Avilla, and I love bringing ideas to
@@ -45,6 +45,10 @@
 
 <style>
     #about {
+        max-width: 1280px;
+        padding-inline: 1.75rem;
+        margin-inline: auto;
+
         h2 {
             display: flex;
             align-items: center;
@@ -82,26 +86,33 @@
             }
         }
 
-        h2 + div {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-block-start: 2rem;
-
-            @media (width >= 1000px) {
-                flex-direction: row;
-                align-items: start;
-                gap: 3rem;
-            }
+        @media (width >= 480px) {
+            padding-inline: 3.25rem;
         }
 
-        .text-container {
-            @media (width >= 1000px) {
-                flex: 1;
-                margin-block-start: 0;
-            }
+        @media (width > 768px) {
+            padding-inline: 6.5rem;
         }
 
+        @media (width >= 1000px) {
+            padding-inline: 9.75rem;
+        }
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-block-start: 2rem;
+
+        @media (width >= 1000px) {
+            flex-direction: row;
+            align-items: start;
+            gap: 3rem;
+        }
+    }
+
+    .text-container {
         p {
             font-size: 1.125rem;
             color: var(--main-txt-clr);
@@ -112,40 +123,41 @@
             }
         }
 
-        .image-container {
-            position: relative;
-            width: 75%;
-            max-width: 300px;
-            margin-block-start: 3.625rem;
+        @media (width >= 1000px) {
+            flex: 1;
+            margin-block-start: 0;
+        }
+    }
 
-            &::before {
-                content: '';
-                position: absolute;
-                inset: 0;
-                border: 1px solid var(--accent-clr);
-                border-radius: 6px;
-                transform: translate(12px, 12px);
-                z-index: -10;
-            }
+    .image-container {
+        position: relative;
+        width: 75%;
+        max-width: 300px;
+        margin-block-start: 3.625rem;
 
-            &::after {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background-color: var(--accent-clr);
-                opacity: 0.4;
-                border-radius: 6px;
-                z-index: 10;
-                transition: opacity 0.3s ease;
-            }
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid var(--accent-clr);
+            border-radius: 6px;
+            transform: translate(12px, 12px);
+            z-index: -10;
+        }
 
-            &:hover::after {
-                opacity: 0;
-            }
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: var(--accent-clr);
+            opacity: 0.4;
+            border-radius: 6px;
+            z-index: 10;
+            transition: opacity 0.3s ease;
+        }
 
-            @media (width >= 1000px) {
-                margin-block-start: 0;
-            }
+        &:hover::after {
+            opacity: 0;
         }
 
         img {
@@ -153,6 +165,10 @@
             width: 100%;
             object-fit: cover;
             border-radius: 6px;
+        }
+
+        @media (width >= 1000px) {
+            margin-block-start: 0;
         }
     }
 </style>

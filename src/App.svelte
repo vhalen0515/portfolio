@@ -2,9 +2,6 @@
     // lifecycle
     import { onMount, onDestroy } from 'svelte';
 
-    // actions
-    import { reveal } from './components/actions/reveal.js';
-
     // sections
     import Hero from './components/sections/Hero.svelte';
     import About from './components/sections/About.svelte';
@@ -17,9 +14,6 @@
     import LeftSidebar from './components/layout/LeftSidebar.svelte';
     import RightSidebar from './components/layout/RightSidebar.svelte';
     import Footer from './components/layout/Footer.svelte';
-
-    // images
-    import BlueDots from '../public/images/BlueDots.svelte';
 
     // state
     let showSidebars = true;
@@ -38,6 +32,26 @@
             checkViewportHeight();
             window.addEventListener('resize', checkViewportHeight);
         });
+
+        // Select sections *after* mount
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver(
+            (entries, obs) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Stop observing to animate only once
+                        obs.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.3 },
+        );
+
+        // Only set up observer on large screens
+        if (window.innerWidth >= 1000) {
+            sections.forEach((section) => observer.observe(section));
+        }
     });
 
     onDestroy(() => {
@@ -52,101 +66,59 @@
     <LeftSidebar />
     <RightSidebar />
 {/if}
-<div class="page">
-    <main>
-        <section>
-            <Hero />
-        </section>
 
-        <section class="component-section">
-            <div
-                class="dot-container first left reveal"
-                use:reveal={{ x: -24, y: 0, duration: 0.4 }}
-            >
-                <BlueDots width="400" />
-            </div>
-            <About />
-        </section>
+<main>
+    <section class="hero-section">
+        <Hero />
+    </section>
 
-        <section class="component-section">
-            <div
-                use:reveal={{ x: 24, y: 0, duration: 0.4 }}
-                class="dot-container second right reveal"
-            >
-                <div class="rotate">
-                    <BlueDots width="400" />
-                </div>
-            </div>
-            <Experience />
-        </section>
+    <section class="about-section section">
+        <About />
+    </section>
 
-        <section class="component-section">
-            <div
-                use:reveal={{ x: -24, y: 0, duration: 0.4 }}
-                class="dot-container third left reveal"
-            >
-                <BlueDots width="400" />
-            </div>
-            <Projects />
-        </section>
+    <section class="experience-section section">
+        <Experience />
+    </section>
 
-        <section class="component-section">
-            <div
-                use:reveal={{ x: 24, y: 0, duration: 0.4 }}
-                class="dot-container last right reveal"
-            >
-                <div class="rotate">
-                    <BlueDots width="400" />
-                </div>
-            </div>
-            <Contact />
-        </section>
-    </main>
-</div>
+    <section class="projects-section section">
+        <Projects />
+    </section>
+
+    <section class="contact-section section">
+        <Contact />
+    </section>
+</main>
 <Footer />
 
 <!-- mark: -->
 
 <style>
-    .page {
-        display: grid;
-        grid-template-columns: 1fr minmax(0, 1280px) 1fr;
-        width: 100%;
-        overflow-x: clip;
-    }
-
     main {
-        grid-column: 2;
         display: flex;
         flex-direction: column;
         gap: 25rem;
-        /* max-width: 1480px; */
-        padding-inline: 1.75rem;
-        /* margin-inline: auto; */
-
-        @media (width >= 480px) {
-            padding-inline: 3.25rem;
-        }
-
-        @media (width > 768px) {
-            padding-inline: 6.5rem;
-        }
-
-        @media (width >= 1000px) {
-            padding-inline: 9.75rem;
-        }
     }
 
-    .component-section {
+    section {
         position: relative;
-
-        /* overflow: visible; */
+        overflow-x: clip;
     }
 
-    .dot-container {
+    .section::before {
+        content: '';
         position: absolute;
         display: none;
+
+        width: 400px;
+        height: 400px;
+
+        background-image: url('/images/blue-dots.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        top: -25rem;
+
         pointer-events: none;
+        z-index: -1;
 
         @media (width >= 1000px) {
             display: block;
@@ -157,24 +129,14 @@
         }
     }
 
-    .dot-container.first,
-    .dot-container.second,
-    .dot-container.third,
-    .dot-container.last {
-        top: -25rem;
+    .about-section::before,
+    .projects-section::before {
+        left: -1.5rem;
     }
 
-    .dot-container.left {
-        /* left: -11.25rem; */
-        left: calc(-1.09 * min(50vw - 50%, 17.25rem));
-    }
-
-    .dot-container.right {
-        /* right: -11.25rem; */
-        right: calc(-1.09 * min(50vw - 50%, 17.25rem));
-    }
-
-    .rotate {
+    .experience-section::before,
+    .contact-section::before {
+        right: -1.5rem;
         transform: rotate(180deg);
     }
 </style>

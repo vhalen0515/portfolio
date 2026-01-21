@@ -1,5 +1,5 @@
 export function reveal(node, options = {}) {
-    const { x = 0, y = 24, threshold = 0.5, delay = 0 } = options;
+    const { x = 0, y = 24, threshold = 0.3, delay = 0 } = options;
 
     node.style.setProperty('--reveal-x', `${x}px`);
     node.style.setProperty('--reveal-y', `${y}px`);

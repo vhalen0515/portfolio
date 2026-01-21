@@ -30,65 +30,80 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
+        max-width: 1280px;
+        padding-inline: 1.75rem;
+        margin-inline: auto;
 
-    h2 {
-        font-family: 'Reddit-Mono';
-        font-size: 1rem;
-        font-weight: 600;
-        color: var(--accent-clr);
+        @media (width >= 480px) {
+            padding-inline: 3.25rem;
+        }
 
-        &::before {
-            content: '04.';
+        @media (width > 768px) {
+            padding-inline: 6.5rem;
+        }
+
+        @media (width >= 1000px) {
+            padding-inline: 9.75rem;
+        }
+
+        h2 {
+            font-family: 'Reddit-Mono';
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-clr);
+
+            &::before {
+                content: '04.';
+                font-family: 'Reddit-Mono';
+                color: var(--accent-clr);
+                margin-inline-end: 0.5rem;
+            }
+        }
+
+        h3 {
+            font-size: 2.25rem;
+            font-weight: 600;
+            color: var(--main-header-clr);
+            margin-block-start: 1rem;
+
+            @media (width >= 769px) {
+                font-size: clamp(
+                    2.25rem,
+                    -2.7155rem + 10.3448vw,
+                    3.75rem
+                ); /* 769px - 1000px */
+            }
+        }
+
+        p {
+            color: var(--main-txt-clr);
+            text-align: center;
+            margin-block-start: 1rem;
+            max-width: 650px;
+
+            @media (width >= 769px) {
+                font-size: 1.125rem;
+                margin-block-start: 1.25rem;
+            }
+        }
+
+        a {
+            display: inline-block;
             font-family: 'Reddit-Mono';
             color: var(--accent-clr);
-            margin-inline-end: 0.5rem;
-        }
-    }
+            padding-inline: 1.5rem;
+            padding-block: 1rem;
+            border: 1px solid var(--accent-clr);
+            border-radius: 6px;
+            margin-block-start: 3rem;
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease;
 
-    h3 {
-        font-size: 2.25rem;
-        font-weight: 600;
-        color: var(--main-header-clr);
-        margin-block-start: 1rem;
-
-        @media (width >= 769px) {
-            font-size: clamp(
-                2.25rem,
-                -2.7155rem + 10.3448vw,
-                3.75rem
-            ); /* 769px - 1000px */
-        }
-    }
-
-    p {
-        color: var(--main-txt-clr);
-        text-align: center;
-        margin-block-start: 1rem;
-        max-width: 650px;
-
-        @media (width >= 769px) {
-            font-size: 1.125rem;
-            margin-block-start: 1.25rem;
-        }
-    }
-
-    a {
-        display: inline-block;
-        font-family: 'Reddit-Mono';
-        color: var(--accent-clr);
-        padding-inline: 1.5rem;
-        padding-block: 1rem;
-        border: 1px solid var(--accent-clr);
-        border-radius: 6px;
-        margin-block-start: 3rem;
-        transition:
-            background-color 0.3s ease,
-            color 0.3s ease;
-
-        &:hover {
-            background-color: var(--accent-clr);
-            color: var(--bg-clr);
+            &:hover {
+                background-color: var(--accent-clr);
+                color: var(--bg-clr);
+            }
         }
     }
 </style>

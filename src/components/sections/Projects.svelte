@@ -19,6 +19,22 @@
 
 <style>
     #projects {
+        max-width: 1280px;
+        padding-inline: 1.75rem;
+        margin-inline: auto;
+
+        @media (width >= 480px) {
+            padding-inline: 3.25rem;
+        }
+
+        @media (width > 768px) {
+            padding-inline: 6.5rem;
+        }
+
+        @media (width >= 1000px) {
+            padding-inline: 9.75rem;
+        }
+
         h2 {
             display: flex;
             align-items: center;

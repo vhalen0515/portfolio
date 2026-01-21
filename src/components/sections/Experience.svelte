@@ -34,7 +34,15 @@
             name: 'Skills',
             heading: 'Front-End Skills',
             description: 'Other skills and techniques I work with:',
-            items: ['Flexbox', 'Grid', 'RESTful APIs', 'Mobile-First Design', 'Web Performance Optimization', 'SEO Fundamentals', 'Accessibility'],
+            items: [
+                'Flexbox',
+                'Grid',
+                'RESTful APIs',
+                'Mobile-First Design',
+                'Web Performance Optimization',
+                'SEO Fundamentals',
+                'Accessibility',
+            ],
         },
     ];
 
@@ -78,50 +86,65 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
+        max-width: 1280px;
+        padding-inline: 1.75rem;
+        margin-inline: auto;
 
-    h2 {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        font-size: clamp(
-            1.5rem,
-            0.7941rem + 2.3529vw,
-            1.75rem
-        ); /* 480px - 650px */
-        font-weight: 600;
-        color: var(--main-header-clr);
-
-        @media (width >=768px) {
-            justify-content: center;
+        @media (width >= 480px) {
+            padding-inline: 3.25rem;
         }
 
-        &::before {
-            content: '02.';
-            font-family: 'Reddit-Mono';
+        @media (width > 768px) {
+            padding-inline: 6.5rem;
+        }
+
+        @media (width >= 1000px) {
+            padding-inline: 9.75rem;
+        }
+
+        h2 {
+            display: flex;
+            align-items: center;
+            width: 100%;
             font-size: clamp(
-                1rem,
-                0.2941rem + 2.3529vw,
-                1.25rem
+                1.5rem,
+                0.7941rem + 2.3529vw,
+                1.75rem
             ); /* 480px - 650px */
-            color: var(--accent-clr);
-            margin-inline-end: 0.5rem;
-        }
-
-        &::after {
-            content: '';
-            flex: 1;
-            height: 0.0625rem;
-            background-color: var(--main-txt-clr);
-            margin-inline-start: 1rem;
+            font-weight: 600;
+            color: var(--main-header-clr);
 
             @media (width >=768px) {
-                flex: none;
-                width: 25%;
+                justify-content: center;
             }
 
-            @media (width >= 1000px) {
-                width: 33%;
+            &::before {
+                content: '02.';
+                font-family: 'Reddit-Mono';
+                font-size: clamp(
+                    1rem,
+                    0.2941rem + 2.3529vw,
+                    1.25rem
+                ); /* 480px - 650px */
+                color: var(--accent-clr);
+                margin-inline-end: 0.5rem;
+            }
+
+            &::after {
+                content: '';
+                flex: 1;
+                height: 0.0625rem;
+                background-color: var(--main-txt-clr);
+                margin-inline-start: 1rem;
+
+                @media (width >=768px) {
+                    flex: none;
+                    width: 25%;
+                }
+
+                @media (width >= 1000px) {
+                    width: 33%;
+                }
             }
         }
     }
