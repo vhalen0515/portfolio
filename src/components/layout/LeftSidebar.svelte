@@ -4,11 +4,14 @@
     import Linkedin from '../../assets/icons/Linkedin.svelte';
     import Instagram from '../../assets/icons/Instagram.svelte';
     import Email from '../../assets/icons/Email.svelte';
+
+    // actions
+    import { reveal } from '../actions/reveal.js';
 </script>
 
 <!-- mark: -->
 
-<div class="left-sidebar reveal" style="--delay:0.8s">
+<div use:reveal={{ delay: 0.8 }} class="left-sidebar reveal">
     <a
         href="https://github.com/vhalen0515"
         target="_blank"
@@ -48,6 +51,7 @@
         left: 1rem;
         flex-direction: column;
         align-items: center;
+        z-index: 1;
 
         @media (width > 768px) {
             display: flex;
@@ -85,20 +89,6 @@
 
         & a:nth-child(4) {
             margin-block-end: 1rem;
-        }
-    }
-
-    .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        animation: revealUp 0.4s ease forwards;
-        animation-delay: var(--delay, 0s);
-    }
-
-    @keyframes revealUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
         }
     }
 </style>

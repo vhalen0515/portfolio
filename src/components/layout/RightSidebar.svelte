@@ -1,4 +1,9 @@
-<div class="right-sidebar reveal" style="--delay:0.8s">
+<script>
+    // actions
+    import { reveal } from '../actions/reveal.js'
+</script>
+
+<div use:reveal={{ delay: 0.8 }} class="right-sidebar reveal">
     <a
         href="mailto:tavilla04@gmail.com?subject=Web%20Development%20Project&body=I%20saw%20your%20portfolio%20and%20wanted%20to%20reach%20out!"
         aria-label="Send an email to Trent">tavilla04@gmail.com</a
@@ -15,6 +20,7 @@
         display: none;
         flex-direction: column;
         align-items: center;
+        z-index: 1;
 
         @media (width > 768px) {
             display: flex;
@@ -51,20 +57,6 @@
                 color: var(--accent-clr);
                 transform: translateY(-3px);
             }
-        }
-    }
-
-    .reveal {
-        opacity: 0;
-        transform: translateY(24px);
-        animation: revealUp 0.4s ease forwards;
-        animation-delay: var(--delay, 0s);
-    }
-
-    @keyframes revealUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
         }
     }
 </style>
