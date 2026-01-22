@@ -20,6 +20,7 @@
 
     // actions
     import { reveal } from './components/actions/reveal.js';
+    import { lazySection } from './components/actions/lazySection.js';
 
     // state
     let showSidebars = true;
@@ -58,7 +59,7 @@
         <Hero />
     </section>
 
-    <section>
+    <section use:lazySection>
         <div
             class="dot-container left reveal"
             use:reveal={{ x: -24, y: 0, duration: 0.4 }}
@@ -68,7 +69,7 @@
         <About />
     </section>
 
-    <section>
+    <section use:lazySection>
         <div
             use:reveal={{ x: 24, y: 0, duration: 0.4 }}
             class="dot-container right reveal"
@@ -80,7 +81,7 @@
         <Experience />
     </section>
 
-    <section>
+    <section use:lazySection>
         <div
             class="dot-container left reveal"
             use:reveal={{ x: -24, y: 0, duration: 0.4 }}
@@ -90,7 +91,7 @@
         <Projects />
     </section>
 
-    <section>
+    <section use:lazySection>
         <div
             use:reveal={{ x: 24, y: 0, duration: 0.4 }}
             class="dot-container right reveal"
