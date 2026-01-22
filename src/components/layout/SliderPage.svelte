@@ -228,7 +228,7 @@
                         >
                             <h2>{slide.title}</h2>
                         </a>
-                        <p>{slide.description}</p>g
+                        <p>{slide.description}</p>
                         <ul>
                             {#each slide.tools as tools}
                                 <li>{tools}</li>
