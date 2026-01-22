@@ -2,6 +2,10 @@
     // logo
     import Logo from '../../assets/logos/logo.svg';
 
+    // actions
+    import { reveal } from '../actions/reveal.js';
+    import { fadeIn } from '../actions/fadeIn.js';
+
     // lifecycle
     import { onMount, onDestroy } from 'svelte';
 
@@ -122,23 +126,46 @@
 
     <div class="desktop-header">
         <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
-            <img class="logo fade-in" src={Logo} alt="" />
+            <img use:fadeIn class="logo fade-in fade" src={Logo} alt="" />
         </a>
         <nav class="desktop-nav">
             <ul>
-                <li class="reveal">
+                <li use:reveal={{ y: -24 }} class="reveal">
                     <a href="#about">About</a>
                 </li>
-                <li class="reveal" style="--delay:0.1s">
+                <li use:reveal={{ y: -24, delay: 0.1 }} class="reveal">
                     <a href="#experience">Experience</a>
                 </li>
-                <li class="reveal" style="--delay:0.2s">
+                <li use:reveal={{ y: -24, delay: 0.2 }} class="reveal">
                     <a href="#projects">Projects</a>
                 </li>
-                <li class="reveal" style="--delay:0.3s">
+                <li use:reveal={{ y: -24, delay: 0.3 }} class="reveal">
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
+            <!-- <ul>
+                <li class="reveal">
+                    <a href="#about">About</a>
+                </li>
+                <li
+                    class="reveal"
+                    style="--delay:0.1s"
+                >
+                    <a href="#experience">Experience</a>
+                </li>
+                <li
+                    class="reveal"
+                    style="--delay:0.2s"
+                >
+                    <a href="#projects">Projects</a>
+                </li>
+                <li
+                    class="reveal"
+                    style="--delay:0.3s"
+                >
+                    <a href="#contact">Contact</a>
+                </li>
+            </ul> -->
         </nav>
     </div>
 </header>
@@ -374,7 +401,7 @@
 
             li {
                 a {
-                    font-family: 'Reddit-Mono';
+                    font-family: 'Reddit-Mono', 'Courier New', monospace;
                     font-size: 0.875rem;
                     color: var(--main-txt-clr);
                     padding: 0.625rem 1.125rem;
@@ -406,7 +433,7 @@
         }
     }
 
-    .fade-in {
+    /* .fade-in {
         opacity: 0;
         animation: fadeIn 0.4s ease forwards;
         animation-delay: var(--delay, 0s);
@@ -416,9 +443,9 @@
         to {
             opacity: 1;
         }
-    }
+    } */
 
-    .reveal {
+    /* .reveal {
         opacity: 0;
         transform: translateY(-24px);
         animation: revealUp 0.4s ease forwards;
@@ -430,5 +457,5 @@
             opacity: 1;
             transform: translateY(0);
         }
-    }
+    } */
 </style>

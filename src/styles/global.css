@@ -163,4 +163,19 @@ body {
         transform: none;
         will-change: auto;
     }
+    .fade {
+        transition: none;
+        opacity: 1;
+        will-change: auto;
+    }
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.8s ease var(--fade-delay, 0s);
+}
+
+.fade.is-visible {
+    opacity: 1;
+    will-change: auto;
 }
