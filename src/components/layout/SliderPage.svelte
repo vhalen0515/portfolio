@@ -239,7 +239,7 @@
                                 href={slide.githubLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="Link to project Github"
+                                aria-label="Github link to {slide.title}"
                                 draggable="false"
                             >
                                 <Github width={28} height={28} />
