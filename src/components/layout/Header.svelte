@@ -70,22 +70,6 @@
     /* -------------------------------------
        Lifecycle
     ------------------------------------- */
-    // onMount(() => {
-    //     window.addEventListener('scroll', handleScroll);
-
-    //     const mq = window.matchMedia(desktopQuery);
-    //     const handleChange = (e) => {
-    //         if (e.matches) isOpen = false;
-    //     };
-
-    //     mq.addEventListener('change', handleChange);
-
-    //     return () => {
-    //         window.removeEventListener('scroll', handleScroll);
-    //         mq.removeEventListener('change', handleChange);
-    //     };
-    // });
-
     onMount(() => {
         window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -126,7 +110,7 @@
 
     <div class="desktop-header">
         <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
-            <img use:fadeIn class="logo fade-in fade" src={Logo} alt="" />
+            <img use:fadeIn class="logo fade" src={Logo} alt="" />
         </a>
         <nav class="desktop-nav">
             <ul>
@@ -432,30 +416,4 @@
             }
         }
     }
-
-    /* .fade-in {
-        opacity: 0;
-        animation: fadeIn 0.4s ease forwards;
-        animation-delay: var(--delay, 0s);
-    }
-
-    @keyframes fadeIn {
-        to {
-            opacity: 1;
-        }
-    } */
-
-    /* .reveal {
-        opacity: 0;
-        transform: translateY(-24px);
-        animation: revealUp 0.4s ease forwards;
-        animation-delay: var(--delay, 0s);
-    }
-
-    @keyframes revealUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    } */
 </style>

@@ -4,27 +4,27 @@
 
 @font-face {
     font-family: Reddit-Mono;
-    src: url('../assets/fonts/Reddit-Mono.woff2') format('woff2');
+    src: url('/fonts/Reddit-Mono.woff2') format('woff2');
     font-display: swap;
 }
 
 @font-face {
     font-family: Montserrat;
-    src: url('../assets/fonts/Montserrat-Regular.woff2') format('woff2');
+    src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
     font-family: Montserrat;
-    src: url('../assets/fonts/Montserrat-Semibold.woff2') format('woff2');
+    src: url('/fonts/Montserrat-Semibold.woff2') format('woff2');
     font-weight: 600;
     font-display: swap;
 }
 
 @font-face {
     font-family: Montserrat;
-    src: url('../assets/fonts/Montserrat-Bold.woff2') format('woff2');
+    src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
     font-weight: 700;
     font-display: swap;
 }
@@ -163,6 +163,7 @@ body {
         transform: none;
         will-change: auto;
     }
+
     .fade {
         transition: none;
         opacity: 1;
