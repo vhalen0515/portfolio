@@ -211,6 +211,8 @@
                         >
                             <img
                                 src={slide.image}
+                                width="565"
+                                height="320"
                                 alt={slide.title}
                                 draggable="false"
                                 loading="lazy"
@@ -242,7 +244,7 @@
                                 aria-label="Github link to {slide.title}"
                                 draggable="false"
                             >
-                                <Github width={28} height={28} />
+                                <Github width={24} height={24} />
                             </a>
                             <a
                                 href={slide.externalLink}
@@ -251,7 +253,7 @@
                                 aria-label="Link to {slide.title} project"
                                 draggable="false"
                             >
-                                <ExternalLink size={28} />
+                                <ExternalLink size={24} />
                             </a>
                         </div>
                     </div>
@@ -302,7 +304,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        /* border: 1px solid var(--accent-clr); */
         user-select: none;
+
+        @media (width >= 769px) {
+            border: none;
+        }
     }
 
     .slide-grid {
@@ -325,10 +332,14 @@
         height: 100%;
         overflow: hidden;
         position: relative;
+        /* border: 1px solid var(--main-header-clr); */
         border-radius: 6px;
 
         @media (width >= 769px) {
             grid-column: 1 / 8;
+            &:hover img {
+                transform: scale(1.1);
+            }
         }
 
         &::after {
@@ -342,13 +353,15 @@
 
         @media (width >= 769px) {
             &::after {
-                background: var(--accent-clr);
+                background: var(--slider-img);
+                /* opacity: var(--slider-img-opacity); */
                 opacity: 0.4;
-                transition: opacity 0.3s ease;
+                /* transition: opacity 0.3s ease; */
+                transition: opacity 0.8s ease;
             }
 
             &:hover::after {
-                opacity: 0;
+                opacity: 0.2;
             }
         }
 
@@ -358,6 +371,9 @@
             height: 100%;
             pointer-events: none;
             user-select: none;
+            transform: scale(1);
+            transition: transform 0.7s ease;
+            will-change: transform;
         }
     }
 
@@ -378,9 +394,9 @@
         @media (width >= 769px) {
             grid-column: 5 / 13;
             align-items: end;
+            text-align: right;
             background: none;
             padding-block: 0;
-            text-align: right;
             pointer-events: none;
         }
 
@@ -389,14 +405,25 @@
             pointer-events: auto;
 
             h2 {
-                font-size: clamp(
+                /* font-size: clamp(
                     1.25rem,
                     0.8323rem + 1.9093vw,
                     1.75rem
+                );  */
+                /* 350px - 769px */
+                font-size: clamp(
+                    1.25rem,
+                    0.9368rem + 1.432vw,
+                    1.625rem
                 ); /* 350px - 769px */
-                color: var(--main-header-clr);
+                font-weight: 600;
+                color: var(--slider-header);
                 margin-block-end: 0.625rem;
                 transition: color 0.3s ease;
+
+                @media (width >= 769px) {
+                    color: var(--slider-header-desktop);
+                }
             }
 
             &:hover h2 {
@@ -405,13 +432,21 @@
         }
 
         p {
-            color: var(--main-txt-clr);
+            font-size: clamp(
+                0.9375rem,
+                6.074rem + -10.687vw,
+                0.0625rem
+            ); /* 769px - 900px */
+            color: var(--slider-text);
             margin-block-end: 1.125rem;
 
             @media (width >= 769px) {
-                background: hsl(199, 21%, 17%);
+                color: var(--slider-text-desktop);
+                background: var(--slider-text-bg);
+                /* background: var(--main-txt-clr); */
                 border-radius: 6px;
-                padding: 1.25rem;
+                /* padding: 1.25rem; */
+                padding: 0.875rem 1.25rem;
                 pointer-events: auto;
             }
         }
@@ -420,32 +455,32 @@
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
-            margin-block-end: 0.875rem;
+            margin-block-end: 0.5rem;
 
             @media (width >= 769px) {
                 justify-content: flex-end;
-                width: 75%;
+                width: 65%;
                 margin-inline-start: auto;
             }
         }
 
         li {
             font-family: 'Reddit-Mono';
-            font-size: 0.875rem;
-            color: var(--main-header-clr);
+            font-size: 0.75rem;
+            color: var(--slider-text);
             border: 1px solid var(--accent-clr);
-            border-radius: 12px;
+            border-radius: 100vw;
             padding-inline: 0.75rem;
             padding-block: 0.125rem;
-            transition: background-color 0.3s ease;
+            /* transition: background-color 0.3s ease, color 0.3s ease; */
 
             &:hover {
-                background-color: hsl(199, 21%, 19%);
-                cursor: pointer;
+                background-color: var(--accent-clr);
+                color: var(--bg-clr);
             }
 
             @media (width >= 769px) {
-                font-size: 0.75rem;
+                color: var(--slider-text-desktop-secondary);
                 pointer-events: auto;
             }
         }
@@ -453,9 +488,13 @@
         .link-container {
             a {
                 display: inline-block;
-                color: var(--main-header-clr);
+                color: var(--slider-text);
                 padding: 0.5rem;
                 transition: color 0.3s ease;
+
+                @media (width >= 769px) {
+                    color: var(--slider-text-desktop-secondary);
+                }
 
                 &:hover {
                     color: var(--accent-clr);
@@ -463,10 +502,10 @@
             }
 
             &:last-child {
-                margin-inline-start: 0.5rem;
+                margin-inline-start: -0.5rem;
 
                 @media (width >= 769px) {
-                    margin-inline-start: 0.25rem;
+                    margin-inline-end: -0.5rem;
                 }
             }
         }
@@ -479,7 +518,7 @@
         top: 50%;
         transform: translateY(-50%);
         display: none;
-        color: var(--main-header-clr);
+        color: var(--slider-arrows);
         background: none;
         border: none;
         cursor: pointer;
@@ -487,6 +526,10 @@
 
         @media (width >= 480px) {
             display: block;
+        }
+
+        @media (width >= 769px) {
+            color: var(--slider-arrows-desktop);
         }
     }
 

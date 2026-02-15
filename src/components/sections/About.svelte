@@ -10,22 +10,22 @@
     <div class="about-content">
         <div class="text-container">
             <p use:reveal class="reveal">
-                Hello! My name is Trenton Avilla, and I love bringing ideas to
+                Hello! My name is Trent Avilla, and I love bringing ideas to
                 life on the web. My journey into web development began several
-                years ago in 2019 when I started experimenting with building
-                simple websites just for fun—and I quickly realized how much I
+                years ago when I started experimenting with building
+                simple websites — and I quickly realized how much I
                 enjoyed the process of combining design and code to create
                 something people could interact with.
             </p>
             <p use:reveal class="reveal">
-                Since then, I’ve worked on a variety of projects, from small,
+                Since then, I’ve worked on a variety of projects from small,
                 basic web apps to more complex websites and designs. What keeps
                 me hooked is the challenge of creating intuitive, user-friendly
-                experiences that not only look good but feel great to use.
+                experiences that not only look good, but feel great to use.
             </p>
             <p use:reveal class="reveal">
                 Lately, I’ve been focused on building responsive and accessible
-                web experiences using Svelte—continually learning and evolving
+                web experiences using Svelte — continually learning and evolving
                 with each new project.
             </p>
         </div>

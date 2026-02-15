@@ -88,12 +88,70 @@ li {
 /* =====================================================
    PROJECT COLORS
 ===================================================== */
-
-:root {
+:root,
+/* Dark theme */
+[data-theme='dark'] {
+    /* Main colors */
     --bg-clr: hsl(0, 0%, 13%);
     --main-txt-clr: hsl(0, 0%, 70%);
-    --main-header-clr: hsl(0, 0%, 90%);
+    --main-header-clr: hsl(0, 0%, 95%);
     --accent-clr: hsl(194, 100%, 47%);
+    --accent-clr-dark: hsl(199, 21%, 17%);
+
+    /* Mobile menu */
+    --mobile-menu-text: var(--main-txt-clr);
+
+    /* Experience tab section */
+    --experience-btn-accent: var(--accent-clr-dark);
+    --experience-btn-hover: hsl(0, 0%, 15%);
+    --experience-btn-text: var(--accent-clr);
+
+    --slider-img-opacity: 0.4;
+
+    /* Mobile slider */
+    --slider-img: var(--accent-clr);
+    --slider-text-bg: var(--accent-clr-dark);
+    --slider-header: var(--main-header-clr);
+    --slider-text: var(--main-txt-clr);
+    --slider-arrows: var(--main-txt-clr);
+
+    /* Desktop slider */
+    --slider-header-desktop: var(--main-header-clr);
+    --slider-text-desktop: var(--main-txt-clr);
+    --slider-text-desktop-secondary: var(--main-txt-clr);
+    --slider-arrows-desktop: var(--main-txt-clr);
+}
+
+/* Light theme */
+[data-theme='light'] {
+    /* Main colors */
+    --bg-clr: hsl(0, 0%, 95%);
+    --main-txt-clr: hsl(0, 0%, 30%);
+    --main-header-clr: hsl(0, 0%, 13%);
+    --accent-clr: hsl(194, 100%, 37%);
+
+    /* Mobile menu */
+    --mobile-menu-text: var(--bg-clr);
+
+    /* Experience tab section */
+    --experience-btn-accent: hsl(0, 0%, 80%);
+    --experience-btn-hover: hsl(0, 0%, 86%);
+    --experience-btn-text: var(--main-txt-clr);
+
+    --slider-img-opacity: 0.4;
+
+    /* Mobile slider */
+    --slider-img: hsl(0, 0%, 0%);
+    --slider-text-bg: var(--accent-clr);
+    --slider-header: var(--bg-clr);
+    --slider-text: hsl(0, 0%, 80%);
+    --slider-arrows: var(--bg-clr);
+
+    /* Desktop slider */
+    --slider-header-desktop: var(--main-header-clr);
+    --slider-text-desktop: var(--bg-clr);
+    --slider-text-desktop-secondary: var(--main-txt-clr);
+    --slider-arrows-desktop: var(--main-txt-clr);
 }
 
 /* =====================================================
@@ -103,6 +161,7 @@ li {
 html {
     background: var(--bg-clr);
     scroll-behavior: smooth;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -115,7 +174,13 @@ body {
         sans-serif;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
+    /* transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1); */
 }
+
+/* transition:
+        background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        color 0.4s ease,
+        border-color 0.4s ease; */
 
 /* =====================================================
    GLOBAL UTILITIES
@@ -179,4 +244,10 @@ body {
 .fade.is-visible {
     opacity: 1;
     will-change: auto;
+}
+
+/* Prevent transitions on page load and during animations */
+.reveal:not(.is-visible),
+.fade:not(.is-visible) {
+    transition: none !important;
 }

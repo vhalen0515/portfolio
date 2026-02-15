@@ -181,11 +181,11 @@
             border-block-start: 2px solid transparent;
             border-block-end: none;
             border-inline: none;
-            background-color: transparent;
-            transition: background-color 0.3s ease;
+            background-color: var(--bg-clr);
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
             &:hover {
-                background-color: hsl(199, 21%, 17%);
+                background-color: var(--experience-btn-hover);
             }
 
             @media (width >= 480px) {
@@ -202,7 +202,8 @@
 
         button.selected {
             color: var(--accent-clr);
-            background-color: hsl(199, 21%, 17%);
+            color: var(--experience-btn-text);
+            background-color: var(--experience-btn-accent);
             border-block-start: 2px solid var(--accent-clr);
 
             @media (width >= 480px) {
@@ -263,7 +264,6 @@
             }
 
             p {
-                /* font-size: 1rem; */
                 font-size: clamp(
                     0.875rem,
                     0.5385rem + 1.5385vw,

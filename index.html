@@ -66,6 +66,20 @@
 
         <!-- Theme color for mobile browsers -->
         <meta name="theme-color" content="hsl(0, 0%, 13%)" />
+
+        <!-- Prevent flash of wrong theme -->
+        <style>
+            :root, 
+            [data-theme="dark"] {--bg-clr: hsl(0, 0%, 13%);}
+            [data-theme="light"] {--bg-clr: hsl(0, 0%, 90%);}
+            html {background: var(--bg-clr);}
+        </style>
+
+        <!-- Prevent flash of wrong theme -->
+        <script>
+            const theme = localStorage.getItem("theme") || "dark";
+            document.documentElement.setAttribute("data-theme", theme);
+        </script>
     </head>
     <body>
         <div id="app"></div>

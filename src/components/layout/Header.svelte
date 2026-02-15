@@ -1,6 +1,9 @@
 <script>
-    // logo
-    import Logo from '../../assets/logos/logo.svg';
+    // images
+    // import Logo from '../../assets/logos/logo.svg';
+    import Logo from '../../assets/logos/Logo.svelte';
+    import Day from '../../assets/icons/Day.svelte';
+    import Night from '../../assets/icons/Night.svelte';
 
     // actions
     import { reveal } from '../actions/reveal.js';
@@ -24,12 +27,23 @@
     let isAtTop = true;
     let menuButton;
     let mediaQuery;
+    let isDark = true;
+    let hideThemeBtn = false;
 
     /* -------------------------------------
        Menu behavior
     ------------------------------------- */
     function toggleMenu() {
-        isOpen = !isOpen;
+        if (!isOpen) {
+            isOpen = true;
+            hideThemeBtn = true;
+        } else {
+            isOpen = false;
+
+            setTimeout(() => {
+                hideThemeBtn = false;
+            }, 275);
+        }
 
         if (!isOpen) {
             menuButton?.focus();
@@ -59,12 +73,22 @@
     }
 
     /* -------------------------------------
-       Media Query Handler
+       Media query handler
     ------------------------------------- */
     function handleMediaChange(e) {
         if (e.matches) {
             isOpen = false;
         }
+    }
+
+    /* -------------------------------------
+       Theme toggle
+    ------------------------------------- */
+    function toggleTheme() {
+        isDark = !isDark;
+        const newTheme = isDark ? 'dark' : 'light';
+        localStorage.setItem('theme', newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
     }
 
     /* -------------------------------------
@@ -75,6 +99,21 @@
 
         mediaQuery = window.matchMedia(DESKTOP_QUERY);
         mediaQuery.addEventListener('change', handleMediaChange);
+
+        const saved = localStorage.getItem('theme');
+        isDark = saved ? saved === 'dark' : true;
+
+        // Sync with system preference if no saved theme
+        if (!saved) {
+            const prefersDark = window.matchMedia(
+                '(prefers-color-scheme: dark)',
+            ).matches;
+            isDark = prefersDark;
+            document.documentElement.setAttribute(
+                'data-theme',
+                prefersDark ? 'dark' : 'light',
+            );
+        }
     });
 
     onDestroy(() => {
@@ -90,9 +129,25 @@
 
 <header class:hide={!showHeader} class:blur={!isAtTop && showHeader && !isOpen}>
     <div class="mobile-header">
-        <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
-            <img class="logo" src={Logo} alt="" />
+        <a
+            class="logo"
+            href="https://www.trent-avilla.com/"
+            aria-label="Go to homepage"
+        >
+            <Logo size={52} />
         </a>
+        <button
+            class="theme-btn theme-btn-mobile"
+            class:hidden-theme={hideThemeBtn}
+            on:click={toggleTheme}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+            {#if isDark}
+                <Night width={25} height={25} />
+            {:else}
+                <Day width={28} height={28} />
+            {/if}
+        </button>
         <button
             class="hamburger"
             class:is-open={isOpen}
@@ -109,8 +164,13 @@
     </div>
 
     <div class="desktop-header">
-        <a href="https://www.trent-avilla.com/" aria-label="Go to homepage">
-            <img use:fadeIn class="logo fade" src={Logo} alt="" />
+        <a
+            use:fadeIn
+            class="fade logo"
+            href="https://www.trent-avilla.com/"
+            aria-label="Go to homepage"
+        >
+            <Logo size={52} />
         </a>
         <nav class="desktop-nav">
             <ul>
@@ -127,30 +187,20 @@
                     <a href="#contact">Contact</a>
                 </li>
             </ul>
-            <!-- <ul>
-                <li class="reveal">
-                    <a href="#about">About</a>
-                </li>
-                <li
-                    class="reveal"
-                    style="--delay:0.1s"
-                >
-                    <a href="#experience">Experience</a>
-                </li>
-                <li
-                    class="reveal"
-                    style="--delay:0.2s"
-                >
-                    <a href="#projects">Projects</a>
-                </li>
-                <li
-                    class="reveal"
-                    style="--delay:0.3s"
-                >
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul> -->
         </nav>
+        <button
+            class="theme-btn"
+            on:click={toggleTheme}
+            aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+        >
+            <div use:reveal={{ y: -24, delay: 0.4 }} class="reveal">
+                {#if isDark}
+                    <Night width={15} height={15} />
+                {:else}
+                    <Day width={18} height={18} />
+                {/if}
+            </div>
+        </button>
     </div>
 </header>
 
@@ -187,7 +237,9 @@
         left: 0;
         width: 100%;
         z-index: 60;
-        transition: transform 0.3s ease;
+        transition:
+            transform 0.3s ease,
+            background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     header.blur {
@@ -202,19 +254,34 @@
 
     .mobile-header {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         max-width: 1280px;
         padding: 1.5rem;
         margin-inline: auto;
 
-        .logo {
-            width: 52px;
-        }
-
         @media (width > 768px) {
             display: none;
         }
+    }
+
+    .logo {
+        color: var(--accent-clr);
+    }
+
+    button.theme-btn-mobile {
+        width: 2.25rem;
+        margin-inline-start: auto;
+        margin-inline-end: 1.5rem;
+
+        /* transition:
+            opacity 0.1s,
+            transform 0.1s */
+    }
+
+    .theme-btn-mobile.hidden-theme {
+        opacity: 0;
+        transform: translateY(-6px);
+        pointer-events: none;
     }
 
     .hamburger {
@@ -306,7 +373,7 @@
                 a {
                     font-family: 'Reddit-Mono';
                     font-size: 1.5rem;
-                    color: var(--main-txt-clr);
+                    color: var(--mobile-menu-text);
                     transition: color 0.3s ease;
 
                     &:hover {
@@ -365,7 +432,6 @@
 
         @media (width > 768px) {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             max-width: 1280px;
             padding: 2rem 2.5rem;
@@ -378,6 +444,7 @@
 
         @media (width > 768px) {
             display: block;
+            margin-inline-start: auto;
         }
 
         ul {
@@ -414,6 +481,23 @@
                     content: '04.';
                 }
             }
+        }
+    }
+
+    .theme-btn {
+        color: var(--main-txt-clr);
+        background: none;
+        border: none;
+        width: 2rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        transition:
+            transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+            color 0.3s ease;
+
+        &:hover {
+            color: var(--accent-clr);
+            transform: scale(1.125) rotate(15deg);
         }
     }
 </style>

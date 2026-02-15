@@ -4,23 +4,23 @@
 </script>
 
 <div id="hero">
-    <p use:reveal={{ delay: 0.4, mobileDelay: 0 }} class="reveal">Hi, my name is</p>
+    <p use:reveal={{ delay: 0.5, mobileDelay: 0 }} class="reveal">
+        Hi, my name is
+    </p>
 
-    <h1 use:reveal={{ delay: 0.5, mobileDelay: 0.1 }} class="reveal">
+    <h1 use:reveal={{ delay: 0.6, mobileDelay: 0.1 }} class="reveal">
         Trenton Avilla<span>.</span>
     </h1>
 
-    <h2 use:reveal={{ delay: 0.6, mobileDelay: 0.2 }} class="reveal">
+    <h2 use:reveal={{ delay: 0.7, mobileDelay: 0.2 }} class="reveal">
         I am a Front-End Developer<span>.</span>
     </h2>
 
-    <p use:reveal={{ delay: 0.7, mobileDelay: 0.3 }} class="reveal">
-        I like to design and build things for the web. I currently enjoy using
-        React and Tailwind to create functional and engaging websites<span
-            >.</span
-        >
+    <p use:reveal={{ delay: 0.8, mobileDelay: 0.3 }} class="reveal">
+        I like to design and build things for the web, with a focus on creating
+        experiences that are both functional and engaging<span>.</span>
     </p>
-    <div use:reveal={{ delay: 0.8, mobileDelay: 0.4 }} class="reveal">
+    <div use:reveal={{ delay: 0.9, mobileDelay: 0.4 }} class="reveal">
         <a href="#projects"> Recent Work </a>
     </div>
 </div>
