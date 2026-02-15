@@ -373,7 +373,7 @@
             user-select: none;
             transform: scale(1);
             transition: transform 0.7s ease;
-            will-change: transform;
+            /* will-change: transform; */
         }
     }
 
