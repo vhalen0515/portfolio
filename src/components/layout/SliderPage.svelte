@@ -279,7 +279,7 @@
         overflow: hidden;
         margin-block-start: 3rem;
         border-radius: 6px;
-        border: 1px solid var(--accent-clr);
+        border: 1px solid var(--slider-border);
 
         @media (width >= 769px) {
             border: none;
@@ -307,9 +307,9 @@
         /* border: 1px solid var(--accent-clr); */
         user-select: none;
 
-        @media (width >= 769px) {
+        /* @media (width >= 769px) {
             border: none;
-        }
+        } */
     }
 
     .slide-grid {
@@ -333,27 +333,28 @@
         overflow: hidden;
         position: relative;
         /* border: 1px solid var(--main-header-clr); */
-        border-radius: 6px;
+        /* border-radius: 6px; */
 
         @media (width >= 769px) {
             grid-column: 1 / 8;
             &:hover img {
                 transform: scale(1.1);
             }
+            border-radius: 6px;
         }
 
         &::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: hsl(194, 100%, 9%);
+            background: var(--slider-img-overlay);
             opacity: 0.92;
             pointer-events: none;
         }
 
         @media (width >= 769px) {
             &::after {
-                background: var(--slider-img);
+                background: var(--slider-img-overlay-desktop);
                 /* opacity: var(--slider-img-opacity); */
                 opacity: 0.4;
                 /* transition: opacity 0.3s ease; */
@@ -373,7 +374,6 @@
             user-select: none;
             transform: scale(1);
             transition: transform 0.7s ease;
-            /* will-change: transform; */
         }
     }
 
@@ -405,11 +405,6 @@
             pointer-events: auto;
 
             h2 {
-                /* font-size: clamp(
-                    1.25rem,
-                    0.8323rem + 1.9093vw,
-                    1.75rem
-                );  */
                 /* 350px - 769px */
                 font-size: clamp(
                     1.25rem,
@@ -443,9 +438,7 @@
             @media (width >= 769px) {
                 color: var(--slider-text-desktop);
                 background: var(--slider-text-bg);
-                /* background: var(--main-txt-clr); */
                 border-radius: 6px;
-                /* padding: 1.25rem; */
                 padding: 0.875rem 1.25rem;
                 pointer-events: auto;
             }

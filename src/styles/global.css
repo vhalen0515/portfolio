@@ -109,13 +109,15 @@ li {
     --slider-img-opacity: 0.4;
 
     /* Mobile slider */
-    --slider-img: var(--accent-clr);
+    --slider-img-overlay: hsl(194, 100%, 9%);
     --slider-text-bg: var(--accent-clr-dark);
     --slider-header: var(--main-header-clr);
     --slider-text: var(--main-txt-clr);
     --slider-arrows: var(--main-txt-clr);
 
     /* Desktop slider */
+    --slider-border: var(--accent-clr);
+    --slider-img-overlay-desktop: var(--accent-clr);
     --slider-header-desktop: var(--main-header-clr);
     --slider-text-desktop: var(--main-txt-clr);
     --slider-text-desktop-secondary: var(--main-txt-clr);
@@ -141,13 +143,15 @@ li {
     --slider-img-opacity: 0.4;
 
     /* Mobile slider */
-    --slider-img: hsl(0, 0%, 0%);
+    --slider-img-overlay: var(--main-header-clr);
     --slider-text-bg: var(--accent-clr);
     --slider-header: var(--bg-clr);
     --slider-text: hsl(0, 0%, 80%);
     --slider-arrows: var(--bg-clr);
 
     /* Desktop slider */
+    --slider-border: var(--main-header-clr);
+    --slider-img-overlay-desktop: hsl(0, 0%, 0%);
     --slider-header-desktop: var(--main-header-clr);
     --slider-text-desktop: var(--bg-clr);
     --slider-text-desktop-secondary: var(--main-txt-clr);
