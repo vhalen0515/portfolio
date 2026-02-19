@@ -1,6 +1,5 @@
 <script>
     // images
-    // import Logo from '../../assets/logos/logo.svg';
     import Logo from '../../assets/logos/Logo.svelte';
     import Day from '../../assets/icons/Day.svelte';
     import Night from '../../assets/icons/Night.svelte';
@@ -23,6 +22,7 @@
     ------------------------------------- */
     let isOpen = false;
     let showHeader = true;
+    let ticking = false;
     let lastScrollY = 0;
     let isAtTop = true;
     let menuButton;
@@ -33,27 +33,53 @@
     /* -------------------------------------
        Menu behavior
     ------------------------------------- */
+    // function toggleMenu() {
+    //     if (!isOpen) {
+    //         isOpen = true;
+    //         hideThemeBtn = true;
+    //     } else {
+    //         isOpen = false;
+
+    //         setTimeout(() => {
+    //             hideThemeBtn = false;
+    //         }, 275);
+    //     }
+
+    //     if (!isOpen) {
+    //         menuButton?.focus();
+    //     }
+    // }
+
+    // function handleKeydown(e) {
+    //     if (e.key === 'Escape' && isOpen) {
+    //         isOpen = false;
+    //     }
+    // }
+
+    function closeMenu() {
+        if (!isOpen) return;
+        isOpen = false;
+
+        // keep visual timing you want
+        setTimeout(() => {
+            hideThemeBtn = false;
+        }, 275);
+
+        // restore focus after DOM updates
+        queueMicrotask(() => menuButton?.focus());
+    }
+
+    function openMenu() {
+        isOpen = true;
+        hideThemeBtn = true;
+    }
+
     function toggleMenu() {
-        if (!isOpen) {
-            isOpen = true;
-            hideThemeBtn = true;
-        } else {
-            isOpen = false;
-
-            setTimeout(() => {
-                hideThemeBtn = false;
-            }, 275);
-        }
-
-        if (!isOpen) {
-            menuButton?.focus();
-        }
+        isOpen ? closeMenu() : openMenu();
     }
 
     function handleKeydown(e) {
-        if (e.key === 'Escape' && isOpen) {
-            isOpen = false;
-        }
+        if (e.key === 'Escape') closeMenu();
     }
 
     // Prevent body scroll when mobile menu is open
@@ -62,14 +88,27 @@
     /* -------------------------------------
        Scroll behavior (desktop)
     ------------------------------------- */
+    // function handleScroll() {
+    //     const currentScrollY = window.scrollY;
+
+    //     isAtTop = currentScrollY < SCROLL_TOP_THRESHOLD;
+
+    //     showHeader = currentScrollY < lastScrollY || isAtTop;
+
+    //     lastScrollY = currentScrollY;
+    // }
+
     function handleScroll() {
-        const currentScrollY = window.scrollY;
+        if (ticking) return;
+        ticking = true;
 
-        isAtTop = currentScrollY < SCROLL_TOP_THRESHOLD;
-
-        showHeader = currentScrollY < lastScrollY || isAtTop;
-
-        lastScrollY = currentScrollY;
+        requestAnimationFrame(() => {
+            const currentScrollY = window.scrollY;
+            isAtTop = currentScrollY < SCROLL_TOP_THRESHOLD;
+            showHeader = currentScrollY < lastScrollY || isAtTop;
+            lastScrollY = currentScrollY;
+            ticking = false;
+        });
     }
 
     /* -------------------------------------
@@ -204,7 +243,7 @@
     </div>
 </header>
 
-<!-- mobile menu popout -->
+<!-- Mobile menu popout -->
 <nav
     id="mobile-menu"
     class="mobile-nav"
@@ -212,6 +251,7 @@
     aria-label="Mobile navigation"
     inert={!isOpen}
 >
+    <div class="menu-backdrop" aria-hidden="true"></div>
     <ul>
         <li>
             <a on:click={toggleMenu} href="#about">About</a>
@@ -245,7 +285,6 @@
     header.blur {
         background-color: color-mix(in oklab, var(--bg-clr) 60%, transparent);
         backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
     }
 
     header.hide {
@@ -272,10 +311,6 @@
         width: 2.25rem;
         margin-inline-start: auto;
         margin-inline-end: 1.5rem;
-
-        /* transition:
-            opacity 0.1s,
-            transform 0.1s */
     }
 
     .theme-btn-mobile.hidden-theme {
@@ -352,7 +387,8 @@
         overflow-y: auto;
         transform: translateY(-100%);
         transition: transform 0.3s ease;
-        will-change: transform;
+        /* will-change: transform; */
+        will-change: auto;
         pointer-events: none;
         z-index: 50;
 
@@ -407,20 +443,26 @@
         }
     }
 
+    .menu-backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .mobile-nav.is-open .menu-backdrop {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
     .mobile-nav.is-open {
         transform: translateY(0);
         pointer-events: auto;
-    }
 
-    .mobile-nav::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.75);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
-        z-index: -1;
-        pointer-events: none;
+        will-change: transform;
     }
 
     .desktop-header {

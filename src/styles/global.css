@@ -137,7 +137,7 @@ li {
 
     /* Experience tab section */
     --experience-btn-accent: hsl(0, 0%, 80%);
-    --experience-btn-hover: hsl(0, 0%, 86%);
+    --experience-btn-hover: hsl(0, 0%, 90%);
     --experience-btn-text: var(--main-txt-clr);
 
     --slider-img-opacity: 0.4;
@@ -156,6 +156,16 @@ li {
     --slider-text-desktop: var(--bg-clr);
     --slider-text-desktop-secondary: var(--main-txt-clr);
     --slider-arrows-desktop: var(--main-txt-clr);
+}
+
+/* Focus Outline Colors */
+:where(a, button, [role='button'], input, textarea, select):focus-visible {
+    outline: 2px solid var(--accent-clr);
+    outline-offset: 3px;
+}
+
+:where(a, button):focus:not(:focus-visible) {
+    outline: none;
 }
 
 /* =====================================================
