@@ -1,0 +1,692 @@
+---
+import Arrow from '../../assets/icons/Arrow.astro';
+import Github from '../../assets/icons/Github.astro';
+import ExternalLink from '../../assets/icons/ExternalLink.astro';
+import { SLIDES } from '../../data/data.js';
+
+// Build the cloned-ends array for the infinite loop
+const slides = [SLIDES[SLIDES.length - 1], ...SLIDES, SLIDES[0]];
+---
+
+<div id="projects">
+    <h2 class="section-heading reveal">Some Recent Projects</h2>
+    <div class="reveal">
+        <div class="slider">
+            <ul id="slider-track" class="track">
+                {
+                    slides.map((slide) => (
+                        <li class="slide">
+                            <div class="slide-grid">
+                                <div class="image-container">
+                                    <a
+                                        href={slide.externalLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={`Link to ${slide.title} project`}
+                                        draggable="false"
+                                    >
+                                        <img
+                                            src={slide.image.src}
+                                            width="565"
+                                            height="320"
+                                            alt={slide.title}
+                                            draggable="false"
+                                            loading="lazy"
+                                        />
+                                    </a>
+                                </div>
+                                <div class="text-container">
+                                    <a
+                                        href={slide.externalLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label={`Link to ${slide.title} project`}
+                                        draggable="false"
+                                    >
+                                        <h2>{slide.title}</h2>
+                                    </a>
+                                    <p>{slide.description}</p>
+                                    <ul>
+                                        {slide.tools.map((tool) => (
+                                            <li>{tool}</li>
+                                        ))}
+                                    </ul>
+                                    <div class="link-container">
+                                        <a
+                                            href={slide.githubLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={`Github link to ${slide.title}`}
+                                            draggable="false"
+                                        >
+                                            <Github width={24} height={24} />
+                                        </a>
+                                        <a
+                                            href={slide.externalLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={`Link to ${slide.title} project`}
+                                            draggable="false"
+                                        >
+                                            <ExternalLink size={24} />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    ))
+                }
+            </ul>
+
+            <button class="prev" id="slider-prev" aria-label="Previous slide">
+                <Arrow />
+            </button>
+            <button class="next" id="slider-next" aria-label="Next slide">
+                <Arrow />
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    /* -------------------------------------
+       CONFIGURATION
+    ------------------------------------- */
+
+    const AUTOPLAY = true;
+    const AUTOPLAY_DELAY = 3000;
+    const TRANSITION_DUR = 700;
+    const DRAG_THRESHOLD = 60;
+    const DRAG_START_THR = 5;
+
+    /* -------------------------------------
+       DOM REFERENCES
+    ------------------------------------- */
+
+    const sliderEl = document.getElementById(
+        'slider-track'
+    ) as HTMLUListElement;
+    const prevBtn = document.getElementById('slider-prev') as HTMLButtonElement;
+    const nextBtn = document.getElementById('slider-next') as HTMLButtonElement;
+
+    const totalSlides = sliderEl.children.length;
+    const lastRealIndex = totalSlides - 2;
+
+    /* -------------------------------------
+       CORE STATE
+    ------------------------------------- */
+
+    let currentIndex = 1;
+    let isAnimating = false;
+    let isTransitioning = true;
+    let interval: ReturnType<typeof setInterval> | undefined;
+
+    /* -------------------------------------
+       POINTER STATE
+    ------------------------------------- */
+
+    let isDragging = false;
+    let dragAllowed = false;
+    let startX = 0;
+    let dragOffset = 0;
+
+    /* -------------------------------------
+       RENDERING
+    ------------------------------------- */
+
+    function applyTransform() {
+        if (isDragging) {
+            sliderEl.style.transition = 'none';
+            const containerWidth = sliderEl.parentElement?.offsetWidth ?? 0;
+            sliderEl.style.transform = `translateX(${-currentIndex * containerWidth + dragOffset}px)`;
+        } else {
+            sliderEl.style.transition = isTransitioning
+                ? `transform ${TRANSITION_DUR}ms cubic-bezier(0.4,0,0.2,1)`
+                : 'none';
+            sliderEl.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+    }
+
+    /* -------------------------------------
+       AUTOPLAY
+    ------------------------------------- */
+
+    function startAutoplay() {
+        if (!AUTOPLAY) return;
+        stopAutoplay();
+        interval = setInterval(next, AUTOPLAY_DELAY);
+    }
+
+    function stopAutoplay() {
+        clearInterval(interval);
+    }
+
+    /* -------------------------------------
+       NAVIGATION
+    ------------------------------------- */
+
+    function next() {
+        if (isAnimating) return;
+        isAnimating = true;
+        isTransitioning = true;
+        currentIndex += 1;
+        applyTransform();
+    }
+
+    function prev() {
+        if (isAnimating) return;
+        isAnimating = true;
+        isTransitioning = true;
+        currentIndex -= 1;
+        applyTransform();
+    }
+
+    /* -------------------------------------
+       TRANSITION COORDINATION
+    ------------------------------------- */
+
+    sliderEl.addEventListener('transitionend', (event: TransitionEvent) => {
+        if (event.propertyName !== 'transform') return;
+        isAnimating = false;
+
+        if (!isTransitioning) return;
+
+        if (currentIndex === totalSlides - 1) {
+            isTransitioning = false;
+            currentIndex = 1;
+            applyTransform();
+        } else if (currentIndex === 0) {
+            isTransitioning = false;
+            currentIndex = lastRealIndex;
+            applyTransform();
+        }
+    });
+
+    /* -------------------------------------
+       POINTER / DRAG HANDLERS
+    ------------------------------------- */
+
+    sliderEl.addEventListener('pointerdown', (event: PointerEvent) => {
+        if (isAnimating) return;
+        if (event.button !== 0) return;
+
+        stopAutoplay();
+        startX = event.clientX;
+        dragOffset = 0;
+        isDragging = false;
+        dragAllowed = true;
+    });
+
+    sliderEl.addEventListener('pointermove', (event: PointerEvent) => {
+        if (!dragAllowed) return;
+        if (event.buttons !== 1) return;
+
+        const delta = event.clientX - startX;
+
+        if (!isDragging && Math.abs(delta) > DRAG_START_THR) {
+            isDragging = true;
+            isTransitioning = false;
+            sliderEl.setPointerCapture(event.pointerId);
+        }
+
+        if (!isDragging) return;
+
+        dragOffset = delta;
+        applyTransform();
+    });
+
+    function onPointerUp(event: PointerEvent) {
+        if (!isDragging) return;
+
+        isDragging = false;
+        dragAllowed = false;
+        sliderEl.releasePointerCapture(event.pointerId);
+        isTransitioning = true;
+
+        if (dragOffset < -DRAG_THRESHOLD) next();
+        else if (dragOffset > DRAG_THRESHOLD) prev();
+        else {
+            isAnimating = true;
+            applyTransform();
+        }
+
+        dragOffset = 0;
+    }
+
+    sliderEl.addEventListener('pointerup', onPointerUp);
+    sliderEl.addEventListener('pointercancel', onPointerUp);
+    sliderEl.addEventListener('pointerleave', onPointerUp);
+
+    /* -------------------------------------
+       BUTTON CONTROLS
+    ------------------------------------- */
+
+    prevBtn.addEventListener('click', () => {
+        stopAutoplay();
+        prev();
+    });
+    nextBtn.addEventListener('click', () => {
+        stopAutoplay();
+        next();
+    });
+
+    /* -------------------------------------
+       RESIZE HANDLER
+    ------------------------------------- */
+
+    let resizeTimer: ReturnType<typeof setTimeout>;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(applyTransform, 100);
+    });
+
+    /* -------------------------------------
+       INIT
+    ------------------------------------- */
+
+    import { initReveal } from '../../utils/reveal';
+    initReveal('#projects');
+
+    applyTransform();
+    startAutoplay();
+</script>
+
+<style>
+    #projects {
+        max-width: 1280px;
+        padding-inline: 1.75rem;
+        margin-inline: auto;
+
+        @media (width >= 480px) {
+            padding-inline: 3.25rem;
+        }
+
+        @media (width > 768px) {
+            padding-inline: 6.5rem;
+        }
+
+        @media (width >= 1000px) {
+            padding-inline: 9.75rem;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            font-size: clamp(
+                1.5rem,
+                0.7941rem + 2.3529vw,
+                1.75rem
+            ); /* 480px - 650px */
+            font-weight: 600;
+            /* color: var(--main-header-clr); */
+            color: var(--heading-clr);
+
+            &::before {
+                content: '03.';
+                font-family: 'Reddit-Mono';
+                font-size: clamp(
+                    1rem,
+                    0.2941rem + 2.3529vw,
+                    1.25rem
+                ); /* 480px - 650px */
+                color: var(--accent-clr);
+                margin-inline-end: 0.5rem;
+            }
+
+            &::after {
+                content: '';
+                flex: 1;
+                height: 0.0625rem;
+                /* background-color: var(--main-txt-clr); */
+                background-color: var(--txt-clr);
+                margin-inline-start: 1rem;
+
+                @media (width >= 1000px) {
+                    max-width: 21rem;
+                }
+            }
+        }
+    }
+
+    .slider {
+        height: 20rem;
+        position: relative;
+        overflow: hidden;
+        margin-block-start: 3rem;
+        border-radius: 6px;
+        border: 1px solid var(--slider-border);
+
+        @media (width >= 769px) {
+            border: none;
+        }
+    }
+
+    .track {
+        display: flex;
+        height: 100%;
+        will-change: transform;
+        cursor: grab;
+        touch-action: pan-y;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .track:active {
+        cursor: grabbing;
+    }
+
+    .slide {
+        min-width: 100%;
+        height: 100%;
+        user-select: none;
+    }
+
+    .slide-grid {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        position: relative;
+
+        @media (width >= 769px) {
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+    }
+
+    .image-container {
+        grid-row: 1 / -1;
+        grid-column: 1 / -1;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+
+        @media (width >= 769px) {
+            grid-column: 1 / 8;
+
+            &:hover img {
+                transform: scale(1.1);
+            }
+
+            border-radius: 6px;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--slider-img-overlay);
+            opacity: 0.92;
+            pointer-events: none;
+        }
+
+        @media (width >= 769px) {
+            &::after {
+                background: var(--slider-img-overlay-desktop);
+                opacity: 0.4;
+                transition: opacity 0.8s ease;
+            }
+
+            &:hover::after {
+                opacity: 0.2;
+            }
+        }
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            user-select: none;
+            transform: scale(1);
+            transition: transform 0.7s ease;
+        }
+    }
+
+    .text-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-row: 1 / -1;
+        grid-column: 1 / -1;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+        padding-inline: 1rem;
+        z-index: 10;
+
+        @media (width >= 480px) {
+            padding-inline: 2rem;
+        }
+
+        @media (width >= 769px) {
+            grid-column: 5 / 13;
+            align-items: end;
+            text-align: right;
+            background: none;
+            padding-block: 0;
+            pointer-events: none;
+        }
+
+        a {
+            width: fit-content;
+            pointer-events: auto;
+
+            h2 {
+                font-size: clamp(
+                    1.25rem,
+                    0.9368rem + 1.432vw,
+                    1.625rem
+                ); /* 350px - 769px */
+                font-weight: 600;
+                color: var(--slider-header);
+                margin-block-end: 0.625rem;
+                transition: color 0.3s ease;
+
+                @media (width >= 769px) {
+                    color: var(--slider-header-desktop);
+                }
+            }
+
+            &:hover h2 {
+                color: var(--accent-clr);
+            }
+        }
+
+        p {
+            font-size: clamp(
+                0.9375rem,
+                6.074rem + -10.687vw,
+                0.0625rem
+            ); /* 769px - 900px */
+            color: var(--slider-text);
+            margin-block-end: 1.125rem;
+
+            @media (width >= 769px) {
+                color: var(--slider-text-desktop);
+                background: var(--slider-text-bg);
+                border-radius: 6px;
+                padding: 0.875rem 1.25rem;
+                pointer-events: auto;
+            }
+        }
+
+        ul {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-block-end: 0.5rem;
+
+            @media (width >= 769px) {
+                justify-content: flex-end;
+                width: 65%;
+                margin-inline-start: auto;
+            }
+        }
+
+        li {
+            font-family: 'Reddit-Mono';
+            font-size: 0.75rem;
+            color: var(--slider-text);
+            border: 1px solid var(--accent-clr);
+            border-radius: 100vw;
+            padding-inline: 0.75rem;
+            padding-block: 0.125rem;
+
+            &:hover {
+                background-color: var(--accent-clr);
+                color: var(--bg-clr);
+            }
+
+            @media (width >= 769px) {
+                color: var(--slider-text-desktop-secondary);
+                pointer-events: auto;
+            }
+        }
+
+        .link-container {
+            a {
+                display: inline-block;
+                color: var(--slider-text);
+                padding: 0.5rem;
+                transition: color 0.3s ease;
+
+                @media (width >= 769px) {
+                    color: var(--slider-text-desktop-secondary);
+                }
+
+                &:hover {
+                    color: var(--accent-clr);
+                }
+            }
+
+            &:last-child {
+                margin-inline-start: -0.5rem;
+
+                @media (width >= 769px) {
+                    margin-inline-end: -0.5rem;
+                }
+            }
+        }
+    }
+
+    /* Controls */
+    /* .prev,
+    .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+        color: var(--slider-arrows);
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+
+        @media (width >= 480px) {
+            display: block;
+        }
+
+        @media (width >= 769px) {
+            color: var(--slider-arrows-desktop);
+        }
+    }
+
+    .prev {
+        left: 15px;
+        rotate: -90deg;
+    }
+
+    .next {
+        right: 15px;
+        rotate: 90deg;
+    } */
+
+    .prev,
+    .next {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        transform: none;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        color: var(--slider-arrows);
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 20;
+
+        @media (width >= 480px) {
+            display: flex;
+        }
+
+        @media (width >= 769px) {
+            color: var(--slider-arrows-desktop);
+        }
+    }
+
+    .prev {
+        left: 0;
+        transition: scale 0.3s ease;
+    }
+
+    .next {
+        right: 0;
+        transition: scale 0.3s ease;
+    }
+
+    .prev::before,
+    .next::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .prev::before {
+        background: linear-gradient(to right, var(--slider-arrow-background-mobile), transparent);
+
+        @media (width >= 769px) {
+            background: linear-gradient(
+                to right,
+                var(--slider-arrow-background-desktop),
+                transparent
+            );
+        }
+    }
+
+    .next::before {
+        background: linear-gradient(to left, var(--slider-arrow-background-mobile), transparent);
+
+        @media (width >= 769px) {
+            background: linear-gradient(
+                to left,
+                var(--slider-arrow-background-desktop),
+                transparent
+            );
+        }
+    }
+
+    .prev:hover,
+    .next:hover {
+        scale: 1.2;
+    }
+
+    .prev:hover::before,
+    .next:hover::before {
+        opacity: 1;
+    }
+
+    .prev :global(svg) {
+        rotate: -90deg;
+    }
+
+    .next :global(svg) {
+        rotate: 90deg;
+    }
+</style>

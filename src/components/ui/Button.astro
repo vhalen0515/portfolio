@@ -1,0 +1,55 @@
+---
+const { size = 'md', variant = 'primary', href = '#' } = Astro.props;
+---
+
+<a class={`btn btn--${size} btn--${variant}`} href={href}>
+    <slot />
+</a>
+
+<style>
+    .btn {
+        border-radius: 0.25rem;
+        padding: 1rem 1.5rem;
+        transition:
+            color 0.3s ease,
+            background-color 0.3s ease;
+    }
+
+    /* Sizes */
+    /* .btn--sm {
+        padding: 0.4rem 1rem;
+        font-size: 0.875rem;
+    } */
+
+    .btn--md {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* .btn--lg {
+        padding: 0.85rem 2rem;
+        font-size: 1.125rem;
+    } */
+
+    /* Variants */
+    .btn--primary {
+        color: var(--accent-clr);
+        border: 1px solid var(--accent-clr);
+    }
+
+    .btn--primary:hover {
+        background-color: var(--accent-clr);
+        color: var(--bg-clr);
+    }
+
+    /* .btn--secondary {
+        background: transparent;
+        color: gray;
+        border-color: gray;
+    } */
+
+    /* .btn--secondary:hover {
+        background: gray;
+        color: #fff;
+    } */
+</style>

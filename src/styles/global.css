@@ -1,0 +1,270 @@
+/* =====================================================
+   FONTS
+===================================================== */
+
+@font-face {
+    font-family: Reddit-Mono;
+    src: url('/fonts/Reddit-Mono.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('/fonts/Montserrat-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('/fonts/Montserrat-Semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url('/fonts/Montserrat-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* =====================================================
+   CSS RESET
+===================================================== */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* 3. Add accessible line-height */
+    line-height: 1.5;
+    /* 4. Improve text rendering */
+    font-family:
+        'Montserrat',
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        'Segoe UI',
+        sans-serif;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+    /* transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1); */
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    padding: 0;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+    text-wrap: pretty;
+}
+
+/* 9. Remove default list styles */
+li {
+    list-style: none;
+}
+
+/* 10. Remove default link styles */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =====================================================
+   PROJECT COLORS
+===================================================== */
+
+/* Dark theme */
+[data-theme='dark'] {
+    /* Main colors */
+    --bg-clr: hsl(0, 0%, 13%);
+    --txt-clr: hsl(0, 0%, 70%);
+    --heading-clr: hsl(0, 0%, 95%);
+    --accent-clr: hsl(194, 100%, 47%);
+    --accent-clr-dark: hsl(199, 21%, 17%);
+
+    /* Mobile menu */
+    --mobile-menu-text: var(--txt-clr);
+
+    /* Experience tab section */
+    --experience-btn-accent: var(--accent-clr-dark);
+    --experience-btn-hover: hsl(0, 0%, 15%);
+    --experience-btn-text: var(--accent-clr);
+
+    --slider-img-opacity: 0.4;
+
+    /* Mobile slider */
+    --slider-img-overlay: hsl(194, 100%, 9%);
+    --slider-text-bg: var(--accent-clr-dark);
+    --slider-header: var(--heading-clr);
+    --slider-text: var(--txt-clr);
+    --slider-arrows: var(--txt-clr);
+    --slider-arrow-background-mobile: rgba(0, 0, 0, 0.45);
+
+    /* Desktop slider */
+    --slider-border: var(--accent-clr);
+    --slider-img-overlay-desktop: var(--accent-clr);
+    --slider-header-desktop: var(--heading-clr);
+    --slider-text-desktop: var(--txt-clr);
+    --slider-text-desktop-secondary: var(--txt-clr);
+    --slider-arrows-desktop: var(--txt-clr);
+    --slider-arrow-background-desktop: hsla(194, 100%, 47%, 0.064);
+}
+
+/* Light theme */
+[data-theme='light'] {
+    /* Main colors */
+    --bg-clr: hsl(0, 0%, 95%);
+    --txt-clr: hsl(0, 0%, 30%);
+    --heading-clr: hsl(0, 0%, 13%);
+    --accent-clr: hsl(194, 100%, 37%);
+
+    /* Mobile menu */
+    --mobile-menu-text: var(--bg-clr);
+
+    /* Experience tab section */
+    --experience-btn-accent: hsl(0, 0%, 80%);
+    --experience-btn-hover: hsl(0, 0%, 90%);
+    --experience-btn-text: var(--txt-clr);
+
+    --slider-img-opacity: 0.4;
+
+    /* Mobile slider */
+    --slider-img-overlay: var(--heading-clr);
+    --slider-text-bg: var(--accent-clr);
+    --slider-header: var(--bg-clr);
+    --slider-text: hsl(0, 0%, 80%);
+    --slider-arrows: var(--bg-clr);
+    --slider-arrow-background-mobile: rgba(255, 255, 255, 0.13);
+
+    /* Desktop slider */
+    --slider-border: var(--heading-clr);
+    --slider-img-overlay-desktop: hsl(0, 0%, 0%);
+    --slider-header-desktop: var(--heading-clr);
+    --slider-text-desktop: var(--bg-clr);
+    --slider-text-desktop-secondary: var(--txt-clr);
+    --slider-arrows-desktop: var(--txt-clr);
+    --slider-arrow-background-desktop: rgba(0, 0, 0, 0.15);
+}
+
+/* Focus Outline Colors */
+:where(a, button, [role='button'], input, textarea, select):focus-visible {
+    outline: 2px solid var(--accent-clr);
+    outline-offset: 3px;
+}
+
+:where(a, button):focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* =====================================================
+   BASE DOCUMENT
+===================================================== */
+
+html {
+    background: var(--bg-clr);
+    scroll-behavior: smooth;
+    transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =====================================================
+   GLOBAL UTILITIES
+===================================================== */
+
+/* Scroll offset for anchor navigation */
+#about,
+#experience,
+#projects,
+#contact {
+    scroll-margin-block-start: 105px;
+}
+
+/* Disable scroll when mobile menu is open */
+.no-scroll {
+    overflow: hidden;
+}
+
+/* =====================================================
+   REVEAL / SCROLL ANIMATIONS
+===================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translate(var(--reveal-x, 0), var(--reveal-y, 24px));
+    transition:
+        opacity 0.8s ease var(--reveal-delay, 0s),
+        transform 0.8s ease var(--reveal-delay, 0s);
+}
+
+.reveal:not(.is-visible) {
+    will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+    will-change: auto;
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.8s ease var(--fade-delay, 0s);
+}
+
+.fade.is-visible {
+    opacity: 1;
+    will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .fade {
+        transition: none;
+        opacity: 1;
+        transform: none;
+        will-change: auto;
+    }
+}
+
+/* Prevent transitions on page load and during animations */
+/* .reveal:not(.is-visible),
+.fade:not(.is-visible) {
+    transition: none !important;
+} */

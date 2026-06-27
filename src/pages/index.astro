@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../sections/home/Hero.astro';
+import About from '../sections/home/About.astro';
+import Experience from '../sections/home/Experience.astro';
+import Projects from '../sections/home/Projects.astro';
+import Contact from '../sections/home/Contact.astro';
+
+import BlueDots from '../assets/images/BlueDots.astro';
+---
+
+<BaseLayout>
+    <div class="container">
+        <section id="#hero">
+            <Hero />
+        </section>
+        <section id="#about">
+            <div
+                class="dot-container left reveal"
+                style="--reveal-x: -24px; --reveal-y: 0px"
+            >
+                <BlueDots width="400" />
+            </div>
+            <About />
+        </section>
+        <section id="#experience">
+            <div
+                class="dot-container right reveal"
+                style="--reveal-x: 24px; --reveal-y: 0px"
+            >
+                <BlueDots width="400" rotate />
+            </div>
+            <Experience />
+        </section>
+        <section id="#projects">
+            <div
+                class="dot-container left reveal"
+                style="--reveal-x: -24px; --reveal-y: 0px"
+            >
+                <BlueDots width="400" />
+            </div>
+            <Projects />
+        </section>
+        <section id="#contact">
+            <div
+                class="dot-container right reveal"
+                style="--reveal-x: 24px; --reveal-y: 0px"
+            >
+                <BlueDots width="400" rotate />
+            </div>
+            <Contact />
+        </section>
+    </div>
+</BaseLayout>
+
+<script>
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.3 }
+    );
+
+    document.querySelectorAll('.dot-container.reveal').forEach((el) => {
+        observer.observe(el);
+    });
+</script>
+
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: 25rem;
+    }
+
+    section {
+        position: relative;
+        overflow-x: clip;
+
+        .dot-container {
+            position: absolute;
+            top: -25rem;
+            display: none;
+
+            @media (width >= 1000px) {
+                display: block;
+            }
+
+            @media (width > 1500px) {
+                display: none;
+            }
+        }
+
+        .left {
+            left: -1.5rem;
+        }
+
+        .right {
+            right: -1.5rem;
+        }
+    }
+</style>
