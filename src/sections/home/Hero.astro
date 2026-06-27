@@ -137,11 +137,11 @@ import Button from '../../components/ui/Button.astro';
 </style>
 
 <script is:inline>
-    requestAnimationFrame(() => {
-        const isMobile = window.innerWidth < 769;
-        document.querySelectorAll('#hero .reveal').forEach((el) => {
+    requestAnimationFrame(function () {
+        var isMobile = window.innerWidth < 769;
+        document.querySelectorAll('#hero .reveal').forEach(function (el) {
             if (isMobile) {
-                const mobileDelay = el.style.getPropertyValue(
+                var mobileDelay = el.style.getPropertyValue(
                     '--reveal-delay-mobile'
                 );
                 if (mobileDelay)
