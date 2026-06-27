@@ -46,7 +46,7 @@ const {
             type="font/woff2"
             crossorigin
         />
-        <link
+        <!-- <link
             rel="preload"
             href="/fonts/Montserrat-Semibold.woff2"
             as="font"
@@ -59,7 +59,7 @@ const {
             as="font"
             type="font/woff2"
             crossorigin
-        />
+        /> -->
         <link
             rel="preload"
             href="/fonts/Reddit-Mono.woff2"
@@ -91,17 +91,25 @@ const {
     </body>
 </html>
 
-<script>
-    // Hide sidebars when viewport is below 400px
-    function checkViewportHeight() {
-        const wrapper = document.getElementById('sidebar-wrapper');
-        if (wrapper) {
-            wrapper.style.display = window.innerHeight >= 400 ? '' : 'none';
+<style>
+    @media (height < 400px) {
+        #sidebar-wrapper {
+            display: none;
         }
     }
+</style>
 
-    checkViewportHeight();
-    window.addEventListener('resize', checkViewportHeight);
+<script>
+    // Hide sidebars when viewport is below 400px
+    // function checkViewportHeight() {
+    //     const wrapper = document.getElementById('sidebar-wrapper');
+    //     if (wrapper) {
+    //         wrapper.style.display = window.innerHeight >= 400 ? '' : 'none';
+    //     }
+    // }
+
+    // checkViewportHeight();
+    // window.addEventListener('resize', checkViewportHeight);
 
     // Load-time reveals
     requestAnimationFrame(() => {
@@ -114,4 +122,3 @@ const {
             });
     });
 </script>
-
