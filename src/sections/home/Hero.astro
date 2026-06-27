@@ -17,27 +17,33 @@ import Button from '../../components/ui/Button.astro';
     <Button href="/#projects"> Recent Work </Button>
 </div> -->
 <div id="hero">
-    <p class="reveal" style="--reveal-delay: 0.5s; --reveal-delay-mobile: 0s">
+    <p
+        class="hero-animate"
+        style="--reveal-delay: 0.5s; --reveal-delay-mobile: 0s"
+    >
         Hi, my name is
     </p>
     <h1
-        class="reveal"
+        class="hero-animate"
         style="--reveal-delay: 0.6s; --reveal-delay-mobile: 0.1s"
     >
         Trenton Avilla<span>.</span>
     </h1>
     <h2
-        class="reveal"
+        class="hero-animate"
         style="--reveal-delay: 0.7s; --reveal-delay-mobile: 0.2s"
     >
         I am a Front-End Developer<span>.</span>
     </h2>
-    <p class="reveal" style="--reveal-delay: 0.8s; --reveal-delay-mobile: 0.3s">
+    <p
+        class="hero-animate"
+        style="--reveal-delay: 0.8s; --reveal-delay-mobile: 0.3s"
+    >
         I like to design and build things for the web, with a focus on creating
         experiences that are both functional and engaging<span>.</span>
     </p>
     <div
-        class="reveal"
+        class="hero-animate"
         style="--reveal-delay: 0.9s; --reveal-delay-mobile: 0.4s"
     >
         <Button href="/#projects">Recent Work</Button>
@@ -134,20 +140,24 @@ import Button from '../../components/ui/Button.astro';
     span {
         color: var(--accent-clr);
     }
-</style>
 
-<script is:inline>
-    requestAnimationFrame(function () {
-        var isMobile = window.innerWidth < 769;
-        document.querySelectorAll('#hero .reveal').forEach(function (el) {
-            if (isMobile) {
-                var mobileDelay = el.style.getPropertyValue(
-                    '--reveal-delay-mobile'
-                );
-                if (mobileDelay)
-                    el.style.setProperty('--reveal-delay', mobileDelay);
-            }
-            el.classList.add('is-visible');
-        });
-    });
-</script>
+    @keyframes hero-fade-up {
+        from {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-animate {
+        animation: hero-fade-up 0.8s ease both;
+        animation-delay: var(--reveal-delay-mobile, 0s);
+
+        @media (width > 768px) {
+            animation-delay: var(--reveal-delay, 0s);
+        }
+    }
+</style>
