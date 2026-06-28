@@ -233,6 +233,16 @@ html {
         transform 0.8s ease var(--reveal-delay, 0s);
 }
 
+@media (width <= 768px) {
+    .reveal {
+        transition:
+            opacity 0.8s ease
+                var(--reveal-delay-mobile, var(--reveal-delay, 0s)),
+            transform 0.8s ease
+                var(--reveal-delay-mobile, var(--reveal-delay, 0s));
+    }
+}
+
 .reveal:not(.is-visible) {
     will-change: opacity, transform;
 }
