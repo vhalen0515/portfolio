@@ -262,9 +262,3 @@ html {
         will-change: auto;
     }
 }
-
-/* Prevent transitions on page load and during animations */
-/* .reveal:not(.is-visible),
-.fade:not(.is-visible) {
-    transition: none !important;
-} */
