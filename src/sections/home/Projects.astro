@@ -319,7 +319,7 @@ const slides = [SLIDES[SLIDES.length - 1], ...SLIDES, SLIDES[0]];
                 1.75rem
             ); /* 480px - 650px */
             font-weight: 600;
-            /* color: var(--main-header-clr); */
+
             color: var(--heading-clr);
 
             &::before {
@@ -338,7 +338,7 @@ const slides = [SLIDES[SLIDES.length - 1], ...SLIDES, SLIDES[0]];
                 content: '';
                 flex: 1;
                 height: 0.0625rem;
-                /* background-color: var(--main-txt-clr); */
+
                 background-color: var(--txt-clr);
                 margin-inline-start: 1rem;
 
@@ -571,38 +571,6 @@ const slides = [SLIDES[SLIDES.length - 1], ...SLIDES, SLIDES[0]];
         }
     }
 
-    /* Controls */
-    /* .prev,
-    .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        display: none;
-        color: var(--slider-arrows);
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 20;
-
-        @media (width >= 480px) {
-            display: block;
-        }
-
-        @media (width >= 769px) {
-            color: var(--slider-arrows-desktop);
-        }
-    }
-
-    .prev {
-        left: 15px;
-        rotate: -90deg;
-    }
-
-    .next {
-        right: 15px;
-        rotate: 90deg;
-    } */
-
     .prev,
     .next {
         position: absolute;
@@ -649,7 +617,11 @@ const slides = [SLIDES[SLIDES.length - 1], ...SLIDES, SLIDES[0]];
     }
 
     .prev::before {
-        background: linear-gradient(to right, var(--slider-arrow-background-mobile), transparent);
+        background: linear-gradient(
+            to right,
+            var(--slider-arrow-background-mobile),
+            transparent
+        );
 
         @media (width >= 769px) {
             background: linear-gradient(
@@ -661,7 +633,11 @@ const slides = [SLIDES[SLIDES.length - 1], ...SLIDES, SLIDES[0]];
     }
 
     .next::before {
-        background: linear-gradient(to left, var(--slider-arrow-background-mobile), transparent);
+        background: linear-gradient(
+            to left,
+            var(--slider-arrow-background-mobile),
+            transparent
+        );
 
         @media (width >= 769px) {
             background: linear-gradient(
