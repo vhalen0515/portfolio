@@ -229,8 +229,8 @@ html {
     opacity: 0;
     transform: translate(var(--reveal-x, 0), var(--reveal-y, 24px));
     transition:
-        opacity 0.8s ease var(--reveal-delay, 0s),
-        transform 0.8s ease var(--reveal-delay, 0s);
+        opacity 0.5s ease var(--reveal-delay, 0s),
+        transform 0.5s ease var(--reveal-delay, 0s);
 }
 
 @media (width <= 768px) {
