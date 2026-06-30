@@ -226,22 +226,29 @@ html {
 ===================================================== */
 
 .reveal {
-    opacity: 0;
-    transform: translate(var(--reveal-x, 0), var(--reveal-y, 24px));
-    transition:
-        opacity 0.5s ease var(--reveal-delay, 0s),
-        transform 0.5s ease var(--reveal-delay, 0s);
+    opacity: 1;
+    transform: none;
 }
 
-/* @media (width <= 768px) {
+@media (width > 480px) {
     .reveal {
+        opacity: 0;
+        transform: translate(var(--reveal-x, 0), var(--reveal-y, 24px));
         transition:
             opacity 0.5s ease
                 var(--reveal-delay-mobile, var(--reveal-delay, 0s)),
             transform 0.5s ease
                 var(--reveal-delay-mobile, var(--reveal-delay, 0s));
     }
-} */
+}
+
+@media (width > 768px) {
+    .reveal {
+        transition:
+            opacity 0.5s ease var(--reveal-delay, 0s),
+            transform 0.5s ease var(--reveal-delay, 0s);
+    }
+}
 
 .reveal:not(.is-visible) {
     will-change: opacity, transform;
@@ -260,11 +267,8 @@ html {
 
 @media (width <= 768px) {
     .fade {
-        transition:
-            opacity 0s ease
-                var(--reveal-delay-mobile, var(--reveal-delay, 0s)),
-            transform 0s ease
-                var(--reveal-delay-mobile, var(--reveal-delay, 0s));
+        transition: opacity 0.5s ease
+            var(--fade-delay-mobile, var(--fade-delay, 0s));
     }
 }
 
