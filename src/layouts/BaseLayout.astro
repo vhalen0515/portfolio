@@ -70,7 +70,7 @@ const {
 
         <!-- Theme init: must run before paint -->
         <script is:inline>
-            const theme = localStorage.getItem('theme') ?? 'light';
+            const theme = localStorage.getItem('theme') ?? 'dark';
             document.documentElement.setAttribute('data-theme', theme);
         </script>
     </head>
@@ -103,7 +103,7 @@ const {
     requestAnimationFrame(() => {
         document
             .querySelectorAll(
-                'header .reveal, header .fade, #hero .fade, .left-sidebar, .right-sidebar'
+                'header .reveal, #hero .reveal, .left-sidebar.reveal, .right-sidebar.reveal'
             )
             .forEach((el) => {
                 el.classList.add('is-visible');

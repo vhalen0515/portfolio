@@ -255,7 +255,7 @@ html {
 
 .fade {
     opacity: 0;
-    transition: opacity 0.8s ease var(--fade-delay, 0s);
+    transition: opacity 0.5s ease var(--fade-delay, 0s);
 }
 
 @media (width <= 768px) {
