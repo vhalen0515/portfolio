@@ -98,15 +98,3 @@ const {
         }
     }
 </style>
-
-<script>
-    requestAnimationFrame(() => {
-        document
-            .querySelectorAll(
-                'header .reveal, #hero .fade, .left-sidebar.reveal, .right-sidebar.reveal'
-            )
-            .forEach((el) => {
-                el.classList.add('is-visible');
-            });
-    });
-</script>
