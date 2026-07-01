@@ -58,7 +58,6 @@ body {
         sans-serif;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
-    /* transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1); */
 }
 
 /* 5. Improve media defaults */
@@ -233,17 +232,7 @@ html {
 @media (width > 480px) {
     .reveal {
         opacity: 0;
-        transform: translate(var(--reveal-x, 0), var(--reveal-y, 24px));
-        transition:
-            opacity 0.5s ease
-                var(--reveal-delay-mobile, var(--reveal-delay, 0s)),
-            transform 0.5s ease
-                var(--reveal-delay-mobile, var(--reveal-delay, 0s));
-    }
-}
-
-@media (width > 768px) {
-    .reveal {
+        transform: translate(var(--reveal-x, 0), var(--reveal-y, 16px));
         transition:
             opacity 0.5s ease var(--reveal-delay, 0s),
             transform 0.5s ease var(--reveal-delay, 0s);
