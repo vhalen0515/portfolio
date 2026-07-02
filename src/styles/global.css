@@ -267,7 +267,7 @@ html {
 @media (width > 480px) {
     .fade {
         opacity: 0;
-        animation: fade-move 0.6s ease var(--fade-delay, 0s) forwards;
+        animation: fade-move 0.5s ease var(--fade-delay, 0s) forwards;
     }
 }
 
